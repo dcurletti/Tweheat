@@ -35,7 +35,7 @@ on the backend, EventSource on the front end and Puma as the server.  I looked i
 Faye, Websocket, Socket.io and Event Machine, but I think that my current solution 
 should be enough for this project. It would be more simple to use Node.js, but I'm 
 assuming it would be frowned upon if I didn't use Rails. The server will only ever push 
-JSON tweets, nothing more.  If the app is noticeably laggy, I might need to change delivery if time permits towards the end. Current have both the front and back end working 
+JSON tweets, nothing more.  If the app is noticeably laggy, I might need to change delivery if time permits towards the end. Currently have both the front and back end working 
 separately, but have not combined the API with the marker addition.
 
 [Details][phase-zero]
