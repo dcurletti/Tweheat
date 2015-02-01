@@ -10,11 +10,11 @@ Realtime twitter heat map that supports multiple concurrent searches. Users can:
 - [x] Interact with a map (Mapbox API)
 - [x] Find their current location (Leaflet API)
 - [x] Connect to Twitter Streaming API
-- [] Select from trending topics
-- [] Search for specific topics/keywords
-- [] View a "heat map" visualization of tweets based on their search topic
-- [] Toggle previous searches on and off
-- [] Combine multiple searches and overlay them 
+- [ ] Select from trending topics
+- [ ] Search for specific topics/keywords
+- [ ] View a "heat map" visualization of tweets based on their search topic
+- [ ] Toggle previous searches on and off
+- [ ] Combine multiple searches and overlay them 
 
 
 ## Design Docs
@@ -35,8 +35,7 @@ on the backend, EventSource on the front end and Puma as the server.  I looked i
 Faye, Websocket, Socket.io and Event Machine, but I think that my current solution 
 should be enough for this project. It would be more simple to use Node.js, but I'm 
 assuming it would be frowned upon if I didn't use Rails. The server will only ever push 
-JSON tweets, nothing more.  Might need to change delivery if time permits towards the 
-end if the app is noticeably laggy. Current have both the front and back end working 
+JSON tweets, nothing more.  If the app is noticeably laggy, I might need to change delivery if time permits towards the end. Current have both the front and back end working 
 separately, but have not combined the API with the marker addition.
 
 [Details][phase-zero]
@@ -78,7 +77,7 @@ the relevant data.  Shouldn't require too much div sytling, mostly just making n
 animations.
 
 [Details][phase-five]
-### Phase 5: Adding Bonus features (Until final presentation)
+### Phase 6: Adding Bonus features (Until final presentation)
 Main feature I will try to implement is a realtime Twitter Search bar.  I saw
 Mozilla has a github repo for it, so I might be able to implement that.
 Adding a cool animation when a heat marker is added to the map would be nice,

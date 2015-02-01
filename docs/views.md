@@ -1,26 +1,16 @@
 # View Wireframes
 
-## New Session
-![new-session]
+(Single Page App)
 
-## Feed Show (landing page)
-![feed-show]
+## Tweets Index (Landing Page)
+![tweetsIndex]
 
-## Blog Show
-![blog-show]
+## Trends View
+![trendsView]
 
-## Post Show
-![post-show]
+## Tweets Index, Multi Layer
+![tweetsIndexMultiLayer]
 
-## Post Form
-![post-form]
-
-## Search Results
-![search-results]
-
-[new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
-[search-results]: ./wireframes/search_results.png
+[tweetsIndex]: ./wireframes/tweetsIndex.png
+[trendsView]: ./wireframes/trendsView.png
+[tweetsIndexMultiLayer]: ./wireframes/tweetsIndexMultiLayer.png
