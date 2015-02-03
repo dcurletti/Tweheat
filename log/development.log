@@ -1638,3 +1638,633 @@ ActionController::RoutingError (No route matches [GET] "/assets/images/icons-000
   puma (2.11.0) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
 
 
+
+
+Started GET "/" for ::1 at 2015-02-03 14:09:11 -0800
+
+SyntaxError - syntax error, unexpected keyword_end, expecting end-of-input:
+  app/controllers/tweets_controller.rb:41:in `'
+  activesupport (4.2.0) lib/active_support/dependencies.rb:457:in `block in load_file'
+  activesupport (4.2.0) lib/active_support/dependencies.rb:647:in `new_constants_in'
+  activesupport (4.2.0) lib/active_support/dependencies.rb:456:in `load_file'
+  activesupport (4.2.0) lib/active_support/dependencies.rb:354:in `require_or_load'
+  activesupport (4.2.0) lib/active_support/dependencies.rb:494:in `load_missing_constant'
+  activesupport (4.2.0) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `constantize'
+  activesupport (4.2.0) lib/active_support/dependencies.rb:566:in `get'
+  activesupport (4.2.0) lib/active_support/dependencies.rb:597:in `constantize'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:59:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.0) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.0) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.0) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+
+Started POST "/__better_errors/57f30062b01e5f17/variables" for ::1 at 2015-02-03 14:09:12 -0800
+
+
+Started GET "/" for ::1 at 2015-02-03 14:09:55 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 245ms (Views: 230.3ms | ActiveRecord: 0.0ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/icons-000000@2x.png"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.0) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.0) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.0) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/locate.png"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.0) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.0) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.0) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+
+
+Started GET "/tweets" for ::1 at 2015-02-03 14:10:09 -0800
+
+AbstractController::ActionNotFound - The action 'show' could not be found for TweetsController:
+  actionpack (4.2.0) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal/live.rb:278:in `block in process'
+
+
+
+Started POST "/__better_errors/49d8d6d67bdbd3d8/variables" for ::1 at 2015-02-03 14:10:09 -0800
+
+
+Started GET "/tweets" for ::1 at 2015-02-03 14:10:46 -0800
+Processing by TweetsController#show as HTML
+Completed 500 Internal Server Error in 35ms
+
+ActionView::MissingTemplate - Missing template tweets/show, application/show with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates"
+  * "/Users/Nasty1/Projects/AppAcademy/Tweheat/app/views"
+:
+  actionview (4.2.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.0) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/Nasty1/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal/live.rb:278:in `block in process'
+
+
+
+Started POST "/__better_errors/d4eb90fd885f35da/variables" for ::1 at 2015-02-03 14:10:47 -0800
+
+
+Started GET "/tweets" for ::1 at 2015-02-03 14:11:12 -0800
+Processing by TweetsController#show as HTML
+  Rendered tweets/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 223ms (Views: 222.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/stream" for ::1 at 2015-02-03 14:11:13 -0800
+
+ActionController::RoutingError (No route matches [GET] "/messages/stream"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.0) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.0) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.0) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (0.8ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (9.6ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.3ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (53.0ms)
+
+
+Started GET "/tweets" for ::1 at 2015-02-03 14:12:19 -0800
+Processing by TweetsController#show as HTML
+  Rendered tweets/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 134ms (Views: 133.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-03 14:12:20 -0800
+
+ActionController::RoutingError (No route matches [GET] "/tweets/stream"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.0) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.0) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.0) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (2.8ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.6ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.2ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (43.2ms)
+
+
+Started GET "/tweets" for ::1 at 2015-02-03 14:12:25 -0800
+Processing by TweetsController#show as HTML
+  Rendered tweets/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 212ms (Views: 210.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-03 14:12:25 -0800
+
+ActionController::RoutingError (No route matches [GET] "/tweets/stream"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.0) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.0) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.0) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (0.9ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.6ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.2ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (37.1ms)
+
+
+Started GET "/tweets" for ::1 at 2015-02-03 14:12:41 -0800
+Processing by TweetsController#show as HTML
+  Rendered tweets/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 215ms (Views: 202.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-03 14:12:42 -0800
+
+ActionController::RoutingError (No route matches [GET] "/tweets/stream"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.0) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.0) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.0) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (5.2ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (12.7ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.3ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (131.5ms)
+
+
+Started GET "/tweets" for ::1 at 2015-02-03 14:13:59 -0800
+Processing by TweetsController#show as HTML
+  Rendered tweets/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 364ms (Views: 351.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-03 14:14:00 -0800
+
+ActionController::RoutingError (No route matches [GET] "/tweets/stream"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.0) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.0) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.0) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.6ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (10.2ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.1ms)
+  Rendered /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (63.3ms)
+
+
+Started GET "/tweets" for ::1 at 2015-02-03 14:14:53 -0800
+Processing by TweetsController#show as HTML
+  Rendered tweets/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 140ms (Views: 133.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-03 14:14:54 -0800
+Processing by TweetsController#stream as text/event-stream
+Completed 500 Internal Server Error in 7ms
+
+NameError (undefined local variable or method `twitter_consumer_key' for #<TweetsController:0x007fd2d6b97160>):
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:15:in `block in stream'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/twitter-5.13.0/lib/twitter/client.rb:23:in `initialize'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/twitter-5.13.0/lib/twitter/streaming/client.rb:22:in `initialize'
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:14:in `new'
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:14:in `stream'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:198:in `process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `block in halting'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `call'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `block in halting'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `call'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `block in halting'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `call'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `block in halting'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `call'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `block in halting'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `call'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `block in halting'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:92:in `call'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:19:in `process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/notifications.rb:164:in `block in instrument'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/notifications.rb:164:in `instrument'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activerecord-4.2.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:137:in `process'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionview-4.2.0/lib/action_view/rendering.rb:30:in `process'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_controller/metal/live.rb:278:in `block in process'
+
+
+
+RuntimeError - can't modify frozen Hash:
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:316:in `[]='
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:530:in `[]='
+  actionpack (4.2.0) lib/action_dispatch/middleware/session/cookie_store.rb:110:in `set_cookie'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:351:in `commit_session'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:226:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.0) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.0) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.0) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+
+Started GET "/tweets" for ::1 at 2015-02-03 14:15:49 -0800
+Processing by TweetsController#show as HTML
+  Rendered tweets/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 215ms (Views: 199.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-03 14:15:50 -0800
+Processing by TweetsController#stream as text/event-stream
+Completed 500 Internal Server Error in 6ms
+
+NameError (undefined local variable or method `twitter_consumer_key' for #<TweetsController:0x007fc3e2dc4490>):
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:15:in `block in stream'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/twitter-5.13.0/lib/twitter/client.rb:23:in `initialize'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/twitter-5.13.0/lib/twitter/streaming/client.rb:22:in `initialize'
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:14:in `new'
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:14:in `stream'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:198:in `process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `block in halting'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `call'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `block in halting'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `call'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `block in halting'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `call'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `block in halting'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `call'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `block in halting'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `call'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `block in halting'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:92:in `call'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:19:in `process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/notifications.rb:164:in `block in instrument'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activesupport-4.2.0/lib/active_support/notifications.rb:164:in `instrument'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/activerecord-4.2.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:137:in `process'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionview-4.2.0/lib/action_view/rendering.rb:30:in `process'
+  /Users/Nasty1/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_controller/metal/live.rb:278:in `block in process'
+
+
+
+RuntimeError - can't modify frozen Hash:
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:316:in `[]='
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:530:in `[]='
+  actionpack (4.2.0) lib/action_dispatch/middleware/session/cookie_store.rb:110:in `set_cookie'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:351:in `commit_session'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:226:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.0) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.0) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.0) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+

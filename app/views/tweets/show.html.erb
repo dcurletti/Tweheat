@@ -1,0 +1,23 @@
+<h3>TESTING</h3>
+
+<div class="testing">
+	<button id="creator">Testing</button>
+</div>
+
+<div class="tweets"></div>
+
+<script>
+	console.log("Loading up index...");
+
+	$('#creator').on('click', function(event) {
+		$('.testing').append('<p>Works');
+	});
+
+	source = new EventSource("/tweets/stream");
+
+	source.addEventListener('tweet', function (event) {
+		data = $.parseJSON(event.data);
+		$('.tweets').prepend('<p>' + data.content + "</p>")
+	})
+
+</script>

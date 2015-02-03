@@ -31,6 +31,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Using Puma as the app server
 gem 'puma'
+# Using Figaro as an API container
+gem 'figaro'
+# Using Twitter for Streaming API
+gem 'twitter'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
