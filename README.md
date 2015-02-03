@@ -14,7 +14,10 @@ Realtime twitter heat map that supports multiple concurrent searches. Users can:
 - [ ] Search for specific topics/keywords
 - [ ] View a "heat map" visualization of tweets based on their search topic
 - [ ] Toggle previous searches on and off
-- [ ] Combine multiple searches and overlay them 
+- [ ] Combine multiple searches and overlay them
+- [ ] Allow for a "replay mode", aka allowing a user to quickly replay the tweet mapping 
+			at 10x speed
+- [ ] Change the color of the map depending on the time of day
 
 
 ## Design Docs
@@ -86,12 +89,10 @@ and then trying to implement any of the other features from below.
 ### Bonus Features (TBD)
 - [ ] Make the search bar show realtime results like Twitter
 - [ ] Cool animation on dropping heat marker
-- [ ] Change the color of the map depending on the time of day
 - [ ] Switch from "Heat Map" to "Tweet Markers"- shows detailed view of tweets and 
 			their context
 - [ ] User login and allowing for tweet composition with geo tagging
-- [ ] Allow for a "replay mode", aka allowing a user to quickly replay the tweet mapping 
-			at 10x speed
+
 
 [phase-zero]: ./docs/phases/phase0.md
 [phase-one]: ./docs/phases/phase1.md
