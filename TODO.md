@@ -14,18 +14,20 @@ Added Profile and Config file
 - [ ] Fix errors being caused by missing mapbox icons in mapbox library
 - [ ] Add Backbone Views
 - [ ] Integrate Backbone and Mapbox
-- [ ] Change Mapbox Look
+- [X] Change Mapbox Look
 
 
 ###Issues-
+- [ ] Getting heroku to allow websockets
 - [ ] Saving the Mapbox JS files locally is causing icon loading issues (its trying to fetch them from the server, but its doing a local request)
-- [ ] Look into the continous Socket requests from the client when the server goes down
 - [ ] Check the ActioController Streaming "ensure - close stream"- might have new way of closing
 - [ ] Research on how to create a background process for running the Twitter:Streaming Client
 - [ ] Figure out the redis pub/sub system
-- [ ] Checking Twitter geo_enabled and coordinates coorelation
 - [ ] Slow loading speed of heroku
 - [ ] Make sure to close the Twitter Stream when noone is connected to the website
 - [ ] Fix scrolling of the layers on map redraw- Problem is being caused either by the constantly updating layer or general performance issues by the client processing the tweet
-- [ ] Still being asked for SSH keys in terminal
+- [ ] Look into the continous Socket requests from the client when the server goes down
 
+###Fixed-
+- [X] Checking Twitter geo_enabled and coordinates coorelation
+- [X] Still being asked for SSH keys in terminal
