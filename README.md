@@ -4,6 +4,17 @@
 
 [heroku]: http://tweheat.herokuapp.com
 
+## General Info
+Current routes:
+
+* "/"
+  * Twitter Map
+  * Status: Currently mapping all geolocated tweets
+* "/tweets/"
+  * Does a quick, past tweet search and renders a JSON view
+* "/tweets/show"
+  *  Websocket view of what is being sent to the client
+
 ## Minimum Viable Product
 Realtime twitter heat map that supports multiple concurrent searches. Users can:
 

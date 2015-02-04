@@ -43,7 +43,6 @@ class TweetsController < ApplicationController
 
 		tweet = tw_client.search("hipster", { geocode: "37.781157,-122.398720,1mi" }).take(5)
 
-		fail
 		render json: tweet
 	end
 

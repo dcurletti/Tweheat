@@ -27,4 +27,5 @@ Added Profile and Config file
 - [ ] Slow loading speed of heroku
 - [ ] Make sure to close the Twitter Stream when noone is connected to the website
 - [ ] Fix scrolling of the layers on map redraw- Problem is being caused either by the constantly updating layer or general performance issues by the client processing the tweet
+- [ ] Still being asked for SSH keys in terminal
 
