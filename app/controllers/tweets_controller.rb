@@ -18,8 +18,15 @@ class TweetsController < ApplicationController
 			  config.access_token_secret = ENV["twitter_access_token_secret"]
 		end
 
-		tw_client.filter(track: "patriots") do |tweet|
-			response.stream.write(tweet_event(tweet)) unless tweet.retweeted?
+		# USA Bounding Box: [[[-124.62890625,23.8858376999],[-124.62890625,49.5537255135],[-66.62109375,49.5537255135],[-66.62109375,23.8858376999],[-124.62890625,23.8858376999]]]
+
+		filter_bounds = "-125.7042450905,24.5322774415,-66.62109375,49.5537255135"
+
+		tw_client.filter(locations: filter_bounds) do |tw_obj|
+			if tw_obj.is_a? Twitter::Tweet
+				tweet = tw_obj.to_h
+				response.stream.write(tweet_event(tweet)) if tweet[:coordinates]
+			end
 		end
 
 	ensure
@@ -34,21 +41,31 @@ class TweetsController < ApplicationController
 			  config.access_token_secret = ENV["twitter_access_token_secret"]
 		end
 
-		tw_client.search("patriots", result_type: "recent") do |tweet|
-			console.log(tweet)
-		end
+		tweet = tw_client.search("hipster", { geocode: "37.781157,-122.398720,1mi" }).take(5)
 
+		fail
+		render json: tweet
 	end
+
+
 
 
 	private
 
 	def tweet_event tweet
+		# [ 'event: tweet', "data: #{JSON.dump(format_tweet(tweet))}" ].join("\n") + "\n\n"
 		[ 'event: tweet', "data: #{JSON.dump(format_tweet(tweet))}" ].join("\n") + "\n\n"
 	end
 
 	def format_tweet tweet
-		{ content: JSON.pretty_generate(tweet.to_h) }
+		{ content: tweet[:user][:name],
+			coordinates: tweet[:coordinates][:coordinates]
+		 }
+		# { content: tweet.to_h.coordinates }
+	end
+
+	def tw_coordinates tweet
+		{ coordinates: tweet.to_h[:coordinates][:coordinates] }
 	end
 
 

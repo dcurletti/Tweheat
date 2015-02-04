@@ -9,9 +9,12 @@ Added Profile and Config file
 - [X] Setup NewRelic Monitoring/Pinging
 
 ## Day 2- 
-- [ ] Setup SSH key with github
-- [ ] Server- sorting for tweets that have geolocation 
+- [X] Setup SSH key with github
+- [X] Server- sorting for tweets that have geolocation 
 - [ ] Fix errors being caused by missing mapbox icons in mapbox library
+- [ ] Add Backbone Views
+- [ ] Integrate Backbone and Mapbox
+- [ ] Change Mapbox Look
 
 
 ###Issues-
@@ -22,3 +25,6 @@ Added Profile and Config file
 - [ ] Figure out the redis pub/sub system
 - [ ] Checking Twitter geo_enabled and coordinates coorelation
 - [ ] Slow loading speed of heroku
+- [ ] Make sure to close the Twitter Stream when noone is connected to the website
+- [ ] Fix scrolling of the layers on map redraw- Problem is being caused either by the constantly updating layer or general performance issues by the client processing the tweet
+

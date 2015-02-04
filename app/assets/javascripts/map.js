@@ -3,20 +3,17 @@ $(function() {
   //Listener for Tweets from the server
   source = new EventSource("/tweets/stream");
 
+  //Mapbox API token
+  L.mapbox.accessToken = 'pk.eyJ1IjoiZGN1cmxldHRpIiwiYSI6IkpYT1NXb1UifQ.3VKg9h5-Aoxmk9e1yROPmQ';
+
+  //TEMP: starting position, replace with current location, or huge US view
   var startingPosition = [37.8304718, -122.2794226]
   var startingZoom = 13
 
-  L.mapbox.accessToken = 'pk.eyJ1IjoiZGN1cmxldHRpIiwiYSI6IkpYT1NXb1UifQ.3VKg9h5-Aoxmk9e1yROPmQ';
-
+  //Create Mapbox element
   var map = L.mapbox.map('map', 'dcurletti.knl7n7kb').setView(startingPosition, startingZoom);
 
   L.control.locate().addTo(map);
-
-  // source.addEventListener('tweet', function (event) {
-  //   data = $.parseJSON(event.data);
-    
-  //   $('.tweets').prepend('<p>' + data.content + "</p>")
-  // })
 
   // Credit Foursquare for their wonderful data
   // map.attributionControl
@@ -48,8 +45,8 @@ $(function() {
 
   // Keep our place markers organized in a nice group.
   var foursquarePlaces = L.layerGroup().addTo(map);
-  var heat = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 14,   } ).addTo(map);
-  var heat2 = L.heatLayer([], { maxZoom: 9, radius: 7, blur: 10, gradient: {1: 'red'} }).addTo(map);
+  heat = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 14,   } ).addTo(map);
+  heat2 = L.heatLayer([], { maxZoom: 9, radius: 7, blur: 10, gradient: {1: 'red'} }).addTo(map);
 
   // Use jQuery to make an AJAX request to Foursquare to load markers data.
   $.getJSON(API_ENDPOINT
@@ -78,13 +75,26 @@ $(function() {
         // .bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '">' +
         //   venue.name + '</a></strong>' + '<p>Number: ' + i + ' </p>')
         //   .addTo(foursquarePlaces);
-        console.log(latlng)
-        if (i % 2 === 0) {heat.addLatLng(latlng);} else {
-          heat2.addLatLng(latlng);
-        }
+        // if (i % 2 === 0) {heat.addLatLng(latlng);} else {
+        //   heat2.addLatLng(latlng);
+        // }
         
       }
 
   });
+
+  source.addEventListener('tweet', function (event) {
+    data = $.parseJSON(event.data);
+
+
+    //TEMP: factor into handle tweet
+    var coordinates = data.coordinates;
+    var latlng = L.latLng(coordinates[1], coordinates[0])
+    console.log(latlng);
+    // debugger;
+    heat.addLatLng(latlng);
+    
+    // $('.tweets').prepend('<p>' + data.content + "</p>")
+  })
 
 });
