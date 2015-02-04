@@ -35,7 +35,8 @@ gem 'puma'
 gem 'figaro'
 # Using Twitter for Streaming API
 gem 'twitter'
-
+# Using NewRelic for Heroku debugging
+gem 'newrelic_rpm'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
