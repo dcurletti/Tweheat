@@ -37,6 +37,8 @@ gem 'figaro'
 gem 'twitter'
 # Using NewRelic for Heroku debugging
 gem 'newrelic_rpm'
+# Using Backbone + Underscore
+gem 'backbone-on-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
