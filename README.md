@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: 
+[heroku]: http://tweheat.herokuapp.com
 
 ## Minimum Viable Product
 Realtime twitter heat map that supports multiple concurrent searches. Users can:

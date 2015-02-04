@@ -1,11 +1,17 @@
+#ToDo-
 ## Day 1-
-###ToDo-
 - [X] Setting up puma on rails
 Added Profile and Config file
 - [X] Implement Postgresql 
 - [X] Implement current javascript libraries in rails
 - [X] Create safe API keys
 - [X] Implement test code into new project
+- [X] Setup NewRelic Monitoring/Pinging
+
+## Day 2- 
+- [ ] Setup SSH key with github
+- [ ] Server- sorting for tweets that have geolocation 
+- [ ] Fix errors being caused by missing mapbox icons in mapbox library
 
 
 ###Issues-
@@ -15,3 +21,4 @@ Added Profile and Config file
 - [ ] Research on how to create a background process for running the Twitter:Streaming Client
 - [ ] Figure out the redis pub/sub system
 - [ ] Checking Twitter geo_enabled and coordinates coorelation
+- [ ] Slow loading speed of heroku
