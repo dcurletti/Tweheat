@@ -4,6 +4,10 @@
 
 [heroku]: http://tweheat.herokuapp.com
 
+## Critical Alerts
+Currently the heroku app is not mapping the tweets and this is related to the fact that 
+I need to open up a socket/use redis to publish the tweets. I works fine on my local machine and I merely need to do some research on how to keept the HTTP connection open on heroku.  I'm moving on and implementing Backbone and Foundation. 
+
 ## General Info
 Current routes:
 
