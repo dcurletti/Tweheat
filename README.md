@@ -4,9 +4,10 @@
 
 [heroku]: http://tweheat.herokuapp.com
 
+It works! Try it out.. only two at time though.
+
 ## Critical Alerts
-Currently the heroku app is not mapping the tweets and this is related to the fact that 
-I need to open up a socket/use redis to publish the tweets. I works fine on my local machine and I merely need to do some research on how to keept the HTTP connection open on heroku.  I'm moving on and implementing Backbone and Foundation. 
+Currently only 2 instances of the tweheat site can be opened at a time. Reasoning for this is due to the fact that the Twitter::Streaming API call is inside of my root controller, but this Twitter 
 
 ## General Info
 Look at TODO.md in root for micro updates.
@@ -27,7 +28,7 @@ Realtime twitter heat map that supports multiple concurrent searches. Users can:
 - [x] Find their current location (Leaflet API)
 - [x] Connect to Twitter Streaming API
 - [X] View a "heat map" visualization of tweets based on their search topic
-- [ ] Heatmap visualization of all tweets
+- [X] Heatmap visualization of all tweets
 - [ ] Search for tweets based on user input
 - [ ] Toggle previous search layers on and off
 - [ ] Combine multiple searches and overlay them
