@@ -6,7 +6,6 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 
 	initialize: function () {
 		this.installMap();
-		this.addListener();
 		//TEMP: Eventually add ListenTo events that call handleTweet
 	},
 
@@ -28,19 +27,6 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 
 	},
 
-	addListener: function () {
-	  // Listener for Tweets from the server
-  	this.source = new EventSource("/tweets/stream");
-		
-
-	  this.source.addEventListener('tweet', function (event) {
-	    var tweet = $.parseJSON(event.data);
-
-	 		this.handleTweet(tweet)
-	  }.bind(this))
-
-	},
-
 	addLayer: function (layerName) {
 	  this.layerName = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 14 } ).addTo(Tweheat.mapView._map);
 	},
@@ -49,7 +35,7 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 		//TEMP: factor into handle tweet
     var coordinates = tweet.coordinates;
     var latlng = L.latLng(coordinates[1], coordinates[0])
-    console.log(latlng);
+    // console.log(latlng);
     this.heat.addLatLng(latlng);
 	} 
 

@@ -23,9 +23,11 @@ Added Profile and Config file
 - [X] refactor layers and tweet handling into the map show- follow the Backbone/Gmap AA example
 - [X] Find trending topics API
 - [X] Fix heroku credentials
-- [ ] Remove TurboLinks
-- [ ] Have a tweet number counter
+- [X] Remove TurboLinks
+- [X] Have a tweet number counter
+- [ ] Figure out how to run one stream of Twitter::Streaming
 - [ ] Fix errors being caused by missing mapbox icons in mapbox library
+- [ ] Check puma connection is closed- save error
 
 ## Future features
 - [ ] Figure out how to run a background process
