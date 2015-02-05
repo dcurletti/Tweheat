@@ -5,13 +5,17 @@ Tweheat.Views.SearchShow = Backbone.View.extend({
 	template: JST['index'],
 
 	attachMap: function () {
+
 		this.$('#map').html(Tweheat.mapView.$el)
+
 	},
 
 	render: function () {
+		this.attachMap();
+
 		var renContent = this.template({});
 
-		this.$el.html(renContent);
+		this.$el.append(renContent);
 
 		return this;
 	}

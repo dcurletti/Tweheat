@@ -1,6 +1,6 @@
 Tweheat.Routers.Router = Backbone.Router.extend({
 
-	initialize: function () {
+	initialize: function (options) {
 		this.$rootEl = $(options.rootEl)
 	},
 
@@ -11,7 +11,7 @@ Tweheat.Routers.Router = Backbone.Router.extend({
 	mapIndex: function () {
 		var view = new Tweheat.Views.SearchShow({});
 		
-		this.$rootEl.html(view.render().$el)
+		this.$rootEl.append(view.render().$el)
 	}
 
 })

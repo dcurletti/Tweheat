@@ -12,10 +12,14 @@ Added Profile and Config file
 - [X] Setup SSH key with github
 - [X] Server- sorting for tweets that have geolocation 
 - [ ] Fix errors being caused by missing mapbox icons in mapbox library
-- [ ] Add Backbone Views
-- [ ] Integrate Backbone and Mapbox
+- [X] Add Backbone Views
+- [X] Integrate Backbone and Mapbox
 - [X] Change Mapbox Look
 
+
+## Future features
+- [ ] Set MaxView on map[]
+- [ ] Look into changing the default controls
 
 ###Issues-
 - [ ] Getting heroku to allow websockets

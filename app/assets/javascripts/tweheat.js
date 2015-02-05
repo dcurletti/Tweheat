@@ -9,7 +9,7 @@ window.Tweheat = {
 		this.mapView = new Tweheat.Views.MapShow();
 
 		this.router = new Tweheat.Routers.Router({
-			rootEl: topMostDiv
+			rootEl: "#main"
 		});
 
 		Backbone.history.start();
