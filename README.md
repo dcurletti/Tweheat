@@ -4,10 +4,10 @@
 
 [heroku]: http://tweheat.herokuapp.com
 
-It works! Try it out.. only two at time though.
+It works! Try it out.. only two at a time though.
 
 ## Critical Alerts
-Currently only 2 instances of the tweheat site can be opened at a time. Reasoning for this is due to the fact that the Twitter::Streaming API call is inside of my root controller, but this Twitter 
+Currently only 2 instances of the Tweheat site can be opened at a time. This is due to the Twitter::Streaming API only allowing one connection per API key.  Currently I have it inside of my index, but I will be moving it soon.
 
 ## General Info
 Look at TODO.md in root for micro updates.

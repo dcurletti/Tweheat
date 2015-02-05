@@ -23,7 +23,7 @@ class TweetsController < ApplicationController
 
 		filter_bounds = "-125.7042450905,24.5322774415,-66.62109375,49.5537255135"
 
-		tw_client.filter(locations: filter_bounds) do |tw_obj|
+		tw_client.filter(locations: filter_bounds, track: "patriots") do |tw_obj|
 			if tw_obj.is_a? Twitter::Tweet
 				tweet = tw_obj.to_h
 				response.stream.write(tweet_event(tweet)) if tweet[:coordinates]
@@ -51,12 +51,6 @@ class TweetsController < ApplicationController
 		render json: places.to_h
 	end
 
-	def trends
-
-
-		
-	end
-
 
 	private
 
@@ -65,7 +59,7 @@ class TweetsController < ApplicationController
 		end
 
 		def format_tweet tweet
-			{ content: tweet[:user][:name],
+			{ username: tweet[:user][:name],
 				coordinates: tweet[:coordinates][:coordinates]
 			 }
 		end
