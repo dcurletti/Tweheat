@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require mapbox
 //= require L.Control.Locate
 //= require leaflet-heat
@@ -25,3 +26,5 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+
+$(function(){ $(document).foundation(); });

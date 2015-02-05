@@ -15,11 +15,16 @@ Added Profile and Config file
 - [X] Integrate Backbone and Mapbox
 - [X] Change Mapbox Look
 - [X] Backbone/Twitter integration working
-- [ ] Fix errors being caused by missing mapbox icons in mapbox library
+- [X] Add Foundation
 
 ## Day 3- 
-- [ ] Add Foundation
-
+- [ ] Create search bar div
+- [ ] refactor layers and tweet handling into the map show- follow the Backbone/Gmap AA example
+- [ ] Find trending topics API
+- [ ] Have a tweet number counter
+- [ ] 
+- [ ] Remove TurboLinks
+- [ ] Fix errors being caused by missing mapbox icons in mapbox library
 
 ## Future features
 - [ ] Set MaxView on map
@@ -35,6 +40,7 @@ Added Profile and Config file
 - [ ] Make sure to close the Twitter Stream when noone is connected to the website
 - [ ] Fix scrolling of the layers on map redraw- Problem is being caused either by the constantly updating layer or general performance issues by the client processing the tweet
 - [ ] Look into the continous Socket requests from the client when the server goes down
+- [ ] Look into growing size of repo
 
 ###Fixed-
 - [X] Checking Twitter geo_enabled and coordinates coorelation

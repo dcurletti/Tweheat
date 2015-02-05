@@ -39,6 +39,8 @@ gem 'twitter'
 gem 'newrelic_rpm'
 # Using Backbone + Underscore
 gem 'backbone-on-rails'
+# Using Foundation as responsive front-end framework
+gem 'foundation-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
