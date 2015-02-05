@@ -22,6 +22,7 @@ Added Profile and Config file
 - [X] Handle form request
 - [ ] refactor layers and tweet handling into the map show- follow the Backbone/Gmap AA example
 - [X] Find trending topics API
+- [X] Fix heroku credentials
 - [ ] Have a tweet number counter
 - [ ] Remove TurboLinks
 - [ ] Fix errors being caused by missing mapbox icons in mapbox library

@@ -16,7 +16,7 @@ Current routes:
   * Twitter Map
   * Status: Currently mapping all geolocated tweets
 * "/tweets/"
-  * Does a quick, past tweet search and renders a JSON view
+  * Shows JSON view of currently trending Twitter topics in the US
 * "/tweets/show"
   *  Websocket view of what is being sent to the client
 
@@ -26,14 +26,14 @@ Realtime twitter heat map that supports multiple concurrent searches. Users can:
 - [x] Interact with a map (Mapbox API)
 - [x] Find their current location (Leaflet API)
 - [x] Connect to Twitter Streaming API
-- [ ] Select from trending topics
-- [ ] Search for specific topics/keywords
 - [X] View a "heat map" visualization of tweets based on their search topic
-- [ ] Toggle previous searches on and off
+- [ ] Heatmap visualization of all tweets
+- [ ] Search for tweets based on user input
+- [ ] Toggle previous search layers on and off
 - [ ] Combine multiple searches and overlay them
+- [ ] Search for specific topics/keywords
 - [ ] Allow for a "replay mode", aka allowing a user to quickly replay the tweet mapping 
 			at 10x speed
-- [ ] Change the color of the map depending on the time of day
 
 
 ## Design Docs
