@@ -20,7 +20,7 @@ Added Profile and Config file
 ## Day 3- 
 - [X] Create search bar div
 - [X] Handle form request
-- [ ] refactor layers and tweet handling into the map show- follow the Backbone/Gmap AA example
+- [X] refactor layers and tweet handling into the map show- follow the Backbone/Gmap AA example
 - [X] Find trending topics API
 - [X] Fix heroku credentials
 - [ ] Remove TurboLinks

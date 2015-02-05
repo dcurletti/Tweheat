@@ -16,13 +16,13 @@
 //= require mapbox
 //= require L.Control.Locate
 //= require leaflet-heat
-//= require turbolinks
+// require turbolinks
 //= require underscore
 //= require backbone
 //= require tweheat
 //= require_tree ../templates
 // require_tree ./models
-// require_tree ./collections
+//= require_tree ./collections
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
