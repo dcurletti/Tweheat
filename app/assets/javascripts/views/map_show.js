@@ -6,6 +6,8 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 
 	initialize: function () {
 		this.installMap();
+		this.addListener();
+		//TEMP: Eventually add ListenTo events that call handleTweet
 	},
 
 	installMap: function () {
@@ -20,13 +22,38 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 		this._map = L.mapbox.map('map', 'dcurletti.knl7n7kb').setView(startingPosition, startingZoom);
 
 		L.control.locate().addTo(this._map);		
-	}
 
-	// render: function () {
+		//TEMP: refactor in method
+	  this.heat = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 14,   } ).addTo(this._map);
 
-	// 	var renContent = this.template()
-	// 	this.$('#map').html(Tweheat.mapView.$el)
-	// }
+	},
+
+	addListener: function () {
+	  // Listener for Tweets from the server
+  	this.source = new EventSource("/tweets/stream");
+		
+
+	  this.source.addEventListener('tweet', function (event) {
+	    var tweet = $.parseJSON(event.data);
+
+	 		this.handleTweet(tweet)
+	  }.bind(this))
+
+	},
+
+	addLayer: function (layerName) {
+	  this.layerName = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 14 } ).addTo(Tweheat.mapView._map);
+	},
+
+	handleTweet: function (tweet) {
+		//TEMP: factor into handle tweet
+    var coordinates = tweet.coordinates;
+    var latlng = L.latLng(coordinates[1], coordinates[0])
+    console.log(latlng);
+    this.heat.addLatLng(latlng);
+	} 
+
+
 
 
 

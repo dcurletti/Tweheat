@@ -9,6 +9,7 @@ class TweetsController < ApplicationController
 	end
 
 	def stream
+		
 		response.headers['Content-Type'] = 'text/event-stream'
 
 		tw_client = Twitter::Streaming::Client.new do |config|

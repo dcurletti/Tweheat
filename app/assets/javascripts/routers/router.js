@@ -5,13 +5,22 @@ Tweheat.Routers.Router = Backbone.Router.extend({
 	},
 
 	routes: {
-		'': 'mapIndex'
+		'': 'searchShow'
 	},
 
-	mapIndex: function () {
-		var view = new Tweheat.Views.SearchShow({});
+	searchShow: function () {
+		var mainView = new Tweheat.Views.SearchShow({});
 		
-		this.$rootEl.append(view.render().$el)
+		// this.$rootEl.append(mainView.render().$el)
+		this._swapView(mainView)
+	},
+
+	_swapView: function (view) {
+		this._currentView && this._currentView.remove();
+		this._currentView = view;
+
+		this.$rootEl.append(view.$el);
+		view.render();
 	}
 
 })
