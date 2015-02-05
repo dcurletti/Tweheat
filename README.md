@@ -9,6 +9,7 @@ Currently the heroku app is not mapping the tweets and this is related to the fa
 I need to open up a socket/use redis to publish the tweets. I works fine on my local machine and I merely need to do some research on how to keept the HTTP connection open on heroku.  I'm moving on and implementing Backbone and Foundation. 
 
 ## General Info
+Look at TODO.md in root for micro updates.
 Current routes:
 
 * "/"
@@ -27,7 +28,7 @@ Realtime twitter heat map that supports multiple concurrent searches. Users can:
 - [x] Connect to Twitter Streaming API
 - [ ] Select from trending topics
 - [ ] Search for specific topics/keywords
-- [ ] View a "heat map" visualization of tweets based on their search topic
+- [X] View a "heat map" visualization of tweets based on their search topic
 - [ ] Toggle previous searches on and off
 - [ ] Combine multiple searches and overlay them
 - [ ] Allow for a "replay mode", aka allowing a user to quickly replay the tweet mapping 
