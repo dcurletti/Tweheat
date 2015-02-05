@@ -45,7 +45,8 @@ $(function() {
 
   // Keep our place markers organized in a nice group.
   // var foursquarePlaces = L.layerGroup().addTo(map);
-  // heat = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 14,   } ).addTo(map);
+  heat = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 14,   } ).addTo(Tweheat.mapView._map);
+  // debugger;
   // heat2 = L.heatLayer([], { maxZoom: 9, radius: 7, blur: 10, gradient: {1: 'red'} }).addTo(map);
 
   // Use jQuery to make an AJAX request to Foursquare to load markers data.
@@ -70,7 +71,7 @@ $(function() {
 
   source.addEventListener('tweet', function (event) {
     data = $.parseJSON(event.data);
-    debugger;
+    // debugger;
 
 
     //TEMP: factor into handle tweet

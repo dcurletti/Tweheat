@@ -17,7 +17,9 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 	  var startingPosition = [39.1233557, -98.3453984];
 	  var startingZoom = 5;
   
-		var map = L.mapbox.map('map', 'dcurletti.knl7n7kb').setView(startingPosition, startingZoom);
+		this._map = L.mapbox.map('map', 'dcurletti.knl7n7kb').setView(startingPosition, startingZoom);
+
+		L.control.locate().addTo(this._map);		
 	}
 
 	// render: function () {
