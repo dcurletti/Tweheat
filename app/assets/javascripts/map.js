@@ -1,7 +1,7 @@
 $(function() {
 
   //Listener for Tweets from the server
-  source = new EventSource("/tweets/stream");
+  // source = new EventSource("/tweets/stream");
 
   // //Mapbox API token
   // L.mapbox.accessToken = 'pk.eyJ1IjoiZGN1cmxldHRpIiwiYSI6IkpYT1NXb1UifQ.3VKg9h5-Aoxmk9e1yROPmQ';

@@ -41,31 +41,32 @@ class TweetsController < ApplicationController
 			  config.access_token_secret = ENV["twitter_access_token_secret"]
 		end
 
-		tweet = tw_client.search("hipster", { geocode: "37.781157,-122.398720,1mi" }).take(5)
+		# tweet = tw_client.search("hipster", { geocode: "37.781157,-122.398720,1mi" }).take(5)
 
-		render json: tweet
+		places = tw_client.trends(23424977)
+		
+		puts places
+
+		render json: places.to_h
 	end
 
+	def trends
 
+
+		
+	end
 
 
 	private
 
-	def tweet_event tweet
-		# [ 'event: tweet', "data: #{JSON.dump(format_tweet(tweet))}" ].join("\n") + "\n\n"
-		[ 'event: tweet', "data: #{JSON.dump(format_tweet(tweet))}" ].join("\n") + "\n\n"
-	end
+		def tweet_event tweet
+			[ 'event: tweet', "data: #{JSON.dump(format_tweet(tweet))}" ].join("\n") + "\n\n"
+		end
 
-	def format_tweet tweet
-		{ content: tweet[:user][:name],
-			coordinates: tweet[:coordinates][:coordinates]
-		 }
-		# { content: tweet.to_h.coordinates }
-	end
-
-	def tw_coordinates tweet
-		{ coordinates: tweet.to_h[:coordinates][:coordinates] }
-	end
-
+		def format_tweet tweet
+			{ content: tweet[:user][:name],
+				coordinates: tweet[:coordinates][:coordinates]
+			 }
+		end
 
 end

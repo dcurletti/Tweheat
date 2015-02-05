@@ -18,17 +18,22 @@ Added Profile and Config file
 - [X] Add Foundation
 
 ## Day 3- 
-- [ ] Create search bar div
+- [X] Create search bar div
+- [X] Handle form request
 - [ ] refactor layers and tweet handling into the map show- follow the Backbone/Gmap AA example
-- [ ] Find trending topics API
+- [X] Find trending topics API
 - [ ] Have a tweet number counter
-- [ ] 
 - [ ] Remove TurboLinks
 - [ ] Fix errors being caused by missing mapbox icons in mapbox library
+- [ ] Figure out how to run a background process
+- [ ] Scheduling the trends API call to only happen once every 15 minutes
 
 ## Future features
+- [ ] Look into heroku scheduler
 - [ ] Set MaxView on map
+- [ ] Have search button be an icon
 - [ ] Look into changing the default controls
+- [ ] Ask for sites that show how to create jquery animations
 
 ###Issues-
 - [ ] Getting heroku to allow websockets- This might not work until I install Redis 
