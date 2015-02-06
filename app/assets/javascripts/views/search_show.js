@@ -21,7 +21,7 @@ Tweheat.Views.SearchShow = Backbone.View.extend({
 	  this.source.addEventListener('tweet', function (event) {
 	  	counter += 1;
 	    var tweet = $.parseJSON(event.data);
-
+	    
 	 		this.mapView.handleTweet(tweet)
 	 		//TEMP: Updating a small counter
 	 		this.updateCounter(counter)

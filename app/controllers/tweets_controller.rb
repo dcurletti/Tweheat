@@ -25,10 +25,10 @@ class TweetsController < ApplicationController
 			on.message do |channel, msg|
 				tweet = JSON.parse(msg)
 				# puts "Writing to client: channel:: #{channel}, msg:: #{msg.class}"
-				if count % 50 == 0
-					puts tweet
-				end
-				count += 1
+				# if count % 50 == 0
+				# 	puts tweet
+				# end
+				# count += 1
 				response.stream.write(tweet_event(tweet))
 				# puts tweet[:user][:name]				
 			end
