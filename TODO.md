@@ -32,7 +32,7 @@ Added Profile and Config file
 
 ## Day 4-
 - [X] Twitter Streaming Client now publishes tweets via Redis
-- [ ] Setup redis server on heroku
+- [X] Setup redis server on heroku
 - [ ] Show map layers
 - [ ] Figure out how to restart twitter worker
 

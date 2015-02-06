@@ -4,13 +4,12 @@
 
 [heroku]: http://tweheat.herokuapp.com
 
-It works! Try it out.. only two at a time though.
-
 ## Critical Alerts
-Currently only 2 instances of the Tweheat site can be opened at a time. This is due to the Twitter::Streaming API only allowing one connection per API key.  Currently I have it inside of my index, but I will be moving it soon.
+Nada.
 
 ## General Info
 Look at TODO.md in root for micro updates.
+
 Current routes:
 
 * "/"
@@ -18,7 +17,7 @@ Current routes:
   * Status: Currently mapping all geolocated tweets
 * "/tweets/"
   * Shows JSON view of currently trending Twitter topics in the US
-* "/tweets/show"
+* "/tweets/stream"
   *  Websocket view of what is being sent to the client
 
 ## Minimum Viable Product
@@ -29,8 +28,8 @@ Realtime twitter heat map that supports multiple concurrent searches. Users can:
 - [x] Connect to Twitter Streaming API
 - [X] View a "heat map" visualization of tweets based on their search topic
 - [X] Heatmap visualization of all tweets
-- [ ] Search for tweets based on user input
 - [ ] Toggle previous search layers on and off
+- [ ] Search for tweets based on user input
 - [ ] Combine multiple searches and overlay them
 - [ ] Search for specific topics/keywords
 - [ ] Allow for a "replay mode", aka allowing a user to quickly replay the tweet mapping 
