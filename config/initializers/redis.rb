@@ -1,6 +1,6 @@
 require "redis_stream"
 
 #TEMP: Add in environment variables later on
-redis_auth = {:host => ENV['REDIS_HOST'], :port => ENV['REDIS_PORT']}
+uri = URI.parse(ENV["REDISTOGO_URL"])
 
-RedisStream.configure()
+RedisStream.configure(uri)

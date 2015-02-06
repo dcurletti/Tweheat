@@ -1,11 +1,12 @@
 module RedisStream
 
-  def self.configure(config = {})
-  	@redis = Redis.new
+  def self.configure(uri)
+  	@uri = uri
+  	@redis = Redis.new(:url => @uri)
   end
 
   def self.new_redis_client
-  	Redis.new
+  	Redis.new(:url => @uri)
   end
     
   def self.publish_to_user_stream(id, tweet)

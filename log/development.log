@@ -30492,3 +30492,8 @@ ActionController::RoutingError (No route matches [GET] "/assets/images/locate.pn
 Started GET "/tweets/stream" for ::1 at 2015-02-06 11:01:14 -0800
 Processing by TweetsController#stream as text/event-stream
 Completed 200 OK in 13432ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-06 11:20:45 -0800
+Processing by TweetsController#stream as */*
+Completed 200 OK in 3326ms (ActiveRecord: 0.0ms)
