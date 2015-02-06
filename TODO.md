@@ -28,9 +28,8 @@ Added Profile and Config file
 - [X] Refactored Twitter Streaming Client into a module
 - [X] Refactored credentials creation
 - [X] Added Twitter Worker thread to control connected clients
-- [ ] Figure out how to run one stream of Twitter::Streaming
+- [X] Moved Twitter::Streaming HTTP connection to be a Middleware process
 - [ ] Fix errors being caused by missing mapbox icons in mapbox library
-- [ ] Check puma connection is closed- save error
 
 ## Future features
 - [ ] Figure out how to run a background process
@@ -44,18 +43,17 @@ Added Profile and Config file
 - [ ] Scheduling the trends API call to only happen once every 15 minutes
 
 ###Issues-
-- [ ] Research on how to create a background process for running the Twitter:Streaming Client
 - [ ] Saving the Mapbox JS files locally is causing icon loading issues (its trying to fetch them from the server, but its doing a local request)
-- [ ] Check the ActioController Streaming "ensure - close stream"- might have new way of closing
 - [ ] Look into removing TMP folder in gitIgnore
 - [ ] Figure out the redis pub/sub system
-- [ ] Slow loading speed of heroku
 - [ ] Make sure to close the Twitter Stream when noone is connected to the website
 - [ ] Fix scrolling of the layers on map redraw- Problem is being caused either by the constantly updating layer or general performance issues by the client processing the tweet
 - [ ] Look into the continous Socket requests from the client when the server goes down
 - [ ] Look into growing size of repo
+- [ ] Slow loading speed of heroku
 
 ###Fixed-
-- [X] Getting heroku to allow websockets- This might not work until I install Redis 
+- [X] Getting heroku to allow websockets
 - [X] Checking Twitter geo_enabled and coordinates coorelation
 - [X] Still being asked for SSH keys in terminal
+- [X] Rescue ActionController::Live DisconnectedClient error

@@ -41,6 +41,9 @@ gem 'newrelic_rpm'
 gem 'backbone-on-rails'
 # Using Foundation as responsive front-end framework
 gem 'foundation-rails'
+# Using Redis to pub/sub specific tweets
+gem 'redis'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

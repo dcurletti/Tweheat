@@ -1,3 +1,6 @@
+require 'twitter_package'
+require 'redis_stream'
+
 class TwitterStreamWorker
 	class << self
 		def initialize (config = {})
@@ -14,10 +17,12 @@ class TwitterStreamWorker
 			@stream_thread = Thread.new do
 				
 				begin
-					@tw_stream_client = TwitterFactory.new_streaming_client
+					@tw_stream_client = TwitterPackage.new_streaming_client
 				rescue
-					raise "\n\nUnable to connect to twitter stream"
+					raise "\n\nUnable to connect to Twitter::Streaming::Client"
 				end
+
+				filter_bounds = "-125.7042450905,24.5322774415,-66.62109375,49.5537255135"
 
 				@tw_stream_client.filter(locations: filter_bounds) do |tw_obj|
 					if tw_obj.is_a? Twitter::Tweet
