@@ -27,7 +27,11 @@ class TwitterStreamWorker
 				@tw_stream_client.filter(locations: filter_bounds) do |tw_obj|
 					if tw_obj.is_a? Twitter::Tweet
 						tweet = tw_obj.to_h
-						puts tweet[:user][:name]
+
+						# puts tweet[:user][:name]
+
+						# puts tweet.class
+						RedisStream.publish_to_user_stream( "all_tweets", tweet)
 					end
 				end
 			end
@@ -38,13 +42,16 @@ class TwitterStreamWorker
 
 			restart_stream
 
-			@test_thread = Thread.new do
+			@redis_thread = Thread.new do
 				puts "\n\nOpened a test user thread inside of new"
+
+				# @redis_sub = RedisStreamBroker.new_redis_client
+				# @redis_sub.subscribe([ ])
 			end	
 		end
 
 		def close
-			@test_thread.kill if @test_thread
+			@redis_thread.kill if @redis_thread
 			@stream_thread if @stream_thread
 			puts "\n\nKilling a TwitterStreamWorker"
 		end

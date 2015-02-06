@@ -31,6 +31,9 @@ Added Profile and Config file
 - [X] Moved Twitter::Streaming HTTP connection to be a Middleware process
 - [ ] Fix errors being caused by missing mapbox icons in mapbox library
 
+## Day 4-
+- [ ] Ensure that stream gets closed 
+
 ## Future features
 - [ ] Figure out how to run a background process
 - [ ] Look into heroku scheduler

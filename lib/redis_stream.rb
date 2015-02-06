@@ -9,12 +9,11 @@ module RedisStream
   USER_STREAM_EXPIRES = 1.day.to_f
 
   def self.configure(config = {})
-  	@config = config
-  	@redis = Redis.new config
+  	@redis = Redis.new
   end
 
   def self.new_redis_client
-  	Redis.new config
+  	Redis.new
   end
 
   def self.get_user_hash_key(id)
@@ -51,19 +50,23 @@ module RedisStream
   end
     
   def self.publish_to_user_stream(id, tweet)
-    @redis.publish( USER_STREAM_MSG_CHANNEL_BASE + id, tweet.to_json)
+  	data = JSON.dump(tweet)
+  	# puts data
+
+    @redis.publish( id, data )
+    # puts "tweet is a: #{tweet.class}"
+    # puts "PUBLISHED\n\n\n\n\n"
   end
 
   def self.remove_user_stream id
     @redis.zrem( USER_LIST_KEY, id)
   end
 
-  private
-
       def self._sanitize(message)
-        json = JSON.parse(message)
-        json.each {|key, value| json[key] = ERB::Util.html_escape(value) }
-        JSON.generate(json)
+        json = JSON.dump(message)
+        # json.each {|key, value| json[key] = ERB::Util.html_escape(value) }
+        # JSON.generate(json)
+        return json
       end
 
 end

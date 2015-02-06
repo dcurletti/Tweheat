@@ -14,15 +14,18 @@ class TweetsController < ApplicationController
 		
 		response.headers['Content-Type'] = 'text/event-stream'
 
-		tw_client = TwitterPackage.new_streaming_client
+		puts "\n\nInitializing Tweet stream-"
 
-		filter_bounds = "-125.7042450905,24.5322774415,-66.62109375,49.5537255135"
+		@redis_sub = RedisStream.new_redis_client
 
-		tw_client.filter(locations: filter_bounds) do |tw_obj|
-			if tw_obj.is_a? Twitter::Tweet
-				tweet = tw_obj.to_h
-				response.stream.write(tweet_event(tweet)) if tweet[:coordinates]
-				puts tweet[:user][:name]
+		sub_key = "all_tweets"
+
+		@redis_sub.subscribe([ sub_key, 'ping']) do |on|
+			on.message do |channel, msg|
+				msg = JSON.parse(msg)
+				puts "Writing to client: channel:: #{channel}, msg:: #{msg.class}"
+				# response.stream.write(tweet_event(msg)) if msg[:coordinates]
+				# puts tweet[:user][:name]				
 			end
 		end
 
@@ -31,7 +34,8 @@ class TweetsController < ApplicationController
 		puts "\n\nClient has disconnected\n\n"
 
 	ensure
-		puts "\n\nClosing stream\n\n"
+		puts "\n\nClosing stream and Redis Sub\n\n"
+		@redis_sub.quit
 		response.stream.close
 	end
 

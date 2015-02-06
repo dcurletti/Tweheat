@@ -29009,3 +29009,411 @@ Started GET "/tweets" for ::1 at 2015-02-05 22:16:40 -0800
 Completed 200 OK in 5936ms (ActiveRecord: 0.0ms)
 Processing by TweetsController#show as HTML
 Completed 200 OK in 196ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-05 23:27:21 -0800
+Processing by TweetsController#stream as */*
+Completed 500 Internal Server Error in 6035ms
+
+NameError (undefined local variable or method `tweet' for #<TweetsController:0x007f84170a2470>):
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:26:in `block (2 levels) in stream'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:37:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:37:in `block in subscription'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:130:in `block (3 levels) in call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:124:in `loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:124:in `block (2 levels) in call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:214:in `block (2 levels) in process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:340:in `ensure_connected'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:204:in `block in process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:286:in `logging'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:203:in `process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:123:in `block in call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:260:in `with_socket_timeout'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:267:in `without_socket_timeout'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:122:in `call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:35:in `subscription'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:12:in `subscribe'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:2587:in `_subscription'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:2008:in `block in subscribe'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:37:in `block in synchronize'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:37:in `synchronize'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:2007:in `subscribe'
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:23:in `stream'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:198:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `block in halting'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `block in halting'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `block in halting'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:92:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:19:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/notifications.rb:164:in `block in instrument'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/notifications.rb:164:in `instrument'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activerecord-4.2.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:137:in `process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionview-4.2.0/lib/action_view/rendering.rb:30:in `process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/live.rb:278:in `block in process'
+
+
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-05 23:28:38 -0800
+Processing by TweetsController#stream as */*
+Completed 500 Internal Server Error in 3994ms
+
+TypeError (no implicit conversion of Symbol into Integer):
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:26:in `[]'
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:26:in `block (2 levels) in stream'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:37:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:37:in `block in subscription'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:130:in `block (3 levels) in call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:124:in `loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:124:in `block (2 levels) in call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:214:in `block (2 levels) in process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:340:in `ensure_connected'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:204:in `block in process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:286:in `logging'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:203:in `process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:123:in `block in call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:260:in `with_socket_timeout'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:267:in `without_socket_timeout'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:122:in `call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:35:in `subscription'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:12:in `subscribe'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:2587:in `_subscription'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:2008:in `block in subscribe'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:37:in `block in synchronize'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:37:in `synchronize'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:2007:in `subscribe'
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:23:in `stream'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:198:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `block in halting'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `block in halting'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `block in halting'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:92:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:19:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/notifications.rb:164:in `block in instrument'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/notifications.rb:164:in `instrument'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activerecord-4.2.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:137:in `process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionview-4.2.0/lib/action_view/rendering.rb:30:in `process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/live.rb:278:in `block in process'
+
+
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-05 23:29:42 -0800
+Processing by TweetsController#stream as */*
+Completed   in 116683ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-05 23:34:09 -0800
+Processing by TweetsController#stream as */*
+Completed   in 6554ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-05 23:34:27 -0800
+Processing by TweetsController#stream as */*
+Completed   in 13588ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-05 23:37:58 -0800
+Processing by TweetsController#stream as */*
+Completed 500 Internal Server Error in 11ms
+
+TypeError (no implicit conversion of Symbol into Integer):
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:25:in `[]'
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:25:in `block (2 levels) in stream'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:37:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:37:in `block in subscription'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:130:in `block (3 levels) in call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:124:in `loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:124:in `block (2 levels) in call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:214:in `block (2 levels) in process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:340:in `ensure_connected'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:204:in `block in process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:286:in `logging'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:203:in `process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:123:in `block in call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:260:in `with_socket_timeout'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:267:in `without_socket_timeout'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:122:in `call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:35:in `subscription'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:12:in `subscribe'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:2587:in `_subscription'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:2008:in `block in subscribe'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:37:in `block in synchronize'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:37:in `synchronize'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:2007:in `subscribe'
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:23:in `stream'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:198:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `block in halting'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `block in halting'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `block in halting'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:92:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:19:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/notifications.rb:164:in `block in instrument'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/notifications.rb:164:in `instrument'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activerecord-4.2.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:137:in `process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionview-4.2.0/lib/action_view/rendering.rb:30:in `process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/live.rb:278:in `block in process'
+
+
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-05 23:39:12 -0800
+Processing by TweetsController#stream as */*
+Completed 500 Internal Server Error in 276ms
+
+TypeError (no implicit conversion of Symbol into Integer):
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:26:in `[]'
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:26:in `block (2 levels) in stream'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:37:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:37:in `block in subscription'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:130:in `block (3 levels) in call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:124:in `loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:124:in `block (2 levels) in call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:214:in `block (2 levels) in process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:340:in `ensure_connected'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:204:in `block in process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:286:in `logging'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:203:in `process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:123:in `block in call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:260:in `with_socket_timeout'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:267:in `without_socket_timeout'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:122:in `call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:35:in `subscription'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:12:in `subscribe'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:2587:in `_subscription'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:2008:in `block in subscribe'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:37:in `block in synchronize'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:37:in `synchronize'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:2007:in `subscribe'
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:23:in `stream'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:198:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `block in halting'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `block in halting'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `block in halting'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:92:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:19:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/notifications.rb:164:in `block in instrument'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/notifications.rb:164:in `instrument'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activerecord-4.2.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:137:in `process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionview-4.2.0/lib/action_view/rendering.rb:30:in `process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/live.rb:278:in `block in process'
+
+
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-05 23:40:31 -0800
+Processing by TweetsController#stream as */*
+Completed   in 2450ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-05 23:41:05 -0800
+Processing by TweetsController#stream as */*
+Completed 500 Internal Server Error in 91ms
+
+NoMethodError (undefined method `coordinates' for #<String:0x007f831c6accb8>):
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:25:in `block (2 levels) in stream'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:37:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:37:in `block in subscription'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:130:in `block (3 levels) in call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:124:in `loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:124:in `block (2 levels) in call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:214:in `block (2 levels) in process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:340:in `ensure_connected'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:204:in `block in process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:286:in `logging'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:203:in `process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:123:in `block in call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:260:in `with_socket_timeout'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:267:in `without_socket_timeout'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/client.rb:122:in `call_loop'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:35:in `subscription'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis/subscribe.rb:12:in `subscribe'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:2587:in `_subscription'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:2008:in `block in subscribe'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:37:in `block in synchronize'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:37:in `synchronize'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/redis-3.2.0/lib/redis.rb:2007:in `subscribe'
+  /Users/Nasty1/Projects/AppAcademy/Tweheat/app/controllers/tweets_controller.rb:23:in `stream'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:198:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `block in halting'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:234:in `block in halting'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:169:in `block in halting'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:92:in `call'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/callbacks.rb:19:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/notifications.rb:164:in `block in instrument'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.2.0/lib/active_support/notifications.rb:164:in `instrument'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activerecord-4.2.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/abstract_controller/base.rb:137:in `process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionview-4.2.0/lib/action_view/rendering.rb:30:in `process'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/live.rb:278:in `block in process'
+
+
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-05 23:43:10 -0800
+Processing by TweetsController#stream as */*
+Completed   in 626599ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-06 00:02:41 -0800
+Processing by TweetsController#stream as */*
+Completed   in 38473ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-06 00:04:39 -0800
+Processing by TweetsController#stream as */*
+Completed   in 3696ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-06 00:06:49 -0800
+Processing by TweetsController#stream as */*
+Completed   in 45968ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-06 00:07:43 -0800
+Processing by TweetsController#stream as */*
+Completed   in 34810ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-06 00:08:26 -0800
+Processing by TweetsController#stream as */*
+Completed   in 27706ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-06 00:09:14 -0800
+Processing by TweetsController#stream as */*
+Completed   in 3281ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-06 00:10:26 -0800
+Processing by TweetsController#stream as */*
+Completed   in 4428ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-06 00:16:19 -0800
+Processing by TweetsController#stream as */*
+Completed   in 4017ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-06 00:16:52 -0800
+Processing by TweetsController#stream as */*
+Completed   in 15879ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-06 00:17:21 -0800
+Processing by TweetsController#stream as */*
+Completed   in 22372ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-06 00:17:51 -0800
+Processing by TweetsController#stream as */*
+Completed   in 17886ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-06 00:18:17 -0800
+Processing by TweetsController#stream as */*
+Completed   in 28615ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-06 00:18:53 -0800
+Processing by TweetsController#stream as */*
+Completed   in 13028ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-06 00:20:25 -0800
+Processing by TweetsController#stream as */*
+Completed   in 5079ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-06 00:23:19 -0800
+Processing by TweetsController#stream as */*
+Completed   in 3465ms
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-06 00:23:38 -0800
+Processing by TweetsController#stream as */*
+Completed   in 2663ms

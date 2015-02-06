@@ -1,11 +1,11 @@
 require "redis_stream"
 
-
+#TEMP: Add in environment variables later on
 redis_auth = {:host => ENV['REDIS_HOST'], :port => ENV['REDIS_PORT']}
 
-RedisStream.configure( redis_auth)
+RedisStream.configure()
 
-$redis_ping = Redis.new( redis_auth )
+$redis_ping = Redis.new
 ping_thread = Thread.new do
 	while true
 		$redis_ping.publish("ping", "pong")
