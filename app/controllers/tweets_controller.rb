@@ -14,13 +14,6 @@ class TweetsController < ApplicationController
 		
 		response.headers['Content-Type'] = 'text/event-stream'
 
-		# tw_client = Twitter::Streaming::Client.new do |config|
-		# 	  config.consumer_key        = ENV["twitter_consumer_key"]
-		# 	  config.consumer_secret     = ENV["twitter_consumer_secret"]
-		# 	  config.access_token        = ENV["twitter_access_token"]
-		# 	  config.access_token_secret = ENV["twitter_access_token_secret"]
-		# end
-
 		tw_client = TwitterPackage.new_streaming_client
 
 		filter_bounds = "-125.7042450905,24.5322774415,-66.62109375,49.5537255135"
@@ -33,14 +26,18 @@ class TweetsController < ApplicationController
 			end
 		end
 
+	rescue ClientDisconnected
+
+		puts "\n\nClient has disconnected\n\n"
+
 	ensure
+		puts "\n\nClosing stream\n\n"
 		response.stream.close
 	end
 
 	def show
 
-
-		# tweet = tw_client.search("hipster", { geocode: "37.781157,-122.398720,1mi" }).take(5)
+		tw_client = TwitterPackage.new_rest_client
 
 		places = tw_client.trends(23424977)
 		
@@ -57,7 +54,8 @@ class TweetsController < ApplicationController
 		end
 
 		def format_tweet tweet
-			{ username: tweet[:user][:name],
+			{ 
+				username: tweet[:user][:name],
 				coordinates: tweet[:coordinates][:coordinates]
 			 }
 		end

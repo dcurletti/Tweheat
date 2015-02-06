@@ -25,6 +25,9 @@ Added Profile and Config file
 - [X] Fix heroku credentials
 - [X] Remove TurboLinks
 - [X] Have a tweet number counter
+- [X] Refactored Twitter Streaming Client into a module
+- [X] Refactored credentials creation
+- [X] Added Twitter Worker thread to control connected clients
 - [ ] Figure out how to run one stream of Twitter::Streaming
 - [ ] Fix errors being caused by missing mapbox icons in mapbox library
 - [ ] Check puma connection is closed- save error
