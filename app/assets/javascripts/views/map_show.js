@@ -7,6 +7,7 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 	initialize: function () {
 		this.installMap();
 		//TEMP: Eventually add ListenTo events that call handleTweet
+		// this.addLayer("all_tweets")
 	},
 
 	installMap: function () {
@@ -18,6 +19,7 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 	  var startingPosition = [39.1233557, -98.3453984];
 	  var startingZoom = 5;
   
+  	// Creates the actual Mapbox map object
 		this._map = L.mapbox.map('map', null, {
 			maxZoom: 12
 		}).setView(startingPosition, startingZoom);
@@ -29,20 +31,20 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 			Satellite: L.mapbox.tileLayer('dcurletti.l56dl8ml')
 		};
 
-		// Adding Base Layers to the map
+		// Adding Base Layers and control widget to the map
 		baseLayers.DarkTheme.addTo(this._map);
 		L.control.layers(baseLayers).addTo(this._map)
 
+		// Add locate me button 
 		L.control.locate().addTo(this._map);		
 
 		//TEMP: refactor in method
 	  this.heat = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 14,   } ).addTo(this._map);
-
 	},
 
-	addLayer: function (layerName) {
-	  this.layerName = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 14 } ).addTo(Tweheat.mapView._map);
-	},
+	// addLayer: function (layerName) {
+	//   this.layerName = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 14 } ).addTo(this._map);
+	// },
 
 	handleTweet: function (tweet) {
 		//TEMP: factor into handle tweet
