@@ -32,8 +32,10 @@ Added Profile and Config file
 
 ## Day 4-
 - [X] Twitter Streaming Client now publishes tweets via Redis
-- [ ] Ensure that stream gets closed on user disconnect
-- [ ] Look into 'ping pong' publishing
+- [ ] Setup redis server on heroku
+- [ ] Show map layers
+- [ ] Figure out how to restart twitter worker
+
 
 ## Future features
 - [ ] Figure out how to run a background process
@@ -55,6 +57,7 @@ Added Profile and Config file
 - [ ] Look into the continous Socket requests from the client when the server goes down
 - [ ] Look into growing size of repo
 - [ ] Slow loading speed of heroku
+- [ ] Removed redis ping, might be a problem in the long run
 
 ###Fixed-
 - [X] Getting heroku to allow websockets

@@ -1,8 +1,8 @@
-# Initiates a TwitterStreamWorker
+# Initiates a TwitterStream
 
-require 'twitter_stream_worker'
+require 'twitter_stream'
 
-worker = TwitterStreamWorker.new
+worker = TwitterStream.new
 
 at_exit do
 	worker.kill

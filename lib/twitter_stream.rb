@@ -1,14 +1,14 @@
 require 'twitter_package'
 require 'redis_stream'
 
-class TwitterStreamWorker
+class TwitterStream
 	class << self
 		def initialize (config = {})
-			puts "\n\nStreamWorker initialized"
+			puts "\n\nTwitter Stream initialized"
 		end
 
 		def restart_stream
-			puts "\n\nRestarting Twitter stream"
+			puts "\n\nRestarting Twitter Stream"
 
 			# Kills stream if there is one already
 			@stream_thread.kill if @stream_thread
@@ -53,7 +53,7 @@ class TwitterStreamWorker
 		def close
 			@redis_thread.kill if @redis_thread
 			@stream_thread if @stream_thread
-			puts "\n\nKilling a TwitterStreamWorker"
+			puts "\n\nKilling TwitterStream"
 		end
 
 	end

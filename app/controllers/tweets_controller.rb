@@ -14,23 +14,17 @@ class TweetsController < ApplicationController
 		
 		response.headers['Content-Type'] = 'text/event-stream'
 
-		puts "\n\nInitializing Tweet stream-"
+		puts "\n\nInitializing Tweet stream---"
 
 		@redis_sub = RedisStream.new_redis_client
 
 		sub_key = "all_tweets"
 
-		count = 0
+		# Subscribing to TwitterStream from StreamWorker
 		@redis_sub.subscribe([ sub_key ]) do |on|
 			on.message do |channel, msg|
 				tweet = JSON.parse(msg)
-				# puts "Writing to client: channel:: #{channel}, msg:: #{msg.class}"
-				# if count % 50 == 0
-				# 	puts tweet
-				# end
-				# count += 1
 				response.stream.write(tweet_event(tweet))
-				# puts tweet[:user][:name]				
 			end
 		end
 
