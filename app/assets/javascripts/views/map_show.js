@@ -18,7 +18,20 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 	  var startingPosition = [39.1233557, -98.3453984];
 	  var startingZoom = 5;
   
-		this._map = L.mapbox.map('map', 'dcurletti.knl7n7kb').setView(startingPosition, startingZoom);
+		this._map = L.mapbox.map('map', null, {
+			maxZoom: 12
+		}).setView(startingPosition, startingZoom);
+
+		// Various Base Layer options
+		var baseLayers = {
+			DarkTheme: L.mapbox.tileLayer('dcurletti.knl7n7kb'),
+			Streets: L.mapbox.tileLayer('dcurletti.l56kdbi6'),
+			Satellite: L.mapbox.tileLayer('dcurletti.l56dl8ml')
+		};
+
+		// Adding Base Layers to the map
+		baseLayers.DarkTheme.addTo(this._map);
+		L.control.layers(baseLayers).addTo(this._map)
 
 		L.control.locate().addTo(this._map);		
 
