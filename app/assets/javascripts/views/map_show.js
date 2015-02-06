@@ -39,7 +39,7 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 		L.control.locate().addTo(this._map);		
 
 		//TEMP: refactor in method
-	  this.heat = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 14,   } ).addTo(this._map);
+	  this.heat = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 14 } ).addTo(this._map);
 	},
 
 	// addLayer: function (layerName) {

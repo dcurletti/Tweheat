@@ -38,7 +38,7 @@ Tweheat.Views.SearchShow = Backbone.View.extend({
 	    	
 		 		this.mapView.handleTweet(tweet);
 		 		tweetQueue = [];
-		 		
+
 	    } else {
 	    	tweetQueue.push(tweet);
 	    }
@@ -50,12 +50,12 @@ Tweheat.Views.SearchShow = Backbone.View.extend({
 	},
 
 	addMapListener: function ()	 {
-		this.mapView._map.on('mousedown', function(event) {
-			console.log("mousedown")
+		this.mapView._map.on('dragstart', function(event) {
+			console.log("dragstart")
 			this.draw = false;
 		}.bind(this));
-		this.mapView._map.on('mouseup', function(event) {
-			console.log("mouseup")
+		this.mapView._map.on('dragend', function(event) {
+			console.log("dragend")
 			this.draw = true;
 		}.bind(this));
 	},
