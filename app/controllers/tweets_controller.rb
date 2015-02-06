@@ -20,27 +20,30 @@ class TweetsController < ApplicationController
 
 		sub_key = "all_tweets"
 
-		@redis_sub.subscribe([ sub_key, 'ping']) do |on|
+		count = 0
+		@redis_sub.subscribe([ sub_key ]) do |on|
 			on.message do |channel, msg|
-				msg = JSON.parse(msg)
-				puts "Writing to client: channel:: #{channel}, msg:: #{msg.class}"
-				# response.stream.write(tweet_event(msg)) if msg[:coordinates]
+				tweet = JSON.parse(msg)
+				# puts "Writing to client: channel:: #{channel}, msg:: #{msg.class}"
+				if count % 50 == 0
+					puts tweet
+				end
+				count += 1
+				response.stream.write(tweet_event(tweet))
 				# puts tweet[:user][:name]				
 			end
 		end
 
 	rescue ClientDisconnected
-
 		puts "\n\nClient has disconnected\n\n"
-
 	ensure
 		puts "\n\nClosing stream and Redis Sub\n\n"
 		@redis_sub.quit
 		response.stream.close
 	end
 
-	def show
 
+	def show
 		tw_client = TwitterPackage.new_rest_client
 
 		places = tw_client.trends(23424977)
@@ -59,8 +62,8 @@ class TweetsController < ApplicationController
 
 		def format_tweet tweet
 			{ 
-				username: tweet[:user][:name],
-				coordinates: tweet[:coordinates][:coordinates]
+				username: tweet["user_name"],
+				coordinates: tweet["coordinates"]
 			 }
 		end
 

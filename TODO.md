@@ -29,10 +29,11 @@ Added Profile and Config file
 - [X] Refactored credentials creation
 - [X] Added Twitter Worker thread to control connected clients
 - [X] Moved Twitter::Streaming HTTP connection to be a Middleware process
-- [ ] Fix errors being caused by missing mapbox icons in mapbox library
 
 ## Day 4-
-- [ ] Ensure that stream gets closed 
+- [X] Twitter Streaming Client now publishes tweets via Redis
+- [ ] Ensure that stream gets closed on user disconnect
+- [ ] Look into 'ping pong' publishing
 
 ## Future features
 - [ ] Figure out how to run a background process

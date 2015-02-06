@@ -51,6 +51,7 @@ module RedisStream
     
   def self.publish_to_user_stream(id, tweet)
   	data = JSON.dump(tweet)
+  	# puts tweet
   	# puts data
 
     @redis.publish( id, data )

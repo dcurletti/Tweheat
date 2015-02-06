@@ -25,12 +25,12 @@ class TwitterStreamWorker
 				filter_bounds = "-125.7042450905,24.5322774415,-66.62109375,49.5537255135"
 
 				@tw_stream_client.filter(locations: filter_bounds) do |tw_obj|
-					if tw_obj.is_a? Twitter::Tweet
-						tweet = tw_obj.to_h
+					if tw_obj.is_a? Twitter::Tweet and tw_obj.to_h[:coordinates] != nil
 
-						# puts tweet[:user][:name]
+						# Use custom Twitter class to strip it of unnecessary attrs
+						tweet = TwitterPackage::Tweet.new(tw_obj).to_hash
 
-						# puts tweet.class
+						# puts tweet.to_hash
 						RedisStream.publish_to_user_stream( "all_tweets", tweet)
 					end
 				end
