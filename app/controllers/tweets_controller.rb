@@ -2,12 +2,14 @@ require "twitter_package"
 
 class TweetsController < ApplicationController
 
+	before_filter :require_session_token!
 	# Used in place of WebSockets- Opens a continuous HTTP connection 
 	# with the client
 	include ActionController::Live
 
 	def index
-		
+		# Gives connected user a session token for redis pub/sub
+		check_in
 	end
 
 	def stream
@@ -17,6 +19,8 @@ class TweetsController < ApplicationController
 		puts "\n\nInitializing Tweet stream---"
 
 		@redis_sub = RedisStream.new_redis_client
+
+		puts "Connecting user #{session[:session_token]} to his account..."
 
 		sub_key = "all_tweets"
 
