@@ -51,6 +51,7 @@ Have the tweets#index publish a new_user message, and have the tweets#search pub
 
 
 ## Future features
+- [ ] The addition of the points is not on map drag, its on map "stop moving", if you do an inertia swipe, it freaks out still
 - [ ] Make an animation when searching for current location
 - [ ] Look into heroku scheduler
 - [ ] Have search button be an icon

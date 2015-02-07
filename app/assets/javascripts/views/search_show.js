@@ -1,61 +1,70 @@
-Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
+Tweheat.Views.SearchShow = Backbone.View.extend({
 
 	className: 'search-show',
 
 	events: {
-		'click #new-search' : 'search'
+		'click #new-search' : 'search',
+		'click #pause': 'toggleSSEListener'
 	},
 
 	template: JST['index'],
 
 	initialize: function () {
 		this.mapView = new Tweheat.Views.MapShow();
+
+		this.draw = true;
+
+		this.counter = 0;
+		this.paused = false;
+
+		// Used to contain tweets when the map is being dragged
+		this.tweetQueue = [];
+
 		this.addSSEListener();
 		this.addMapListener();
 		// Set this to deal with 
-		this.draw = true;
+	},
+
+	tweetHandler: function (event) {
+
+  	this.counter += 1;
+    var tweet = $.parseJSON(event.data);
+
+    // TEMP: Abstract this into a new function
+    if (this.draw) {
+
+    	_.each(this.tweetQueue, function(queued_tweet) {
+		 		this.mapView.handleTweet(queued_tweet);
+    	}.bind(this));
+    	
+	 		this.mapView.handleTweet(tweet);
+	 		this.tweetQueue = [];
+
+    } else {
+
+    	this.tweetQueue.push(tweet);
+    }
+
+ 		//TEMP: Updating a small counter
+ 		this.updateCounter(this.counter)
 	},
 
 	addSSEListener: function () {
 	  // Listener for Tweets from the server
   	this.source = new EventSource("/tweets/stream");
-		
-		var counter = 0;
-		// Used to contain tweets when the map is being dragged
-		var tweetQueue = [];
+	
+		this.tweetHandlerVar = this.tweetHandler.bind(this);
 
-	  this.source.addEventListener('tweet', function (event) {
+	  this.source.addEventListener('tweet', this.tweetHandlerVar, false);
 	  	
-	  	counter += 1;
-	    var tweet = $.parseJSON(event.data);
-
-	    // TEMP: Abstract this into a new function
-	    if (this.draw) {
-
-	    	_.each(tweetQueue, function(queued_tweet) {
-			 		this.mapView.handleTweet(queued_tweet);
-	    	}.bind(this));
-	    	
-		 		this.mapView.handleTweet(tweet);
-		 		tweetQueue = [];
-
-	    } else {
-	    	tweetQueue.push(tweet);
-	    }
-
-	 		//TEMP: Updating a small counter
-	 		this.updateCounter(counter)
-	  }.bind(this))
-
 	},
 
+
 	addMapListener: function ()	 {
-		this.mapView._map.on('dragstart', function(event) {
-			console.log("dragstart")
+		this.mapView._map.on('movestart', function(event) {
 			this.draw = false;
 		}.bind(this));
-		this.mapView._map.on('dragend', function(event) {
-			console.log("dragend")
+		this.mapView._map.on('moveend', function(event) {
 			this.draw = true;
 		}.bind(this));
 	},
@@ -85,7 +94,19 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 	}, 
 
 	addLayer: function (layer, name, zIndex) {
-		layer.setZInde
+	},
+
+	toggleSSEListener: function (event) {
+
+		if (this.paused) {
+			console.log("Restarting stream...")
+			this.source.addEventListener('tweet', this.tweetHandlerVar, false);
+			this.paused = false;
+		} else {
+			console.log("Pausing stream...")
+			this.source.removeEventListener('tweet', this.tweetHandlerVar, false);
+			this.paused = true;
+		}
 	}
 
 })
