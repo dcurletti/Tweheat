@@ -11,7 +11,8 @@
  * file per style scope.
  * 
  *= require mapbox
- *= require L.Control.Locate
+ *= require L.Control.Locate.min
+ *= require font-awesome
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides

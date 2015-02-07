@@ -44,6 +44,7 @@ gem 'foundation-rails'
 # Using Redis to pub/sub specific tweets
 gem 'redis'
 
+gem 'font-awesome-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

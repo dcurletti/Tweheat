@@ -12,12 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require StackBlur
 //= require foundation
 //= require mapbox
-//= require L.Control.Locate
 //= require leaflet-heat
-// require turbolinks
+//= require L.Control.Locate.min
 //= require underscore
 //= require backbone
 //= require tweheat
