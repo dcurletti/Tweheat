@@ -5,7 +5,11 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 	},
 
 	initialize: function () {
+		// Used to prevent redraw errors
+		this.panning = false;
+
 		this.installMap();
+		this.addListeners();
 		//TEMP: Eventually add ListenTo events that call handleTweet
 		// this.addLayer("all_tweets")
 	},
@@ -56,7 +60,16 @@ Tweheat.Views.MapShow = Backbone.View.extend({
     var latlng = L.latLng(coordinates[1], coordinates[0])
     // console.log(latlng);
     this.heat.addLatLng(latlng);
-	} 
+	},
+
+	addListeners: function ()	 {
+		this._map.on('movestart', function(event) {
+			this.panning = false;
+		}.bind(this));
+		this._map.on('moveend', function(event) {
+			this.panning = true;
+		}.bind(this));
+	},
 
 
 

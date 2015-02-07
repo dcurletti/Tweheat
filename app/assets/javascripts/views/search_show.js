@@ -10,9 +10,6 @@ Tweheat.Views.SearchShow = Backbone.View.extend({
 	template: JST['index'],
 
 	initialize: function () {
-		this.mapView = new Tweheat.Views.MapShow();
-
-		this.draw = true;
 
 		this.counter = 0;
 		this.paused = false;
@@ -21,7 +18,6 @@ Tweheat.Views.SearchShow = Backbone.View.extend({
 		this.tweetQueue = [];
 
 		this.addSSEListener();
-		this.addMapListener();
 		// Set this to deal with 
 	},
 
@@ -31,17 +27,16 @@ Tweheat.Views.SearchShow = Backbone.View.extend({
     var tweet = $.parseJSON(event.data);
 
     // TEMP: Abstract this into a new function
-    if (this.draw) {
+    if (Tweheat.mapView.panning) {
 
     	_.each(this.tweetQueue, function(queued_tweet) {
-		 		this.mapView.handleTweet(queued_tweet);
-    	}.bind(this));
+		 		Tweheat.mapView.handleTweet(queued_tweet);
+    	});
     	
-	 		this.mapView.handleTweet(tweet);
+	 		Tweheat.mapView.handleTweet(tweet);
 	 		this.tweetQueue = [];
 
     } else {
-
     	this.tweetQueue.push(tweet);
     }
 
@@ -51,22 +46,12 @@ Tweheat.Views.SearchShow = Backbone.View.extend({
 
 	addSSEListener: function () {
 	  // Listener for Tweets from the server
-  	this.source = new EventSource("/tweets/stream");
+  
 	
 		this.tweetHandlerVar = this.tweetHandler.bind(this);
 
-	  this.source.addEventListener('tweet', this.tweetHandlerVar, false);
+	  Tweheat.twitterStream.addEventListener('tweet', this.tweetHandlerVar, false);
 	  	
-	},
-
-
-	addMapListener: function ()	 {
-		this.mapView._map.on('movestart', function(event) {
-			this.draw = false;
-		}.bind(this));
-		this.mapView._map.on('moveend', function(event) {
-			this.draw = true;
-		}.bind(this));
 	},
 
 	//TEMP:
@@ -75,7 +60,7 @@ Tweheat.Views.SearchShow = Backbone.View.extend({
 	},
 
 	attachMap: function () {
-		this.$('#map').html(this.mapView.$el)
+		this.$('#map').html(Tweheat.mapView.$el)
 	},
 
 	render: function () {
@@ -100,11 +85,11 @@ Tweheat.Views.SearchShow = Backbone.View.extend({
 
 		if (this.paused) {
 			console.log("Restarting stream...")
-			this.source.addEventListener('tweet', this.tweetHandlerVar, false);
+			Tweheat.twitterStream.addEventListener('tweet', this.tweetHandlerVar, false);
 			this.paused = false;
 		} else {
 			console.log("Pausing stream...")
-			this.source.removeEventListener('tweet', this.tweetHandlerVar, false);
+			Tweheat.twitterStream.removeEventListener('tweet', this.tweetHandlerVar, false);
 			this.paused = true;
 		}
 	}
