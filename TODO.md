@@ -35,6 +35,7 @@ Added Profile and Config file
 - [X] Setup redis server on heroku
 - [X] Add different base layers
 - [X] Implement different basic layer options
+- [X] Added temp blur effect to map for hover over search bar
 - [ ] Implement front end control for different tweet layers
 - [ ] Figure out how to restart twitter worker
 

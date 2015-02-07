@@ -51,7 +51,7 @@ body { margin:0; padding:0; }
 	bottom:0; 
 	width:100%;
 	@include blur-filter($blur);
-	@include transition(-webkit-filter 1.5s .5s, webkit-filter 0s)
+	@include transition(-webkit-filter .5s .5s, webkit-filter 0s)
 }
 
 // TEMP: Change this to On click of search bar
