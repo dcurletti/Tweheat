@@ -47,6 +47,13 @@ class TweetsController < ApplicationController
 		render json: places.to_h
 	end
 
+	def search
+		@redis_pub = RedisStream.new_redis_client
+		@redis_pub.publish( "new_search", "testing")
+		puts "End of search"
+		render nothing: true
+
+	end
 
 	private
 

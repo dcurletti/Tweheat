@@ -43,6 +43,7 @@ Added Profile and Config file
 - [X] Button that stops pauses a stream
 - [ ] Figure out how to restart twitter worker
 - [ ] Implement front end control for different tweet layers
+- [ ] Look into pinching and zooming animations on mobile devices for refresh
 
 
 Subscribe the twitter stream worker to a specific channel (new_user), and as a value to it, pass the user search term
@@ -59,13 +60,11 @@ Have the tweets#index publish a new_user message, and have the tweets#search pub
 - [ ] Ask for sites that show how to create jquery animations
 
 ## Would Be Nice
-- [ ] Figure out how to run a background process
+- [ ] Figure out how to run a rake process for API Trends call
 - [ ] Set MaxView on map
-- [ ] Scheduling the trends API call to only happen once every 15 minutes
 
 ###Issues-
 - [ ] Look into removing TMP folder in gitIgnore
-- [ ] Figure out the redis pub/sub system
 - [ ] Make sure to close the Twitter Stream when noone is connected to the website
 - [ ] Fix scrolling of the layers on map redraw- Problem is being caused either by the constantly updating layer or general performance issues by the client processing the tweet
 - [ ] Look into the continous Socket requests from the client when the server goes down

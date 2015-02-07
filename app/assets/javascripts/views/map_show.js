@@ -64,10 +64,10 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 
 	addListeners: function ()	 {
 		this._map.on('movestart', function(event) {
-			this.panning = false;
+			this.panning = true;
 		}.bind(this));
 		this._map.on('moveend', function(event) {
-			this.panning = true;
+			this.panning = false;
 		}.bind(this));
 	},
 

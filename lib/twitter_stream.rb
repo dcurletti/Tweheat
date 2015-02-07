@@ -5,6 +5,7 @@ class TwitterStream
 	class << self
 		def initialize (config = {})
 			puts "\n\nTwitter Stream initialized"
+			@search_topics = []
 		end
 
 		def restart_stream
@@ -30,8 +31,10 @@ class TwitterStream
 						# Use custom Twitter class to strip it of unnecessary attrs
 						tweet = TwitterPackage::Tweet.new(tw_obj).to_hash
 
+						# @search_topics.
+
 						# puts tweet.to_hash
-						RedisStream.publish_to_user_stream( "all_tweets", tweet)
+						RedisStream.publish_to_search_stream( "all_tweets", tweet)
 					end
 				end
 			end
@@ -45,8 +48,14 @@ class TwitterStream
 			@redis_thread = Thread.new do
 				puts "\n\nOpened a test user thread inside of new"
 
-				# @redis_sub = RedisStreamBroker.new_redis_client
-				# @redis_sub.subscribe([ ])
+
+				@redis_sub = RedisStream.new_redis_client
+				@redis_sub.subscribe( ["new_search"] ) do |on|
+					on.message do |channel, msg|
+						puts "\n\nReceived message:: #{msg} from channel:: #{channel}"
+						@search
+					end
+				end
 			end	
 		end
 

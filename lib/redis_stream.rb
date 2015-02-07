@@ -9,10 +9,10 @@ module RedisStream
   	Redis.new(:url => @uri)
   end
     
-  def self.publish_to_user_stream(id, tweet)
+  def self.publish_to_search_stream(search_topic, tweet)
   	data = JSON.dump(tweet)
 
-    @redis.publish( id, data )
+    @redis.publish( search_topic, data )
   end
 
   def self.remove_search_stream id
