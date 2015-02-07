@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require mapbox
-//= require leaflet-heat
+// require mapbox
+// require leaflet-heat
 //= require L.Control.Locate.min
 //= require underscore
 //= require backbone

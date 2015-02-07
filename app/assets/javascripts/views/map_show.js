@@ -38,7 +38,9 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 
 		// Add locate me button 
 		new L.Control.Zoom({ position: 'bottomleft' }).addTo(this._map);
-		L.control.locate().addTo(this._map);		
+		L.control.locate({
+			position: 'bottomleft'
+		}).addTo(this._map);		
 
 		//TEMP: refactor in method
 	  this.heat = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 14 } ).addTo(this._map);

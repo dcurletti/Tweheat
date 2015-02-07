@@ -38540,3 +38540,307 @@ ActionController::RoutingError (No route matches [GET] "/assets/images/icons-000
 Started GET "/tweets/stream" for ::1 at 2015-02-07 10:12:32 -0800
 Processing by TweetsController#stream as text/event-stream
 Completed 200 OK in 22076ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-07 10:16:12 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 1738ms (Views: 1737.1ms | ActiveRecord: 0.0ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/icons-000000@2x.png"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.0) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.0) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.0) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-07 10:16:17 -0800
+Processing by TweetsController#stream as text/event-stream
+Completed 200 OK in 9484ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-07 10:21:15 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 500 Internal Server Error in 64ms
+
+Sprockets::FileNotFound - couldn't find file 'mapbox'
+  (in /Users/Nasty1/Projects/AppAcademy/Tweheat/app/assets/stylesheets/application.css:13):
+  sprockets (2.12.3) lib/sprockets/context.rb:106:in `resolve'
+  sprockets (2.12.3) lib/sprockets/context.rb:146:in `require_asset'
+  sprockets (2.12.3) lib/sprockets/directive_processor.rb:217:in `process_require_directive'
+  sprockets (2.12.3) lib/sprockets/directive_processor.rb:167:in `block in process_directives'
+  sprockets (2.12.3) lib/sprockets/directive_processor.rb:165:in `process_directives'
+  sprockets (2.12.3) lib/sprockets/directive_processor.rb:99:in `evaluate'
+  tilt (1.4.1) lib/tilt/template.rb:103:in `render'
+  sprockets (2.12.3) lib/sprockets/context.rb:197:in `block in evaluate'
+  sprockets (2.12.3) lib/sprockets/context.rb:194:in `evaluate'
+  sprockets (2.12.3) lib/sprockets/processed_asset.rb:12:in `initialize'
+  sprockets (2.12.3) lib/sprockets/base.rb:374:in `block in build_asset'
+  sprockets (2.12.3) lib/sprockets/base.rb:395:in `circular_call_protection'
+  sprockets (2.12.3) lib/sprockets/base.rb:373:in `build_asset'
+  sprockets (2.12.3) lib/sprockets/index.rb:94:in `block in build_asset'
+  sprockets (2.12.3) lib/sprockets/caching.rb:58:in `cache_asset'
+  sprockets (2.12.3) lib/sprockets/index.rb:93:in `build_asset'
+  sprockets (2.12.3) lib/sprockets/base.rb:287:in `find_asset'
+  sprockets (2.12.3) lib/sprockets/index.rb:61:in `find_asset'
+  sprockets (2.12.3) lib/sprockets/bundled_asset.rb:37:in `init_with'
+  sprockets (2.12.3) lib/sprockets/asset.rb:24:in `from_hash'
+  sprockets (2.12.3) lib/sprockets/caching.rb:54:in `cache_asset'
+  sprockets (2.12.3) lib/sprockets/index.rb:93:in `build_asset'
+  sprockets (2.12.3) lib/sprockets/base.rb:287:in `find_asset'
+  sprockets (2.12.3) lib/sprockets/index.rb:61:in `find_asset'
+  sprockets (2.12.3) lib/sprockets/environment.rb:75:in `find_asset'
+  sprockets (2.12.3) lib/sprockets/base.rb:295:in `[]'
+  sprockets-rails (2.2.4) lib/sprockets/rails/helper.rb:230:in `lookup_asset_for_path'
+  sprockets-rails (2.2.4) lib/sprockets/rails/helper.rb:190:in `check_errors_for'
+  sprockets-rails (2.2.4) lib/sprockets/rails/helper.rb:159:in `block in stylesheet_link_tag'
+  sprockets-rails (2.2.4) lib/sprockets/rails/helper.rb:158:in `stylesheet_link_tag'
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___3544454572260890497_70204949919580'
+  actionview (4.2.0) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.0) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.0) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:66:in `render_with_layout'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal/live.rb:278:in `block in process'
+
+
+
+Started POST "/__better_errors/d84dff95954b1855/variables" for ::1 at 2015-02-07 10:21:16 -0800
+
+
+Started GET "/" for ::1 at 2015-02-07 10:21:34 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 605ms (Views: 604.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-07 10:23:09 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 802ms (Views: 801.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-07 10:23:53 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 435ms (Views: 434.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-07 10:24:25 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 1050ms (Views: 1050.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/L.Control.Locate.min.js.map.js" for ::1 at 2015-02-07 10:24:27 -0800
+
+ActionController::RoutingError (No route matches [GET] "/javascripts/L.Control.Locate.min.js.map.js"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.0) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.0) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.0) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+  Rendered /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (3.4ms)
+  Rendered /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (2.6ms)
+  Rendered /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.9ms)
+  Rendered /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered /Users/Nasty1/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (62.9ms)
+
+
+Started GET "/" for ::1 at 2015-02-07 10:25:58 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 889ms (Views: 888.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-07 10:26:01 -0800
+Processing by TweetsController#stream as text/event-stream
+Completed 200 OK in 5497ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-07 10:26:31 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 757ms (Views: 753.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-07 10:26:34 -0800
+Processing by TweetsController#stream as text/event-stream
+Completed 200 OK in 3100ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-07 10:26:43 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 921ms (Views: 920.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-07 10:29:32 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 911ms (Views: 910.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-07 10:29:34 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/" for ::1 at 2015-02-07 10:30:38 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 64098ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 1705ms (Views: 1704.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-07 10:30:40 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 866ms (Views: 866.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-07 10:30:47 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 457ms (Views: 457.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-07 10:30:53 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 532ms (Views: 532.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-07 10:30:56 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 467ms (Views: 467.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-07 10:30:59 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 455ms (Views: 454.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-07 10:31:12 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 593ms (Views: 592.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-07 10:31:14 -0800
+Processing by TweetsController#stream as text/event-stream
+Completed 200 OK in 8086ms (ActiveRecord: 0.0ms)
