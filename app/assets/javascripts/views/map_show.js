@@ -21,7 +21,8 @@ Tweheat.Views.MapShow = Backbone.View.extend({
   
   	// Creates the actual Mapbox map object
 		this._map = L.mapbox.map('map', null, {
-			maxZoom: 12
+			maxZoom: 12,
+			zoomControl: false
 		}).setView(startingPosition, startingZoom);
 
 		// Various Base Layer options
@@ -36,6 +37,7 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 		L.control.layers(baseLayers).addTo(this._map)
 
 		// Add locate me button 
+		new L.Control.Zoom({ position: 'bottomleft' }).addTo(this._map);
 		L.control.locate().addTo(this._map);		
 
 		//TEMP: refactor in method
@@ -53,9 +55,6 @@ Tweheat.Views.MapShow = Backbone.View.extend({
     // console.log(latlng);
     this.heat.addLatLng(latlng);
 	} 
-
-
-
 
 
 

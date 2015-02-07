@@ -35,19 +35,24 @@ Added Profile and Config file
 - [X] Setup redis server on heroku
 - [X] Add different base layers
 - [X] Implement different basic layer options
-- [X] Added temp blur effect to map for hover over search bar
+- [X] Removed temp blur effect to map for hover over search bar
 - [ ] Implement front end control for different tweet layers
 - [ ] Figure out how to restart twitter worker
 
+Subscribe the twitter stream worker to a specific channel (new_user), and as a value to it, pass the user search term
+On the client, have the form send a POST request to a route, and have that route update the redis client- Tweets/search?
+Have the tweets#index publish a new_user message, and have the tweets#search publish a specific search term
+
 
 ## Future features
-- [ ] Figure out how to run a background process
+- [ ] Make an animation when searching for current location
 - [ ] Look into heroku scheduler
 - [ ] Have search button be an icon
 - [ ] Look into changing the default controls
 - [ ] Ask for sites that show how to create jquery animations
 
 ## Would Be Nice
+- [ ] Figure out how to run a background process
 - [ ] Set MaxView on map
 - [ ] Scheduling the trends API call to only happen once every 15 minutes
 

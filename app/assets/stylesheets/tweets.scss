@@ -50,13 +50,13 @@ body { margin:0; padding:0; }
 	top:0; 
 	bottom:0; 
 	width:100%;
-	@include blur-filter($blur);
-	@include transition(-webkit-filter .5s .5s, webkit-filter 0s)
+	// @include blur-filter($blur);
+	// @include transition(-webkit-filter .5s .5s, webkit-filter 0s)
 }
 
 // TEMP: Change this to On click of search bar
 #map:hover {
-	@include blur-filter(0px)
+	// @include blur-filter(0px)
 }
 
 #search {
