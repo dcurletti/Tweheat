@@ -36,8 +36,14 @@ Added Profile and Config file
 - [X] Add different base layers
 - [X] Implement different basic layer options
 - [X] Removed temp blur effect to map for hover over search bar
-- [ ] Implement front end control for different tweet layers
+
+## Day 5-
+- [X] Switched to using Mapbox CDN
+- [X] Updated to latest Mapbox Locate version
+- [ ] Button that stops that removes the the event source listener
 - [ ] Figure out how to restart twitter worker
+- [ ] Implement front end control for different tweet layers
+
 
 Subscribe the twitter stream worker to a specific channel (new_user), and as a value to it, pass the user search term
 On the client, have the form send a POST request to a route, and have that route update the redis client- Tweets/search?
@@ -57,14 +63,12 @@ Have the tweets#index publish a new_user message, and have the tweets#search pub
 - [ ] Scheduling the trends API call to only happen once every 15 minutes
 
 ###Issues-
-- [ ] Saving the Mapbox JS files locally is causing icon loading issues (its trying to fetch them from the server, but its doing a local request)
 - [ ] Look into removing TMP folder in gitIgnore
 - [ ] Figure out the redis pub/sub system
 - [ ] Make sure to close the Twitter Stream when noone is connected to the website
 - [ ] Fix scrolling of the layers on map redraw- Problem is being caused either by the constantly updating layer or general performance issues by the client processing the tweet
 - [ ] Look into the continous Socket requests from the client when the server goes down
 - [ ] Look into growing size of repo
-- [ ] Slow loading speed of heroku
 - [ ] Removed redis ping, might be a problem in the long run
 
 ###Fixed-
@@ -72,3 +76,4 @@ Have the tweets#index publish a new_user message, and have the tweets#search pub
 - [X] Checking Twitter geo_enabled and coordinates coorelation
 - [X] Still being asked for SSH keys in terminal
 - [X] Rescue ActionController::Live DisconnectedClient error
+- [X] Saving the Mapbox JS files locally is causing icon loading issues (its trying to fetch them from the server, but its doing a local request)
