@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require StackBlur
 //= require foundation
 //= require mapbox
 //= require L.Control.Locate

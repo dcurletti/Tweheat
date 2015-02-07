@@ -3,7 +3,7 @@ Tweheat.Views.SearchShow = Backbone.View.extend({
 	className: 'search-show',
 
 	events: {
-		'submit form' : 'search'
+		'click #new-search' : 'search'
 	},
 
 	template: JST['index'],
@@ -12,7 +12,7 @@ Tweheat.Views.SearchShow = Backbone.View.extend({
 		this.mapView = new Tweheat.Views.MapShow();
 		this.addSSEListener();
 		this.addMapListener();
-
+		this.canvasTest();
 		// Set this to deal with 
 		this.draw = true;
 	},
@@ -81,6 +81,39 @@ Tweheat.Views.SearchShow = Backbone.View.extend({
 	search: function (event) {
 		event.preventDefault();
 		console.log(event.currentTarget);
+
+		var speed = 1250;
+    var blur = 100;
+    var interval = speed/blur;
+    
+    // var anim = setInterval(function(){
+    //     blur--;
+    //     if (!blur) {
+    //         clearInterval(anim);
+    //         animating = false;
+    //         console.log("Done!");
+    //     }
+    //     stackBlurImage("map", "canvas", blur);
+    // }, interval);
+
+		stackBlurImage("map", "canvas", 20);
+
+	},
+
+	canvasTest: function () {
+	  var canvas = document.getElementById('canvas'),
+	          context = canvas.getContext('2d');
+
+	  // resize the canvas to fill browser window dynamically
+	  window.addEventListener('resize', resizeCanvas, false);
+	  
+	  function resizeCanvas() {
+	          canvas.width = window.innerWidth;
+	          canvas.height = window.innerHeight;
+	          
+	  }
+	  resizeCanvas();
+	  
 	}
 
 })
