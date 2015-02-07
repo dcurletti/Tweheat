@@ -40,7 +40,7 @@ Added Profile and Config file
 ## Day 5-
 - [X] Switched to using Mapbox CDN
 - [X] Updated to latest Mapbox Locate version
-- [ ] Button that stops that removes the the event source listener
+- [X] Button that stops pauses a stream
 - [ ] Figure out how to restart twitter worker
 - [ ] Implement front end control for different tweet layers
 
