@@ -1,4 +1,4 @@
-Tweheat.Views.SearchShow = Backbone.View.extend({
+Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 	className: 'search-show',
 
 	events: {
@@ -76,25 +76,32 @@ Tweheat.Views.SearchShow = Backbone.View.extend({
 		event.preventDefault();
 		var searchBar = $('#search-item');
 		var searchTerm = searchBar.val();
+		var data = { search_term: searchTerm };
 
 		console.log("Attempting submit..")
 
-		$.ajax({
-			url: '/tweets/search',
-			dataType: "json",
-			data: { search_term: searchTerm },
-			method: "GET",
-			success: function () {
-				searchBar.val('');
-				console.log("Successfully sent");
-				$("#search-bar").append("<div style='background-color:white'><p>" + searchTerm + "<p></div>")
-			}
+		// $.ajax({
+		// 	url: '/tweets/search',
+		// 	dataType: "json",
+		// 	data: data,
+		// 	method: "GET",
+		// 	success: function () {
+		// 		searchBar.val('');
+		// 		console.log("Successfully sent");
+		// 		
+		// 	}
+		// });
+		var subView = new Tweheat.Views.LayerCard({
+			layer: data 
 		});
 
+		this.addSubview("#layers", subView);
 		
 	}, 
 
 	addLayer: function (layer, name, zIndex) {
+
+
 	}
 
 })

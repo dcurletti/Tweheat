@@ -42,13 +42,13 @@ Added Profile and Config file
 - [X] Updated to latest Mapbox Locate version
 - [X] Button that stops pauses a stream
 - [X] Figure out how to restart twitter worker
+- [X] Enable users to search for requests
 - [ ] Implement front end control for different tweet layers
 - [ ] Create a method that removes session token from Twitter Streamer on user logout
 
+- [X] On submit: new view is created
 
-Subscribe the twitter stream worker to a specific channel (new_user), and as a value to it, pass the user search term
-On the client, have the form send a POST request to a route, and have that route update the redis client- Tweets/search?
-Have the tweets#index publish a new_user message, and have the tweets#search publish a specific search term
+
 
 
 ## Future features
