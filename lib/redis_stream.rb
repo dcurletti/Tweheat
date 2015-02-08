@@ -13,12 +13,6 @@ module RedisStream
     @redis.publish("new_user", user_token)
   end
     
-  def self.publish_to_search_stream(search_topic, tweet)
-  	data = JSON.dump(tweet)
-
-    @redis.publish( search_topic, data )
-  end
-
   def self.sub_to_search_stream(search_topic, user_token)
     data = JSON.dump({ 
       :search_topic => search_topic,
@@ -27,12 +21,25 @@ module RedisStream
     @redis.publish( "new_search", data )
   end
 
-  def self.publish_new_search_layer(search_topic, user_token)
-    data = JSON.dump({
-      :event => "layer",
-      :search_term => search_topic
-    })
+  def self.publish_to_search_stream(user_token, tweet)
+  	data = JSON.dump(tweet)
+
     @redis.publish( user_token, data )
+  end
+
+  def self.publish_to_user_stream(event, data, user_token)
+    puts "got here"
+    json_data = JSON.dump({
+      :event => event,
+      :data => data
+    })
+    @redis.publish( user_token, json_data )
+
+    puts "Publishing:: #{data}"
+  end
+
+  def method_name
+    
   end
 
   def self.publish_remove_user(user_token)  

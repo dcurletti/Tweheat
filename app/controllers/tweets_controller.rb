@@ -21,8 +21,10 @@ class TweetsController < ApplicationController
 		@redis_sub.subscribe([ token ]) do |on|
 			on.message do |channel, msg|
 				data = JSON.parse(msg)
+				
+				puts "Stream controller received: msg:: #{msg} from:: #{channel}"
 
-				response.stream.write(tweet_event(data))
+				# response.stream.write(tweet_event(data))
 				# puts "Stream sub here: #{msg}"
 			end
 		end
@@ -75,7 +77,7 @@ class TweetsController < ApplicationController
 			# 	coordinates: tweet["coordinates"]
 		 	# }
 			 {
-				search_term: tweet["search_term"]
+				search_term: tweet["data"]
 			 }
 		end
 
