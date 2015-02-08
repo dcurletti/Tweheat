@@ -5,11 +5,12 @@ module TwitterPackage
 	end
 
 	class Tweet
-		attr_accessor :coordinates
+		attr_accessor :search_term, :coordinates
 
-		def initialize(tw_obj)
+		def initialize(tw_obj, search_term)
 			tw_hash = tw_obj.to_h
 			@tweet = {
+				:search_term => search_term, 
 				:coordinates => tw_hash[:coordinates][:coordinates]
 			}
 			@tweet.each do |name, value|

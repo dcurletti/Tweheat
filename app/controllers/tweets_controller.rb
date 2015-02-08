@@ -21,10 +21,10 @@ class TweetsController < ApplicationController
 		@redis_sub.subscribe([ token ]) do |on|
 			on.message do |channel, msg|
 				data = JSON.parse(msg)
-				
-				puts "Stream controller received: msg:: #{msg} from:: #{channel}"
 
-				# response.stream.write(tweet_event(data))
+				# puts "Stream controller received: msg:: #{msg} from:: #{channel}"
+				puts handle_msg(data)
+				# response.stream.write(handle_msg(data))
 				# puts "Stream sub here: #{msg}"
 			end
 		end
@@ -67,8 +67,8 @@ class TweetsController < ApplicationController
 
 	private
 
-		def tweet_event tweet
-			[ 'event: layer', "data: #{JSON.dump(format_tweet(tweet))}" ].join("\n") + "\n\n"
+		def handle_msg msg
+			[ "event: #{msg['event']}", "data: #{msg['data']}" ].join("\n") + "\n\n"
 		end
 
 		def format_tweet tweet

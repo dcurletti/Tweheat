@@ -28,18 +28,19 @@ class TwitterStream
 					#TEMP: improve the coordinates filter
 					if tw_obj.is_a? Twitter::Tweet and tw_obj.to_h[:coordinates] != nil
 
-						# Use custom Twitter class to strip it of unnecessary attrs
-						tweet = TwitterPackage::Tweet.new(tw_obj).coordinates
-						# RedisStream.publish_to_user_stream("tweet", tweet, user_token)
-						# # Publish to all_tweets layer
-						# @search_topics["all_tweets"].each {|x| puts "hello"}
-						@search_topics["all_tweets"].each do |user_token| 
-							RedisStream.publish_to_user_stream("tweet", tweet, user_token)
+
+						@search_topics.each do |search_term, users|
+							users.each do |user_token|
+								puts tw_obj.full_text
+								if tw_obj.full_text.match(search_term)
+									debugger
+									# Use custom Twitter class to strip it of unnecessary attrs
+									tweet = TwitterPackage::Tweet.new(tw_obj, search_term).coordinates
+									# Send the tweet to the stream controller
+									RedisStream.publish_to_user_stream("tweet", tweet, user_token)
+								end
+							end
 						end
-						# # 	# RedisStream.publish_to_user_stream("tweet", "all_tweets", user_token)
-						# # 	# RedisStream.publish_testing("tweet", "all_tweets", user_token)
-							# puts "Subscribed to all_tweets: #{user_token}"
-						# puts "Current search topics: #{@search_topics["all_tweets"].each {|x| puts x}}"
 					end
 				end
 			end
