@@ -26,7 +26,6 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 				layer: search_term, 
 				color: color
 			});
-			debugger;
 			this.addSubview("#layers", subView);
 		}.bind(this))
 	},
