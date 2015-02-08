@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   
   get 'tweets', to: 'tweets#show'
-  get 'search', to: 'tweets#search'
+  get 'tweets/search', to: 'tweets#search'
   # resources :tweets, only: [:show]
   root to: "tweets#index"
 end

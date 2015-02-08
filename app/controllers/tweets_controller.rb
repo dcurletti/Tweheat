@@ -51,9 +51,17 @@ class TweetsController < ApplicationController
 	def search
 		## How to get the search item
 		# Look up sending the form through jquery
-		RedisStream.sub_to_search_stream( "lakers" , token )
+		search_term = params[:search_term]
 		
-		render nothing: true
+		RedisStream.sub_to_search_stream( search_term , token )
+
+
+		test = { hello: "good job" }
+
+		# To allow for success callback from fetch
+		respond_to do |format|
+			format.json { render json: test }
+		end
 	end
 
 	private

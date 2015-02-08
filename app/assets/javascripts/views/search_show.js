@@ -2,7 +2,7 @@ Tweheat.Views.SearchShow = Backbone.View.extend({
 	className: 'search-show',
 
 	events: {
-		'click #new-search' : 'search',
+		'submit form': 'search',
 		'click #pause': 'toggleSSEListener'
 	},
 
@@ -74,7 +74,23 @@ Tweheat.Views.SearchShow = Backbone.View.extend({
 
 	search: function (event) {
 		event.preventDefault();
-		console.log(event.currentTarget);
+		var searchBar = $('#search-item');
+		var searchTerm = searchBar.val();
+
+		console.log("Attempting submit..")
+
+		$.ajax({
+			url: '/tweets/search',
+			dataType: "json",
+			data: { search_term: searchTerm },
+			method: "GET",
+			success: function () {
+				searchBar.val('');
+				console.log("Successfully sent");
+				$("#search-bar").append("<div style='background-color:white'><p>" + searchTerm + "<p></div>")
+			}
+		});
+
 		
 	}, 
 

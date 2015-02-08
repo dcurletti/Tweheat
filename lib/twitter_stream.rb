@@ -10,7 +10,6 @@ class TwitterStream
 
 		def restart_stream
 			puts "\n\nRestarting Twitter Stream"
-
 			# Kills stream if there is one already
 			@stream_thread.kill if @stream_thread
 
@@ -23,7 +22,6 @@ class TwitterStream
 				end
 
 				filter_bounds = "-125.7042450905,24.5322774415,-66.62109375,49.5537255135"
-
 				@tw_stream_client.filter(locations: filter_bounds) do |tw_obj|
 					if tw_obj.is_a? Twitter::Tweet and tw_obj.to_h[:coordinates] != nil
 
@@ -40,6 +38,8 @@ class TwitterStream
 		def new
 			puts "\n\nCreating Twitter Stream Worker"
 
+			# TEMP: Hacky- This should probably be sent to DB or Redis
+			# Used to keep track of whom is connected and search terms
 			@search_topics = Hash.new {|hash,key| hash[key] = []}
 			@search_topics["all_tweets"] = []
 
@@ -48,18 +48,15 @@ class TwitterStream
 			@redis_thread = Thread.new do
 				puts "\n\nOpened a thread inside of new"
 
-
 				@redis_sub = RedisStream.new_redis_client
 				@redis_sub.subscribe( ["new_search", "new_user"] ) do |on|
 					on.message do |channel, msg|
 
 						handle_new_user(msg) if channel == "new_user"
-
-						puts handle_new_search(msg) if channel == "new_search"
+						handle_new_search(msg) if channel == "new_search"
 
 						puts "\n\nReceived message:: #{msg} from channel:: #{channel}"
-						puts "\n\nCurrently tracking all_topics: #{@search_topics}"
-
+						puts "\n\nCurrently tracking: #{@search_topics}"
 					end
 				end
 			end	
@@ -75,14 +72,19 @@ class TwitterStream
 
 			def handle_new_user(user_token)
 				@search_topics["all_tweets"] << user_token
+
 			end
 
 			def handle_new_search(msg)
 				data = JSON.parse(msg)
+				search_topic = data["search_topic"]
+				user_token = data["user_token"]
+				
+				unless @search_topics[search_topic].include?(user_token)	
+					@search_topics[search_topic] << user_token
+				end
 
-				@search_topics[data["search_topic"]] << data["user_token"]
-
-				# restart_stream
+				restart_stream
 			end
 
 
