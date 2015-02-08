@@ -71,14 +71,4 @@ class TweetsController < ApplicationController
 			[ "event: #{msg['event']}", "data: #{msg['data']}" ].join("\n") + "\n\n"
 		end
 
-		def format_tweet tweet
-			# { 
-			# 	username: tweet["user_name"],
-			# 	coordinates: tweet["coordinates"]
-		 	# }
-			 {
-				search_term: tweet["data"]
-			 }
-		end
-
 end

@@ -14,6 +14,7 @@ class TwitterStream
 			# Kills stream if there is one already
 			@stream_thread.kill if @stream_thread
 
+			counter = 0
 			# Open new stream
 			@stream_thread = Thread.new do
 				begin
@@ -26,16 +27,14 @@ class TwitterStream
 
 				@tw_stream_client.filter(locations: filter_bounds) do |tw_obj|
 					#TEMP: improve the coordinates filter
-					if tw_obj.is_a? Twitter::Tweet and tw_obj.to_h[:coordinates] != nil
-
-
+					if tw_obj.is_a? Twitter::Tweet and ( tw_obj.to_h[:coordinates] != nil or tw_obj.to_h[:place] )
+						puts "Filtering tweets..." if counter % 100 == 0
+						counter += 1
 						@search_topics.each do |search_term, users|
 							users.each do |user_token|
-								puts tw_obj.full_text
-								if tw_obj.full_text.match(search_term)
-									debugger
+								if tw_obj.full_text.downcase.match(search_term)
 									# Use custom Twitter class to strip it of unnecessary attrs
-									tweet = TwitterPackage::Tweet.new(tw_obj, search_term).coordinates
+									tweet = TwitterPackage::Tweet.new(tw_obj, search_term).to_hash
 									# Send the tweet to the stream controller
 									RedisStream.publish_to_user_stream("tweet", tweet, user_token)
 								end
