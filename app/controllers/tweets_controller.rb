@@ -17,27 +17,25 @@ class TweetsController < ApplicationController
 
 		puts "\n\nConnecting user #{token} to twitter stream..."
 
-		# A user's token is what defines what search terms the server will push
-		# to his/her stream
-		sub_key = token
-
-		# Subscribing to user's stream  
-		@redis_sub.subscribe([ sub_key ]) do |on|
+		# Subscribing to user's stream by session token
+		@redis_sub.subscribe([ token ]) do |on|
 			on.message do |channel, msg|
 				data = JSON.parse(msg)
 
 				response.stream.write(tweet_event(data))
-				puts "Stream sub here: #{msg}"
+				# puts "Stream sub here: #{msg}"
 			end
 		end
 
+	rescue IOError
+		"\n\nIOError in controller"
 	rescue ClientDisconnected
 		puts "\n\nClient has disconnected\n\n"
 	ensure
 		puts "\n\nClosing stream and Redis Sub\n\n"
 		@redis_sub.quit
+		RedisStream.publish_remove_user(token)
 		response.stream.close
-		# Method here for removing the user's session token from the twitter streamer
 	end
 
 	def search

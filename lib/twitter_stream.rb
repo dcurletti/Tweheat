@@ -1,6 +1,7 @@
 require 'twitter_package'
 require 'redis_stream'
 require 'json'
+require 'set'
 
 class TwitterStream
 	class << self
@@ -38,10 +39,10 @@ class TwitterStream
 		def new
 			puts "\n\nCreating Twitter Stream Worker"
 
-			# TEMP: Hacky- This should probably be sent to DB or Redis
+			# TEMP: Hacky- These subscription values should be saved to Redis
 			# Used to keep track of whom is connected and search terms
-			@search_topics = Hash.new {|hash,key| hash[key] = []}
-			@search_topics["all_tweets"] = []
+			@search_topics = Hash.new { |hash,key| hash[key] = Set.new }
+			@search_topics["all_tweets"] = Set.new
 
 			restart_stream
 
@@ -49,11 +50,22 @@ class TwitterStream
 				puts "\n\nOpened a thread inside of new"
 
 				@redis_sub = RedisStream.new_redis_client
-				@redis_sub.subscribe( ["new_search", "new_user"] ) do |on|
+				subs = ["new_search", "new_user", "remove_search", "remove_user"]
+
+				@redis_sub.subscribe( subs ) do |on|
 					on.message do |channel, msg|
 
-						handle_new_user(msg) if channel == "new_user"
-						handle_new_search(msg) if channel == "new_search"
+						case channel
+						when "new_user"
+							handle_new_user(msg) 
+						when "new_search"
+							handle_new_search(msg)  
+						when "remove_user"
+							# handle_remove_user(msg)
+							puts "\n\nTwitter Stream: Should remove user"
+						when "remove_search"
+							handle_remove_search
+						end
 
 						puts "\n\nReceived message:: #{msg} from channel:: #{channel}"
 						puts "\n\nCurrently tracking: #{@search_topics}"
@@ -80,12 +92,21 @@ class TwitterStream
 				search_topic = data["search_topic"]
 				user_token = data["user_token"]
 				
-				unless @search_topics[search_topic].include?(user_token)	
-					@search_topics[search_topic] << user_token
-				end
+				@search_topics[search_topic] << user_token
 
 				RedisStream.publish_new_search_layer(search_topic, user_token)
 				puts "published new layer stream"
+
+				# TEMP: Shouldn't restart stream if search_topic already exists
+				restart_stream
+			end
+
+			def handle_remove_user(msg)
+				@search_topics.values.each do |set|
+					puts set
+					set.delete(msg)
+				end
+
 				restart_stream
 			end
 

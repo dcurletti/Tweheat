@@ -35,9 +35,9 @@ module RedisStream
     @redis.publish( user_token, data )
   end
 
-  # def self.remove_search_stream id
-  #   @redis.zrem( USER_LIST_KEY, id)
-  # end
+  def self.publish_remove_user(user_token)  
+    @redis.publish( "remove_user", user_token )
+  end
 
 end
 
