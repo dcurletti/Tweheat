@@ -33,8 +33,6 @@ module RedisStream
       :data => data
     })
     @redis.publish( user_token, json_data )
-
-    puts "Publishing:: #{data}"
   end
 
   def method_name

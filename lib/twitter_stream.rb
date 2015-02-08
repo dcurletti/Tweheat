@@ -24,18 +24,37 @@ class TwitterStream
 				end
 
 				filter_bounds = "-125.7042450905,24.5322774415,-66.62109375,49.5537255135"
-
-				@tw_stream_client.filter(locations: filter_bounds) do |tw_obj|
+				search_topics = @search_topics.except("all_tweets").keys
+				search_topic_list = search_topics.join(", ")
+				@tw_stream_client.filter( track: search_topic_list, locations: filter_bounds ) do |tw_obj|
 					#TEMP: improve the coordinates filter
 					if tw_obj.is_a? Twitter::Tweet and ( tw_obj.to_h[:coordinates] != nil or tw_obj.to_h[:place] )
+
+
+						# if tw_obj.to_h[:coordinates] != nil or tw_obj.to_h[:place]
+						# 	if tw_obj.full_text.downcase.match("deansmith")
+						# 		puts "JACKPOT"
+						# 	else
+						# 		print "c"
+						# 	end
+						# else
+						# 	print "."
+						# end
+
+
 						puts "Filtering tweets..." if counter % 100 == 0
 						counter += 1
-						@search_topics.each do |search_term, users|
-							users.each do |user_token|
-								if tw_obj.full_text.downcase.match(search_term)
-									# Use custom Twitter class to strip it of unnecessary attrs
-									tweet = TwitterPackage::Tweet.new(tw_obj, search_term).to_hash
-									# Send the tweet to the stream controller
+						search_topics.each do |search_term|
+							if tw_obj.full_text.downcase.match(search_term)
+								tweet = TwitterPackage::Tweet.new(tw_obj, search_term).to_hash
+
+								@search_topics[search_term].each do |user_token|
+									RedisStream.publish_to_user_stream("tweet", tweet, user_token)
+								end
+
+							else
+								@search_topics["all_tweets"].each do |user_token|
+									tweet = TwitterPackage::Tweet.new(tw_obj, 'All Tweets').to_hash
 									RedisStream.publish_to_user_stream("tweet", tweet, user_token)
 								end
 							end
@@ -123,3 +142,19 @@ class TwitterStream
 
 	end
 end
+
+
+# if tw_obj.is_a? Twitter::Tweet and ( tw_obj.to_h[:coordinates] != nil or tw_obj.to_h[:place] )
+# 						puts "Filtering tweets..." if counter % 100 == 0
+# 						counter += 1
+# 						@search_topics.each do |search_term, users|
+# 							users.each do |user_token|
+# 								if tw_obj.full_text.downcase.match(search_term)
+# 									# Use custom Twitter class to strip it of unnecessary attrs
+# 									tweet = TwitterPackage::Tweet.new(tw_obj, search_term).to_hash
+# 									# Send the tweet to the stream controller
+# 									RedisStream.publish_to_user_stream("tweet", tweet, user_token)
+# 								end
+# 							end
+# 						end
+# 					end
