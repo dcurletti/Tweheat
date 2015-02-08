@@ -41,9 +41,9 @@ Added Profile and Config file
 - [X] Switched to using Mapbox CDN
 - [X] Updated to latest Mapbox Locate version
 - [X] Button that stops pauses a stream
-- [ ] Figure out how to restart twitter worker
+- [X] Figure out how to restart twitter worker
 - [ ] Implement front end control for different tweet layers
-- [ ] Look into pinching and zooming animations on mobile devices for refresh
+- [ ] Create a method that removes session token from Twitter Streamer on user logout
 
 
 Subscribe the twitter stream worker to a specific channel (new_user), and as a value to it, pass the user search term
@@ -62,6 +62,7 @@ Have the tweets#index publish a new_user message, and have the tweets#search pub
 ## Would Be Nice
 - [ ] Figure out how to run a rake process for API Trends call
 - [ ] Set MaxView on map
+- [ ] Saving the current session token into a cookie
 
 ###Issues-
 - [ ] Look into removing TMP folder in gitIgnore
@@ -70,6 +71,7 @@ Have the tweets#index publish a new_user message, and have the tweets#search pub
 - [ ] Look into the continous Socket requests from the client when the server goes down
 - [ ] Look into growing size of repo
 - [ ] Removed redis ping, might be a problem in the long run
+- [ ] Look into pinching and zooming animations on mobile devices for refresh
 
 ###Fixed-
 - [X] Getting heroku to allow websockets

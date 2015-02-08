@@ -8,11 +8,23 @@ module RedisStream
   def self.new_redis_client
   	Redis.new(:url => @uri)
   end
+
+  def self.publish_new_user(user_token)
+    @redis.publish("new_user", user_token)
+  end
     
   def self.publish_to_search_stream(search_topic, tweet)
   	data = JSON.dump(tweet)
 
     @redis.publish( search_topic, data )
+  end
+
+  def self.sub_to_search_stream(search_topic, user_token)
+    data = JSON.dump({ 
+      :search_topic => search_topic,
+      :user_token => user_token
+    })
+    @redis.publish( "new_search", data )
   end
 
   def self.remove_search_stream id

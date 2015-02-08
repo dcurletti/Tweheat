@@ -3,8 +3,7 @@ require "twitter_package"
 class TweetsController < ApplicationController
 
 	before_filter :require_session_token!
-	# Used in place of WebSockets- Opens a continuous HTTP connection 
-	# with the client
+	# Websocket connection with client
 	include ActionController::Live
 
 	def index
@@ -16,11 +15,8 @@ class TweetsController < ApplicationController
 		
 		response.headers['Content-Type'] = 'text/event-stream'
 
-		puts "\n\nInitializing Tweet stream---"
-
 		@redis_sub = RedisStream.new_redis_client
-
-		puts "Connecting user #{session[:session_token]} to his account..."
+		puts "\n\nConnecting user #{token} to his account..."
 
 		sub_key = "all_tweets"
 
@@ -38,6 +34,7 @@ class TweetsController < ApplicationController
 		puts "\n\nClosing stream and Redis Sub\n\n"
 		@redis_sub.quit
 		response.stream.close
+		# Method here for removing the user's session token from the twitter streamer
 	end
 
 
@@ -52,11 +49,11 @@ class TweetsController < ApplicationController
 	end
 
 	def search
-		@redis_pub = RedisStream.new_redis_client
-		@redis_pub.publish( "new_search", "testing")
-		puts "End of search"
+		## How to get the search item
+		# Look up sending the form through jquery
+		RedisStream.sub_to_search_stream( "lakers" , token )
+		
 		render nothing: true
-
 	end
 
 	private

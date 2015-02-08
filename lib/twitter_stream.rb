@@ -1,11 +1,11 @@
 require 'twitter_package'
 require 'redis_stream'
+require 'json'
 
 class TwitterStream
 	class << self
 		def initialize (config = {})
 			puts "\n\nTwitter Stream initialized"
-			@search_topics = []
 		end
 
 		def restart_stream
@@ -16,7 +16,6 @@ class TwitterStream
 
 			# Open new stream
 			@stream_thread = Thread.new do
-				
 				begin
 					@tw_stream_client = TwitterPackage.new_streaming_client
 				rescue
@@ -31,8 +30,6 @@ class TwitterStream
 						# Use custom Twitter class to strip it of unnecessary attrs
 						tweet = TwitterPackage::Tweet.new(tw_obj).to_hash
 
-						# @search_topics.
-
 						# puts tweet.to_hash
 						RedisStream.publish_to_search_stream( "all_tweets", tweet)
 					end
@@ -43,17 +40,26 @@ class TwitterStream
 		def new
 			puts "\n\nCreating Twitter Stream Worker"
 
+			@search_topics = Hash.new {|hash,key| hash[key] = []}
+			@search_topics["all_tweets"] = []
+
 			restart_stream
 
 			@redis_thread = Thread.new do
-				puts "\n\nOpened a test user thread inside of new"
+				puts "\n\nOpened a thread inside of new"
 
 
 				@redis_sub = RedisStream.new_redis_client
-				@redis_sub.subscribe( ["new_search"] ) do |on|
+				@redis_sub.subscribe( ["new_search", "new_user"] ) do |on|
 					on.message do |channel, msg|
+
+						handle_new_user(msg) if channel == "new_user"
+
+						puts handle_new_search(msg) if channel == "new_search"
+
 						puts "\n\nReceived message:: #{msg} from channel:: #{channel}"
-						@search
+						puts "\n\nCurrently tracking all_topics: #{@search_topics}"
+
 					end
 				end
 			end	
@@ -61,9 +67,24 @@ class TwitterStream
 
 		def close
 			@redis_thread.kill if @redis_thread
-			@stream_thread if @stream_thread
+			@stream_thread.kill if @stream_thread
 			puts "\n\nKilling TwitterStream"
 		end
+
+		private
+
+			def handle_new_user(user_token)
+				@search_topics["all_tweets"] << user_token
+			end
+
+			def handle_new_search(msg)
+				data = JSON.parse(msg)
+
+				@search_topics[data["search_topic"]] << data["user_token"]
+
+				# restart_stream
+			end
+
 
 	end
 end
