@@ -12,19 +12,22 @@ class TweetsController < ApplicationController
 	end
 
 	def stream
-		
 		response.headers['Content-Type'] = 'text/event-stream'
-
 		@redis_sub = RedisStream.new_redis_client
-		puts "\n\nConnecting user #{token} to his account..."
 
-		sub_key = "all_tweets"
+		puts "\n\nConnecting user #{token} to twitter stream..."
 
-		# Subscribing to TwitterStream from StreamWorker
+		# A user's token is what defines what search terms the server will push
+		# to his/her stream
+		sub_key = token
+
+		# Subscribing to user's stream  
 		@redis_sub.subscribe([ sub_key ]) do |on|
 			on.message do |channel, msg|
-				tweet = JSON.parse(msg)
-				response.stream.write(tweet_event(tweet))
+				data = JSON.parse(msg)
+
+				response.stream.write(tweet_event(data))
+				puts "Stream sub here: #{msg}"
 			end
 		end
 
@@ -37,6 +40,20 @@ class TweetsController < ApplicationController
 		# Method here for removing the user's session token from the twitter streamer
 	end
 
+	def search
+		## How to get the search item
+		# Look up sending the form through jquery
+		search_term = params[:search_term]
+		
+		RedisStream.sub_to_search_stream( search_term, token )
+
+		test = { hello: "good job" }
+
+		# To allow for success callback from fetch
+		respond_to do |format|
+			format.json { render json: test }
+		end
+	end
 
 	def show
 		tw_client = TwitterPackage.new_rest_client
@@ -48,32 +65,19 @@ class TweetsController < ApplicationController
 		render json: places.to_h
 	end
 
-	def search
-		## How to get the search item
-		# Look up sending the form through jquery
-		search_term = params[:search_term]
-		
-		RedisStream.sub_to_search_stream( search_term , token )
-
-
-		test = { hello: "good job" }
-
-		# To allow for success callback from fetch
-		respond_to do |format|
-			format.json { render json: test }
-		end
-	end
-
 	private
 
 		def tweet_event tweet
-			[ 'event: tweet', "data: #{JSON.dump(format_tweet(tweet))}" ].join("\n") + "\n\n"
+			[ 'event: layer', "data: #{JSON.dump(format_tweet(tweet))}" ].join("\n") + "\n\n"
 		end
 
 		def format_tweet tweet
-			{ 
-				username: tweet["user_name"],
-				coordinates: tweet["coordinates"]
+			# { 
+			# 	username: tweet["user_name"],
+			# 	coordinates: tweet["coordinates"]
+		 	# }
+			 {
+				search_term: tweet["search_term"]
 			 }
 		end
 

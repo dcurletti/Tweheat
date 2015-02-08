@@ -5,12 +5,11 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	template: JST['layer_card'],
 
 	initialize: function  (options) {
-		debugger;
-		this.searchTerm = options.layer.search_term;
+		this.layer = options.layer;
 	}, 
 
 	render: function(){
-		var renContent = this.template({ searchTerm: this.searchTerm });
+		var renContent = this.template({ layer: this.layer });
 		this.$el.html(renContent);
 		return this;
 	}

@@ -84,6 +84,8 @@ class TwitterStream
 					@search_topics[search_topic] << user_token
 				end
 
+				RedisStream.publish_new_search_layer(search_topic, user_token)
+				puts "published new layer stream"
 				restart_stream
 			end
 

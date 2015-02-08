@@ -27,10 +27,30 @@ module RedisStream
     @redis.publish( "new_search", data )
   end
 
-  def self.remove_search_stream id
-    @redis.zrem( USER_LIST_KEY, id)
+  def self.publish_new_search_layer(search_topic, user_token)
+    data = JSON.dump({
+      :event => "layer",
+      :search_term => search_topic
+    })
+    @redis.publish( user_token, data )
   end
+
+  # def self.remove_search_stream id
+  #   @redis.zrem( USER_LIST_KEY, id)
+  # end
 
 end
 
+# {
+#   event: "tweet",
+#   data: {
+#     coordinates: []
+#   }
+# }
 
+# {
+#   event: "layer",
+#   data: {
+#     search_term: ""
+#   }
+# }

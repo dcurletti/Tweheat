@@ -11,13 +11,24 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 	initialize: function () {
 		this.counter = 0;
 		this.paused = true;
-
+		this.currentColors = [];
 		// Used to contain tweets when the map is being dragged
 		this.tweetQueue = [];
 
 		this.tweetHandlerVar = this.tweetHandler.bind(this);
 
 		this.toggleSSEListener();
+
+		Tweheat.twitterStream.addEventListener('layer', function (event) {
+			var search_term = $.parseJSON(event.data).search_term
+			var color = this.randomColor();
+			var subView = new Tweheat.Views.LayerCard({
+				layer: search_term, 
+				color: color
+			});
+			debugger;
+			this.addSubview("#layers", subView);
+		}.bind(this))
 	},
 
 	toggleSSEListener: function (event) {
@@ -80,28 +91,25 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 
 		console.log("Attempting submit..")
 
-		// $.ajax({
-		// 	url: '/tweets/search',
-		// 	dataType: "json",
-		// 	data: data,
-		// 	method: "GET",
-		// 	success: function () {
-		// 		searchBar.val('');
-		// 		console.log("Successfully sent");
-		// 		
-		// 	}
-		// });
-		var subView = new Tweheat.Views.LayerCard({
-			layer: data 
+		$.ajax({
+			url: '/tweets/search',
+			dataType: "json",
+			data: data,
+			method: "GET",
+			success: function () {
+				searchBar.val('');
+				console.log("Successfully sent");
+			}
 		});
-
-		this.addSubview("#layers", subView);
-		
 	}, 
 
 	addLayer: function (layer, name, zIndex) {
 
 
+	}, 
+
+	randomColor: function () {
+  	return Math.floor(Math.random()*16777215).toString(16);
 	}
 
 })

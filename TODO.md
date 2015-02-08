@@ -47,7 +47,8 @@ Added Profile and Config file
 - [ ] Create a method that removes session token from Twitter Streamer on user logout
 
 - [X] On submit: new view is created
-
+- [ ] Create back end filter
+- [ ] Create front end filter
 
 
 
