@@ -8,11 +8,11 @@ class TweetsController < ApplicationController
 
 	def index
 		# Gives connected user a session token for redis pub/sub
-		check_in
 		# puts "WELCOME #{token}"
 	end
 
 	def stream
+		check_in
 		response.headers['Content-Type'] = 'text/event-stream'
 		@redis_sub = RedisStream.new_redis_client
 
