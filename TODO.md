@@ -47,11 +47,12 @@ Added Profile and Config file
 
 ## Day 6-
 - [X] Backend filtering/searching complete
-- [ ] Implement front end control for different tweet layers
+- [X] Implement front end control for different tweet layers
 - [ ] Create a method that removes session token from Twitter Streamer on user logout
+- [ ] Create different layers based on searches
+- [ ] Refactor Twitter Streamer
 
 ## Future features
-- [ ] The addition of the points is not on map drag, its on map "stop moving", if you do an inertia swipe, it freaks out still
 - [ ] Make an animation when searching for current location
 - [ ] Look into heroku scheduler
 - [ ] Have search button be an icon
@@ -61,16 +62,16 @@ Added Profile and Config file
 ## Would Be Nice
 - [ ] Figure out how to run a rake process for API Trends call
 - [ ] Set MaxView on map
-- [ ] Saving the current session token into a cookie
+- [ ] Save sessions for half an hour
 
 ###Issues-
 - [ ] Look into removing TMP folder in gitIgnore
-- [ ] Make sure to close the Twitter Stream when noone is connected to the website
-- [ ] Fix scrolling of the layers on map redraw- Problem is being caused either by the constantly updating layer or general performance issues by the client processing the tweet
 - [ ] Look into the continous Socket requests from the client when the server goes down
 - [ ] Look into growing size of repo
 - [ ] Removed redis ping, might be a problem in the long run
 - [ ] Look into pinching and zooming animations on mobile devices for refresh
+- [ ] Make sure to close the Twitter Stream when noone is connected to the website- This might not actually be an issue
+- [ ] Look into client data count when connected to site
 
 ###Fixed-
 - [X] Getting heroku to allow websockets
@@ -78,3 +79,4 @@ Added Profile and Config file
 - [X] Still being asked for SSH keys in terminal
 - [X] Rescue ActionController::Live DisconnectedClient error
 - [X] Saving the Mapbox JS files locally is causing icon loading issues (its trying to fetch them from the server, but its doing a local request)
+- [X] Fix map redraw
