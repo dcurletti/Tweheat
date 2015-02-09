@@ -78,10 +78,10 @@ class TwitterStream
 						when "new_search"
 							handle_new_search(msg)  
 						when "remove_user"
-							# handle_remove_user(msg)
+							handle_remove_user(msg)
 							puts "\n\nTwitter Stream: Should remove user"
 						when "remove_search"
-							handle_remove_search
+							# handle_remove_search
 						end
 
 						puts "\n\nTwitter worked received: message:: #{msg} from channel:: #{channel}"
@@ -106,27 +106,32 @@ class TwitterStream
 			def handle_new_search(msg)
 				msg = JSON.parse(msg)
 				search_term = msg["search_topic"]
-				
 				data = { 
 					search_term: search_term
 				}
 				user_token = msg["user_token"]
 				
 				RedisStream.publish_to_user_stream("layer", data, user_token)
-				# TEMP: Shouldn't restart stream if search_topic already exists
-				restart_stream unless @search_topics.key?(search_term)
 
+				restart_stream unless @search_topics.key?(search_term)
 				@search_topics[search_term] << user_token
+				delete_empty_searches
 			end
 
-			def handle_remove_user(msg)
-				debugger
-				@search_topics.values.each do |set|
-					# puts set
-					set.delete(msg)
+			def handle_remove_user(user_token)
+				@search_topics.each do |search_term, users|
+					users.delete(user_token)
+					# Remove search term if no users are subbed to it
+					@search_topics.delete(search_term) if users.empty? && search_term != "all_tweets"
 				end
 				# restart_stream
-				debugger
+				"\n\nRemoved user #{user_token}"
+			end
+
+			def delete_empty_searches
+				@search_topics.each do |search_term, users|
+					@search_topics.delete(search_term) if users.empty? && search_term != "all_tweets"
+				end
 			end
 	end
 end

@@ -48,9 +48,12 @@ Added Profile and Config file
 ## Day 6-
 - [X] Backend filtering/searching complete
 - [X] Implement front end control for different tweet layers
-- [ ] Create a method that removes session token from Twitter Streamer on user logout
-- [ ] Create different layers based on searches
-- [ ] Refactor Twitter Streamer
+- [X] Create different layers based on searches
+- [X] Create a method that removes session token from Twitter Streamer on user logout
+- [ ] Clear empty Search term sets on new_search
+
+## Day 7-
+- [ ] Subview destroy (should remove listeners as well)
 
 ## Future features
 - [ ] Make an animation when searching for current location
@@ -58,6 +61,7 @@ Added Profile and Config file
 - [ ] Have search button be an icon
 - [ ] Look into changing the default controls
 - [ ] Ask for sites that show how to create jquery animations
+- [ ] Refactor Twitter Streamer
 
 ## Would Be Nice
 - [ ] Figure out how to run a rake process for API Trends call

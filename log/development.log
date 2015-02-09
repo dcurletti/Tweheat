@@ -44125,3 +44125,187 @@ Started GET "/" for ::1 at 2015-02-08 21:31:25 -0800
 Processing by TweetsController#index as HTML
   Rendered tweets/index.html.erb within layouts/application (0.9ms)
 Completed 200 OK in 469ms (Views: 454.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 21:36:15 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 555ms (Views: 539.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 21:38:44 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 480ms (Views: 465.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 21:40:13 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 513ms (Views: 498.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 21:43:09 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 504ms (Views: 490.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 21:43:54 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 542ms (Views: 526.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:00:16 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 734ms (Views: 717.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:00:56 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 536ms (Views: 519.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:02:25 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 463ms (Views: 444.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:03:36 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 613ms (Views: 595.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:04:09 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 529ms (Views: 513.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:05:14 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 489ms (Views: 474.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:07:40 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 781ms (Views: 762.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:08:36 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 500ms (Views: 484.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:09:12 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 447ms (Views: 429.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:11:00 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 425ms (Views: 410.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-08 22:12:33 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/" for ::1 at 2015-02-08 22:12:38 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.2ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:12:39 -0800
+Completed 200 OK in 708ms (Views: 696.4ms | ActiveRecord: 0.0ms)
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 293ms (Views: 291.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:14:37 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 493ms (Views: 473.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:16:13 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 468ms (Views: 454.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:17:06 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 542ms (Views: 526.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:19:16 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 435ms (Views: 418.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:20:24 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.8ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:20:25 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 391ms (Views: 388.0ms | ActiveRecord: 0.0ms)
+Completed 200 OK in 1131ms (Views: 1115.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:22:29 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 596ms (Views: 570.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:26:27 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 572ms (Views: 556.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:30:27 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 550ms (Views: 529.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:38:16 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 570ms (Views: 554.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:46:57 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 887ms (Views: 870.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:46:58 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 309ms (Views: 306.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 22:48:18 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 836ms (Views: 814.7ms | ActiveRecord: 0.0ms)
