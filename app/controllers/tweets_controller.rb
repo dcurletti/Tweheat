@@ -9,6 +9,7 @@ class TweetsController < ApplicationController
 	def index
 		# Gives connected user a session token for redis pub/sub
 		check_in
+		# puts "WELCOME #{token}"
 	end
 
 	def stream
@@ -22,8 +23,13 @@ class TweetsController < ApplicationController
 			on.message do |channel, msg|
 				data = JSON.parse(msg)
 
-				puts handle_msg(data) unless data['data']['search_term'] == "All Tweets"
-				response.stream.write(handle_msg(data))
+				if data['event'] == "layer"
+					message = handle_new_layer(data)
+				else
+					message = handle_tweet(data)
+				end
+				
+				response.stream.write(message)
 			end
 		end
 
@@ -65,8 +71,18 @@ class TweetsController < ApplicationController
 
 	private
 
-		def handle_msg msg
-			[ "event: #{msg['event']}", "data: #{JSON.dump(msg['data'])}" ].join("\n") + "\n\n"
+		def handle_tweet msg
+			event = msg['data']['search_term']
+			data = JSON.dump(msg['data'])
+			compile_SSE(event, data)
+		end
+
+		def handle_new_layer msg
+			compile_SSE("layer", msg["data"])
+		end
+
+		def compile_SSE event, data
+			[ "event: #{event}", "data: #{data}" ].join("\n") + "\n\n"
 		end
 
 end

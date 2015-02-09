@@ -56,6 +56,7 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 
 	handleTweet: function (tweet) {
 		//TEMP: factor into handle tweet
+		debugger;
     var coordinates = tweet.coordinates;
     var latlng = L.latLng(coordinates[1], coordinates[0])
     // console.log(latlng);
