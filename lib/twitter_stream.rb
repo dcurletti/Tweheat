@@ -75,16 +75,16 @@ class TwitterStream
 				@redis_sub.subscribe( subs ) do |on|
 					on.message do |channel, msg|
 
-						case channel
-						when "new_user"
-							handle_new_user(msg) 
-						when "new_search"
-							handle_new_search(msg)  
-						when "remove_user"
-							handle_remove_user(msg)
-						when "remove_search"
-							# handle_remove_search
-						end
+						# case channel
+						# when "new_user"
+						# 	handle_new_user(msg) 
+						# when "new_search"
+						# 	handle_new_search(msg)  
+						# when "remove_user"
+						# 	handle_remove_user(msg)
+						# when "remove_search"
+						# 	# handle_remove_search
+						# end
 
 						puts "\n\nTwitter worked received: message:: #{msg} from channel:: #{channel}"
 						puts "\n\nCurrently tracking: #{@search_topics}"

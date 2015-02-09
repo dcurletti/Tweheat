@@ -1,0 +1,149 @@
+NastyMac:Tweheat Nasty1$ heroku rollback v22
+Rolling back tweheat... done, v22
+ !    Warning: rollback affects code and config vars; it doesn't add or remove addons. To undo, run: heroku rollback v32
+NastyMac:Tweheat Nasty1$ heroku logs
+2015-02-09T17:05:19.366836+00:00 heroku[api]: Release v33 created by curlettid@gmail.com
+2015-02-09T17:05:19.366836+00:00 heroku[api]: Rollback to v22 by curlettid@gmail.com
+2015-02-09T17:05:20.527694+00:00 heroku[web.1]: State changed from up to starting
+2015-02-09T17:05:22.480548+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2015-02-09T17:05:22.952588+00:00 app[web.1]: [3] - Gracefully shutting down workers...
+2015-02-09T17:05:22.954299+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:22 +0000 web.1 (19)] INFO : Starting Agent shutdown
+2015-02-09T17:05:26.083319+00:00 heroku[web.1]: Starting process with command `bundle exec puma -C config/puma.rb`
+2015-02-09T17:05:30.638400+00:00 app[web.1]: [3] * Process workers: 2
+2015-02-09T17:05:30.638420+00:00 app[web.1]: [3] * Preloading application
+2015-02-09T17:05:30.638391+00:00 app[web.1]: [3] * Min threads: 5, max threads: 5
+2015-02-09T17:05:30.638396+00:00 app[web.1]: [3] * Environment: production
+2015-02-09T17:05:30.638225+00:00 app[web.1]: [3] Puma starting in cluster mode...
+2015-02-09T17:05:30.638246+00:00 app[web.1]: [3] * Version 2.11.0 (ruby 2.0.0-p598), codename: Intrepid Squirrel
+2015-02-09T17:05:31.987434+00:00 heroku[web.1]: Error R12 (Exit timeout) -> At least one process failed to exit within 10 seconds of SIGTERM
+2015-02-09T17:05:31.987434+00:00 heroku[web.1]: Stopping remaining processes with SIGKILL
+2015-02-09T17:05:32.888743+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:32 +0000 web.1 (3)] INFO : Starting the New Relic agent in "production" environment.
+2015-02-09T17:05:32.927904+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:32 +0000 web.1 (3)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "production" section of your newrelic.yml.
+2015-02-09T17:05:32.927948+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:32 +0000 web.1 (3)] WARN : No configuration file found. Working directory = /app
+2015-02-09T17:05:32.928043+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:32 +0000 web.1 (3)] WARN : Looked in these locations (based on defaults): /app/config/newrelic.yml, /app/newrelic.yml, /app/config/newrelic.yml, /app/newrelic.yml, /app/.newrelic/newrelic.yml, /app/newrelic.yml
+2015-02-09T17:05:32.931820+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:32 +0000 web.1 (3)] INFO : Environment: production
+2015-02-09T17:05:32.931870+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:32 +0000 web.1 (3)] INFO : Application: production
+2015-02-09T17:05:32.931826+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:32 +0000 web.1 (3)] INFO : Dispatcher: puma
+2015-02-09T17:05:33.118680+00:00 heroku[web.1]: Process exited with status 137
+2015-02-09T17:05:33.558693+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:33 +0000 web.1 (3)] INFO : Installing Rack::Builder middleware instrumentation
+2015-02-09T17:05:33.554741+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:33 +0000 web.1 (3)] INFO : Installing ActiveRecord 4 instrumentation
+2015-02-09T17:05:33.511472+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:33 +0000 web.1 (3)] INFO : Installing Net instrumentation
+2015-02-09T17:05:33.559218+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:33 +0000 web.1 (3)] INFO : Installing Rails 4 Controller instrumentation
+2015-02-09T17:05:33.509239+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:33 +0000 web.1 (3)] INFO : Installing Rails 3+ middleware instrumentation
+2015-02-09T17:05:33.520720+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:33 +0000 web.1 (3)] INFO : Installing ActiveJob instrumentation
+2015-02-09T17:05:33.558365+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:33 +0000 web.1 (3)] INFO : Installing deferred Rack instrumentation
+2015-02-09T17:05:34.094496+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:34 +0000 web.1 (3)] INFO : Finished instrumentation
+2015-02-09T17:05:34.094444+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:34 +0000 web.1 (3)] INFO : Installing Rails 4 view instrumentation
+2015-02-09T17:05:33.857005+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:33 +0000 web.1 (3)] INFO : Reporting to: https://rpm.newrelic.com/accounts/889252/applications/7655921
+2015-02-09T17:05:34.114597+00:00 app[web.1]:
+2015-02-09T17:05:34.118065+00:00 app[web.1]: A new worker has been created
+2015-02-09T17:05:34.109424+00:00 app[web.1]:
+2015-02-09T17:05:34.109432+00:00 app[web.1]:
+2015-02-09T17:05:34.109433+00:00 app[web.1]:
+2015-02-09T17:05:34.109435+00:00 app[web.1]: Restarting Twitter Stream
+2015-02-09T17:05:34.109431+00:00 app[web.1]: Creating Twitter Stream Worker
+2015-02-09T17:05:34.094258+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:34 +0000 web.1 (3)] INFO : Installing Rails 4 Error instrumentation
+2015-02-09T17:05:34.114592+00:00 app[web.1]:
+2015-02-09T17:05:34.109429+00:00 app[web.1]:
+2015-02-09T17:05:34.176275+00:00 app[web.1]:
+2015-02-09T17:05:34.176281+00:00 app[web.1]:
+2015-02-09T17:05:34.179159+00:00 app[web.1]: Opened a test user thread inside of new
+2015-02-09T17:05:35.524684+00:00 app[web.1]: ** [NewRelic][02/09/15 17:05:35 +0000 web.1 (3)] INFO : Doing deferred dependency-detection before Rack startup
+2015-02-09T17:05:35.614767+00:00 app[web.1]: [3] - Worker 1 (pid: 20) booted, phase: 0
+2015-02-09T17:05:35.525146+00:00 app[web.1]: [3] ! #<Thread:0x007f2343823878 sleep> - /app/vendor/bundle/ruby/2.0.0/gems/newrelic_rpm-3.9.9.275/lib/new_relic/agent/event_loop.rb:118:in `select'
+2015-02-09T17:05:35.525379+00:00 app[web.1]: [3] ! #<Thread:0x007f23437a6d78 sleep> - /app/vendor/bundle/ruby/2.0.0/gems/redis-3.2.0/lib/redis/connection/ruby.rb:52:in `select'
+2015-02-09T17:05:35.525104+00:00 app[web.1]: [3] ! WARNING: Detected 2 Thread(s) started in app boot:
+2015-02-09T17:05:35.525006+00:00 app[web.1]: [3] * Listening on tcp://0.0.0.0:47248
+2015-02-09T17:05:35.525495+00:00 app[web.1]: [3] Use Ctrl-C to stop
+2015-02-09T17:05:35.607368+00:00 app[web.1]: [3] - Worker 0 (pid: 11) booted, phase: 0
+2015-02-09T17:06:49.930672+00:00 heroku[web.1]: State changed from starting to up
+2015-02-09T17:06:50.783843+00:00 heroku[router]: at=error code=H20 desc="App boot timeout" method=GET path="/" host=tweheat.herokuapp.com request_id=e78a8ec9-b4a5-4555-9774-0d3063bc3d5e fwd="199.241.200.248" dyno= connect= service= status=503 bytes=
+2015-02-09T17:06:51.878869+00:00 app[web.1]: ** [NewRelic][02/09/15 17:06:51 +0000 web.1 (11)] WARN : Ignoring addition of cpu because it is already registered.
+2015-02-09T17:06:51.964402+00:00 app[web.1]: ** [NewRelic][02/09/15 17:06:51 +0000 web.1 (20)] WARN : Ignoring addition of cpu because it is already registered.
+2015-02-09T17:06:51.878954+00:00 app[web.1]: ** [NewRelic][02/09/15 17:06:51 +0000 web.1 (11)] WARN : Ignoring addition of memory because it is already registered.
+2015-02-09T17:06:51.964481+00:00 app[web.1]: ** [NewRelic][02/09/15 17:06:51 +0000 web.1 (20)] WARN : Ignoring addition of memory because it is already registered.
+2015-02-09T17:06:51.879097+00:00 app[web.1]: ** [NewRelic][02/09/15 17:06:51 +0000 web.1 (11)] WARN : Ignoring addition of vm because it is already registered.
+2015-02-09T17:06:51.978196+00:00 app[web.1]: ** [NewRelic][02/09/15 17:06:51 +0000 web.1 (20)] WARN : Ignoring addition of vm because it is already registered.
+2015-02-09T17:06:52.464763+00:00 heroku[router]: at=info method=GET path="/" host=tweheat.herokuapp.com request_id=6b45413b-24f1-48fb-8097-9ed68da62fa0 fwd="50.31.164.139" dyno=web.1 connect=3ms service=577ms status=200 bytes=1448
+2015-02-09T17:06:52.528055+00:00 heroku[router]: sock=client at=error code=H18 desc="Request Interrupted" method=GET path="/" host=tweheat.herokuapp.com request_id=b8dd089e-4240-462f-ad72-ff73519a2cd8 fwd="199.241.200.248" dyno=web.1 connect=1ms service=17ms status=503 bytes=1782
+2015-02-09T17:06:52.543422+00:00 heroku[router]: sock=client at=error code=H18 desc="Request Interrupted" method=GET path="/" host=tweheat.herokuapp.com request_id=95cedffa-c664-4928-88b2-c566ce63ea24 fwd="199.241.200.248" dyno=web.1 connect=5ms service=611ms status=503 bytes=1448
+2015-02-09T17:06:52.489498+00:00 app[web.1]: ** [NewRelic][02/09/15 17:06:52 +0000 web.1 (11)] INFO : Reporting to: https://rpm.newrelic.com/accounts/889252/applications/7655921
+2015-02-09T17:06:52.545380+00:00 heroku[router]: sock=client at=error code=H18 desc="Request Interrupted" method=GET path="/" host=tweheat.herokuapp.com request_id=e10a10d5-bd54-4406-9c47-c3729263e39e fwd="199.241.200.248" dyno=web.1 connect=1ms service=124ms status=503 bytes=1448
+2015-02-09T17:06:52.552797+00:00 app[web.1]: ** [NewRelic][02/09/15 17:06:52 +0000 web.1 (20)] INFO : Reporting to: https://rpm.newrelic.com/accounts/889252/applications/7655921
+2015-02-09T17:06:52.466822+00:00 heroku[router]: at=info method=HEAD path="/" host=tweheat.herokuapp.com request_id=c0b7b27f-75da-4f78-ae2c-40b7c105b0e8 fwd="50.112.95.211" dyno=web.1 connect=4ms service=608ms status=200 bytes=587
+2015-02-09T17:06:53.059164+00:00 heroku[router]: sock=client at=error code=H18 desc="Request Interrupted" method=GET path="/" host=tweheat.herokuapp.com request_id=29d24868-0c78-4748-a381-b395ac595918 fwd="199.241.200.248" dyno=web.1 connect=1ms service=63ms status=503 bytes=1782
+2015-02-09T17:06:53.368484+00:00 heroku[router]: sock=client at=error code=H18 desc="Request Interrupted" method=GET path="/" host=tweheat.herokuapp.com request_id=55798414-b872-42c7-b5e3-a13eab74e469 fwd="54.248.250.232" dyno=web.1 connect=2ms service=59ms status=503 bytes=1448
+2015-02-09T17:06:54.101714+00:00 heroku[router]: at=error code=H20 desc="App boot timeout" method=HEAD path="/" host=tweheat.herokuapp.com request_id=e2cd9539-245b-4f14-84c6-88ff2b0f5358 fwd="184.73.237.85" dyno= connect= service= status=503 bytes=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Rolling back tweheat... done, v32
+ !    Warning: rollback affects code and config vars; it doesn't add or remove addons. To undo, run: heroku rollback v33
+NastyMac:Tweheat Nasty1$ heroku logs
+2015-02-09T17:13:07.958814+00:00 app[web.1]:
+2015-02-09T17:13:07.958817+00:00 app[web.1]:
+2015-02-09T17:13:07.958819+00:00 app[web.1]: A new worker has been created
+2015-02-09T17:13:07.958951+00:00 app[web.1]:
+2015-02-09T17:13:07.958953+00:00 app[web.1]:
+2015-02-09T17:13:07.958957+00:00 app[web.1]: Opened a thread inside of new
+2015-02-09T17:13:07.953047+00:00 app[web.1]: ** [NewRelic][02/09/15 17:13:07 +0000 web.1 (3)] INFO : Installing Rails 4 Error instrumentation
+2015-02-09T17:13:07.759491+00:00 app[web.1]: ** [NewRelic][02/09/15 17:13:07 +0000 web.1 (3)] INFO : Installing deferred Rack instrumentation
+2015-02-09T17:13:07.771812+00:00 app[web.1]: ** [NewRelic][02/09/15 17:13:07 +0000 web.1 (3)] INFO : Installing Rails 4 Controller instrumentation
+2015-02-09T17:13:07.958539+00:00 app[web.1]:
+2015-02-09T17:13:07.953154+00:00 app[web.1]: ** [NewRelic][02/09/15 17:13:07 +0000 web.1 (3)] INFO : Installing Rails 4 view instrumentation
+2015-02-09T17:13:07.759878+00:00 app[web.1]: ** [NewRelic][02/09/15 17:13:07 +0000 web.1 (3)] INFO : Installing ActiveRecord 4 instrumentation
+2015-02-09T17:13:08.128213+00:00 app[web.1]: ** [NewRelic][02/09/15 17:13:08 +0000 web.1 (3)] INFO : Reporting to: https://rpm.newrelic.com/accounts/889252/applications/7655921
+2015-02-09T17:13:08.701481+00:00 app[web.1]: [3] * Listening on tcp://0.0.0.0:50368
+2015-02-09T17:13:08.771782+00:00 app[web.1]: [3] - Worker 1 (pid: 18) booted, phase: 0
+2015-02-09T17:13:08.701110+00:00 app[web.1]: ...** [NewRelic][02/09/15 17:13:08 +0000 web.1 (3)] INFO : Doing deferred dependency-detection before Rack startup
+2015-02-09T17:13:08.701631+00:00 app[web.1]: [3] ! WARNING: Detected 3 Thread(s) started in app boot:
+2015-02-09T17:13:08.769580+00:00 app[web.1]: [3] - Worker 0 (pid: 11) booted, phase: 0
+2015-02-09T17:13:08.701663+00:00 app[web.1]: [3] ! #<Thread:0x007f61f561e348 sleep> - /app/vendor/bundle/ruby/2.0.0/gems/newrelic_rpm-3.9.9.275/lib/new_relic/agent/event_loop.rb:118:in `select'
+2015-02-09T17:13:08.701691+00:00 app[web.1]: [3] ! #<Thread:0x007f61f58a60e8 sleep> - /app/vendor/ruby-2.0.0/lib/ruby/2.0.0/openssl/buffering.rb:122:in `sysread'
+2015-02-09T17:13:08.701752+00:00 app[web.1]: [3] ! #<Thread:0x007f61f58a5f80 sleep> - /app/vendor/bundle/ruby/2.0.0/gems/redis-3.2.0/lib/redis/connection/ruby.rb:52:in `select'
+2015-02-09T17:13:08.701836+00:00 app[web.1]: [3] Use Ctrl-C to stop
+2015-02-09T17:13:09.110375+00:00 heroku[web.1]: State changed from starting to up
+2015-02-09T17:13:10.045774+00:00 app[web.1]: ** [NewRelic][02/09/15 17:13:10 +0000 web.1 (18)] WARN : Ignoring addition of cpu because it is already registered.
+2015-02-09T17:13:10.046059+00:00 app[web.1]: ** [NewRelic][02/09/15 17:13:10 +0000 web.1 (18)] WARN : Ignoring addition of vm because it is already registered.
+2015-02-09T17:13:10.245074+00:00 app[web.1]:
+2015-02-09T17:13:10.245081+00:00 app[web.1]: Twitter worked received: message:: BbbjAsoM-QVPe-I2yuWYcw from channel:: new_user
+2015-02-09T17:13:10.245163+00:00 app[web.1]:
+2015-02-09T17:13:10.245165+00:00 app[web.1]:
+2015-02-09T17:13:10.245167+00:00 app[web.1]: Currently tracking: {"all_tweets"=>#<Set: {"BbbjAsoM-QVPe-I2yuWYcw"}>}
+2015-02-09T17:13:10.045966+00:00 app[web.1]: ** [NewRelic][02/09/15 17:13:10 +0000 web.1 (18)] WARN : Ignoring addition of memory because it is already registered.
+2015-02-09T17:13:10.245079+00:00 app[web.1]:
+2015-02-09T17:13:10.271821+00:00 heroku[router]: at=info method=GET path="/" host=tweheat.herokuapp.com request_id=9571acba-9545-4779-b83a-daa3e0ff6629 fwd="184.73.237.85" dyno=web.1 connect=1ms service=238ms status=200 bytes=1448
+2015-02-09T17:13:10.413828+00:00 app[web.1]: ...** [NewRelic][02/09/15 17:13:10 +0000 web.1 (18)] INFO : Reporting to: https://rpm.newrelic.com/accounts/889252/applications/7655921
+2015-02-09T17:13:21.373047+00:00 app[web.1]: ............** [NewRelic][02/09/15 17:13:21 +0000 web.1 (11)] WARN : Ignoring addition of cpu because it is already registered.
+2015-02-09T17:13:21.373342+00:00 app[web.1]: ** [NewRelic][02/09/15 17:13:21 +0000 web.1 (11)] WARN : Ignoring addition of vm because it is already registered.
+2015-02-09T17:13:21.373155+00:00 app[web.1]: ** [NewRelic][02/09/15 17:13:21 +0000 web.1 (11)] WARN : Ignoring addition of memory because it is already registered.
+2015-02-09T17:13:21.534779+00:00 app[web.1]: Currently tracking: {"all_tweets"=>#<Set: {"BbbjAsoM-QVPe-I2yuWYcw", "gGiQlr3UULCffxsS0kcrDw"}>}
+2015-02-09T17:13:21.534769+00:00 app[web.1]: Twitter worked received: message:: gGiQlr3UULCffxsS0kcrDw from channel:: new_user
+2015-02-09T17:13:21.534776+00:00 app[web.1]:
+2015-02-09T17:13:21.534761+00:00 app[web.1]:
+2015-02-09T17:13:21.534777+00:00 app[web.1]:
+2015-02-09T17:13:21.534766+00:00 app[web.1]:
+2015-02-09T17:13:21.553527+00:00 heroku[router]: at=info method=GET path="/" host=tweheat.herokuapp.com request_id=c00d064b-4474-4d90-bee8-76ed0d7a21a8 fwd="50.112.95.211" dyno=web.1 connect=7ms service=190ms status=200 bytes=1782
+2015-02-09T17:13:23.678085+00:00 app[web.1]: ......** [NewRelic][02/09/15 17:13:23 +0000 web.1 (11)] INFO : Reporting to: https://rpm.newrelic.com/accounts/889252/applications/7655921
+2015-02-09T17:13:35.260514+00:00 heroku[router]: at=info method=GET path="/" host=tweheat.herokuapp.com request_id=6c37390d-64e8-43da-8143-fd5c0a3671cf fwd="54.248.250.232" dyno=web.1 connect=1ms service=12ms status=200 bytes=1782
+2015-02-09T17:13:35.253630+00:00 app[web.1]: ............
+2015-02-09T17:13:35.253644+00:00 app[web.1]:
+2015-02-09T17:13:35.253635+00:00 app[web.1]:
+2015-02-09T17:13:35.253637+00:00 app[web.1]: Twitter worked received: message:: dlAH1U35PNvnI6ccqzi1cg from channel:: new_user
+2015-02-09T17:13:35.253650+00:00 app[web.1]: Currently tracking: {"all_tweets"=>#<Set: {"BbbjAsoM-QVPe-I2yuWYcw", "gGiQlr3UULCffxsS0kcrDw", "dlAH1U35PNvnI6ccqzi1cg"}>}
+2015-02-09T17:13:35.253646+00:00 app[web.1]:
+2015-02-09T17:13:56.112049+00:00 heroku[router]: at=info method=HEAD path="/" host=tweheat.herokuapp.com request_id=45346c26-9a16-40e1-85c4-6d7121a3e1f4 fwd="54.247.188.179" dyno=web.1 connect=4ms service=10ms status=200 bytes=669
