@@ -19,8 +19,8 @@ module TwitterPackage
 			coordinates = Tweet.handle_coordinates(tw_hash)
 
 			@tweet = {
-				:search_term => search_term, 
-				:coordinates => coordinates
+				search_term: search_term, 
+				coordinates: coordinates
 			}
 
 			@tweet.each do |name, value|

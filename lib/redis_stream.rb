@@ -29,8 +29,8 @@ module RedisStream
 
   def self.publish_to_user_stream(event, data, user_token)
     json_data = JSON.dump({
-      :event => event,
-      :data => data
+      event: event,
+      data: data
     })
     @redis.publish( user_token, json_data )
   end

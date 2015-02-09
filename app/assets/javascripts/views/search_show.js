@@ -19,9 +19,12 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 
 		// this.toggleSSEListener();
 
+		Tweheat.twitterStream.addEventListener('tweet', function (event) {
+			debugger
+		})
+
 		Tweheat.twitterStream.addEventListener('layer', function (event) {
-			debugger;
-			var search_term = $.parseJSON(event.data).search_term
+			var search_term = event.data
 			var color = this.randomColor();
 			var subView = new Tweheat.Views.LayerCard({
 				layer: search_term, 
@@ -47,7 +50,7 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 
   	this.counter += 1;
     var tweet = $.parseJSON(event.data);
-    // debugger;
+    debugger;
 
     // TEMP: Abstract this into a new function
     if (Tweheat.mapView.panning) {

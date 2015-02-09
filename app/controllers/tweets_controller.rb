@@ -21,10 +21,9 @@ class TweetsController < ApplicationController
 		@redis_sub.subscribe([ token ]) do |on|
 			on.message do |channel, msg|
 				data = JSON.parse(msg)
-				# puts "Stream controller received: msg:: #{msg} from:: #{channel}"
+
 				puts handle_msg(data) unless data['data']['search_term'] == "All Tweets"
-				# response.stream.write(handle_m	sg(data))
-				# puts "Stream sub here: #{msg}"
+				response.stream.write(handle_msg(data))
 			end
 		end
 
@@ -35,7 +34,7 @@ class TweetsController < ApplicationController
 	ensure
 		puts "\n\nClosing stream and Redis Sub\n\n"
 		@redis_sub.quit
-		RedisStream.publish_remove_user(token)
+		# RedisStream.publish_remove_user(token)
 		response.stream.close
 	end
 
@@ -67,7 +66,7 @@ class TweetsController < ApplicationController
 	private
 
 		def handle_msg msg
-			[ "event: #{msg['event']}", "data: #{msg['data']}" ].join("\n") + "\n\n"
+			[ "event: #{msg['event']}", "data: #{JSON.dump(msg['data'])}" ].join("\n") + "\n\n"
 		end
 
 end
