@@ -53,6 +53,11 @@ Added Profile and Config file
 - [ ] Clear empty Search term sets on new_search
 
 ## Day 7-
+- [ ] Check if heroku works with just regular pushing of "all topics"
+- [ ] Try putting back features
+- [ ] Quickly try Redis
+- [ ] Switch to database
+
 - [ ] Subview destroy (should remove listeners as well)
 
 ## Future features

@@ -18,8 +18,9 @@ class TweetsController < ApplicationController
 
 		puts "\n\nConnecting user #{token} to twitter stream..."
 
+		channel = "all_tweets"
 		# Subscribing to user's stream by session token
-		@redis_sub.subscribe([ token ]) do |on|
+		@redis_sub.subscribe([ channel ]) do |on|
 			on.message do |channel, msg|
 				data = JSON.parse(msg)
 

@@ -21,19 +21,14 @@ module RedisStream
     @redis.publish( "new_search", data )
   end
 
-  def self.publish_to_search_stream(user_token, tweet)
-  	data = JSON.dump(tweet)
-
-    @redis.publish( user_token, data )
-  end
-
   def self.publish_to_user_stream(event, data, user_token)
     # params = JSON.dump(data)
     json_data = JSON.dump({
       event: event,
       data: data
     })
-    @redis.publish( user_token, json_data )
+    # @redis.publish( user_token, json_data )
+    @redis.publish( "all_tweets", json_data )
   end
 
   def method_name
