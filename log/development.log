@@ -44309,3 +44309,9 @@ Started GET "/" for ::1 at 2015-02-08 22:48:18 -0800
 Processing by TweetsController#index as HTML
   Rendered tweets/index.html.erb within layouts/application (1.6ms)
 Completed 200 OK in 836ms (Views: 814.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 23:00:56 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 741ms (Views: 721.0ms | ActiveRecord: 0.0ms)
