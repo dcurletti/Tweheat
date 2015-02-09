@@ -43,14 +43,12 @@ Added Profile and Config file
 - [X] Button that stops pauses a stream
 - [X] Figure out how to restart twitter worker
 - [X] Enable users to search for requests
+- [X] On submit: new view is created
+
+## Day 6-
+- [X] Backend filtering/searching complete
 - [ ] Implement front end control for different tweet layers
 - [ ] Create a method that removes session token from Twitter Streamer on user logout
-
-- [X] On submit: new view is created
-- [ ] Create back end filter
-- [ ] Create front end filter
-
-
 
 ## Future features
 - [ ] The addition of the points is not on map drag, its on map "stop moving", if you do an inertia swipe, it freaks out still
