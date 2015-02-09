@@ -21,9 +21,8 @@ class TweetsController < ApplicationController
 		@redis_sub.subscribe([ token ]) do |on|
 			on.message do |channel, msg|
 				data = JSON.parse(msg)
-
 				# puts "Stream controller received: msg:: #{msg} from:: #{channel}"
-				puts handle_msg(data)
+				puts handle_msg(data) unless data['data']['search_term'] == "All Tweets"
 				# response.stream.write(handle_m	sg(data))
 				# puts "Stream sub here: #{msg}"
 			end
