@@ -28,7 +28,7 @@ class TwitterStream
 				search_topic_list = search_topics.join(", ")
 
 				@tw_stream_client.filter( track: search_topic_list, locations: filter_bounds ) do |tw_obj|
-					#TEMP: improve the coordinates filter
+					# TEMP: improve the coordinates filter
 					if tw_obj.is_a? Twitter::Tweet and ( tw_obj.to_h[:coordinates] != nil or tw_obj.to_h[:place] )
 
 						print "..." if counter % 50 == 0
@@ -42,7 +42,6 @@ class TwitterStream
 
 						search_topics.each do |search_term|			
 							if tw_obj.full_text.downcase.match(search_term)
-
 								tweet[:search_term] = search_term
 								@search_topics[search_term].each do |user_token|
 									RedisStream.publish_to_user_stream("tweet", tweet, user_token)
@@ -113,20 +112,21 @@ class TwitterStream
 				}
 				user_token = msg["user_token"]
 				
-				@search_topics[search_term] << user_token
 				RedisStream.publish_to_user_stream("layer", data, user_token)
-
 				# TEMP: Shouldn't restart stream if search_topic already exists
 				restart_stream unless @search_topics.key?(search_term)
+
+				@search_topics[search_term] << user_token
 			end
 
 			def handle_remove_user(msg)
+				debugger
 				@search_topics.values.each do |set|
-					puts set
+					# puts set
 					set.delete(msg)
 				end
-
-				restart_stream
+				# restart_stream
+				debugger
 			end
 	end
 end

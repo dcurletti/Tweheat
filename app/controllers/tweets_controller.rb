@@ -29,6 +29,8 @@ class TweetsController < ApplicationController
 					message = handle_tweet(data)
 				end
 				
+				puts message unless data['data']['search_term'] == "All Tweets"
+
 				response.stream.write(message)
 			end
 		end
@@ -40,7 +42,7 @@ class TweetsController < ApplicationController
 	ensure
 		puts "\n\nClosing stream and Redis Sub\n\n"
 		@redis_sub.quit
-		# RedisStream.publish_remove_user(token)
+		RedisStream.publish_remove_user(token)
 		response.stream.close
 	end
 
