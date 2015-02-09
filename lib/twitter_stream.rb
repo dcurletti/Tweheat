@@ -113,7 +113,7 @@ class TwitterStream
 				
 				RedisStream.publish_to_user_stream("layer", data, user_token)
 
-				restart_stream unless @search_topics.key?(search_term)
+				restart_stream 
 				@search_topics[search_term] << user_token
 				delete_empty_searches
 			end
