@@ -2,7 +2,8 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 	className: 'search-show',
 
 	events: {
-		'submit form': 'search'
+		'submit form': 'search',
+		'click .destroy': 'destroySubview'
 	},
 
 	template: JST['index'],
@@ -68,15 +69,31 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 		var color = this.randomColor();
 
 		var subView = new Tweheat.Views.LayerCard({
-			layer: search_term, 
+			layerName: search_term, 
+			zIndex: zIndex,
 			color: color
 		});
-		// this.addSubview("#layers", subView);
+		this.addSubview("#layers", subView);
 		$("#layers").append(subView.render().$el)
 	}, 
 
 	randomColor: function () {
   	return Math.floor(Math.random()*16777215).toString(16);
+	}, 
+
+	destroySubview: function (event) {
+		var layerName = $(event.target).attr("data-id");
+
+		var subView = _.find(
+			this.subviews('#layers'),
+			function (subView) {
+				return subView.layerName === layerName;
+		});
+
+		subView.destroyView();
+
+		this.removeSubview('ul.feeds', subView);
+
 	}
 
 })

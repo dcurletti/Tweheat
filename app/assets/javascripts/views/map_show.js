@@ -47,20 +47,7 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 		}).addTo(this._map);		
 
 		//TEMP: refactor in method
-	  this.heat = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 20 } ).addTo(this._map);
 	  // this.heat = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 14 } ).addTo(this._map);
-	},
-
-	// addLayer: function (layerName) {
-	//   this.layerName = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 14 } ).addTo(this._map);
-	// },
-
-	handleTweet: function (tweet) {
-		//TEMP: factor into handle tweet
-    var coordinates = tweet.coordinates;
-    var latlng = L.latLng(coordinates[1], coordinates[0])
-    // console.log(latlng);
-    this.heat.addLatLng(latlng);
 	},
 
 	addListeners: function ()	 {
