@@ -24,7 +24,7 @@ class TweetsController < ApplicationController
 
 				# puts "Stream controller received: msg:: #{msg} from:: #{channel}"
 				puts handle_msg(data)
-				# response.stream.write(handle_msg(data))
+				# response.stream.write(handle_m	sg(data))
 				# puts "Stream sub here: #{msg}"
 			end
 		end

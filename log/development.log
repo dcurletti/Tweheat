@@ -43182,3 +43182,52 @@ Started GET "/" for ::1 at 2015-02-08 15:08:20 -0800
 Processing by TweetsController#index as HTML
   Rendered tweets/index.html.erb within layouts/application (6.0ms)
 Completed 200 OK in 526ms (Views: 522.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 15:16:45 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 499ms (Views: 484.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 15:21:07 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 515ms (Views: 498.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 15:33:20 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 428ms (Views: 413.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-08 15:35:42 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/" for ::1 at 2015-02-08 15:35:52 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 431ms (Views: 422.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 16:02:05 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.1ms)
+
+
+Started GET "/" for ::1 at 2015-02-08 16:02:39 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 563ms (Views: 546.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-08 16:04:39 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/" for ::1 at 2015-02-08 16:04:42 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 496ms (Views: 488.3ms | ActiveRecord: 0.0ms)

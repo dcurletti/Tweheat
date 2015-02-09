@@ -26,38 +26,28 @@ class TwitterStream
 				filter_bounds = "-125.7042450905,24.5322774415,-66.62109375,49.5537255135"
 				search_topics = @search_topics.except("all_tweets").keys
 				search_topic_list = search_topics.join(", ")
+
 				@tw_stream_client.filter( track: search_topic_list, locations: filter_bounds ) do |tw_obj|
 					#TEMP: improve the coordinates filter
 					if tw_obj.is_a? Twitter::Tweet and ( tw_obj.to_h[:coordinates] != nil or tw_obj.to_h[:place] )
 
-
-						# if tw_obj.to_h[:coordinates] != nil or tw_obj.to_h[:place]
-						# 	if tw_obj.full_text.downcase.match("deansmith")
-						# 		puts "JACKPOT"
-						# 	else
-						# 		print "c"
-						# 	end
-						# else
-						# 	print "."
-						# end
-
-
-						puts "Filtering tweets..." if counter % 100 == 0
+						print "Filtering tweets..." if counter % 50 == 0
 						counter += 1
-						search_topics.each do |search_term|
-							if tw_obj.full_text.downcase.match(search_term)
-								tweet = TwitterPackage::Tweet.new(tw_obj, search_term).to_hash
+		
+						tweet = TwitterPackage::Tweet.new(tw_obj, "All Tweets").to_hash
 
+						search_topics.each do |search_term|			
+							if tw_obj.full_text.downcase.match(search_term)
+
+								tweet[:search_term] = search_term
 								@search_topics[search_term].each do |user_token|
 									RedisStream.publish_to_user_stream("tweet", tweet, user_token)
-								end
-
-							else
-								@search_topics["all_tweets"].each do |user_token|
-									tweet = TwitterPackage::Tweet.new(tw_obj, 'All Tweets').to_hash
-									RedisStream.publish_to_user_stream("tweet", tweet, user_token)
-								end
+								end									
 							end
+						end
+
+						@search_topics["all_tweets"].each do |user_token|
+							RedisStream.publish_to_user_stream("tweet", tweet, user_token)
 						end
 					end
 				end
