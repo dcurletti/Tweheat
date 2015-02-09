@@ -9,6 +9,7 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	},
 
 	initialize: function  (options) {
+		
 		this.layer = options.layer;
 		this.counter = 0;
 		this.paused = true;
@@ -18,9 +19,9 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 		// TEMP: Could be used for playback
 		this.tweets = [];
 
-		// this.tweetHandlerVar = this.tweetHandler.bind(this);
+		this.tweetHandlerVar = this.tweetHandler.bind(this);
 
-		// this.toggleSSEListener();
+		this.toggleSSEListener();
 	},
 
 

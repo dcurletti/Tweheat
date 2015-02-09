@@ -78,7 +78,7 @@ class TweetsController < ApplicationController
 		end
 
 		def handle_new_layer msg
-			compile_SSE("layer", msg["data"])
+			compile_SSE("layer", JSON.dump(msg["data"]))
 		end
 
 		def compile_SSE event, data

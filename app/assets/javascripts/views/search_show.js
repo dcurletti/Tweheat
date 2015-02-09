@@ -35,10 +35,10 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 
 	addLayerListener: function () {
 		Tweheat.twitterStream.addEventListener('layer', function (event) {
-			var search_term = event.data
+			var data = $.parseJSON(event.data)
 
-			debugger
-			this.addLayer(search_term, 1)
+			this.addLayer(data.search_term, 1)
+
 		}.bind(this))
 	},
 
