@@ -79,7 +79,6 @@ class TwitterStream
 							handle_new_search(msg)  
 						when "remove_user"
 							handle_remove_user(msg)
-							puts "\n\nTwitter Stream: Should remove user"
 						when "remove_search"
 							# handle_remove_search
 						end
@@ -124,7 +123,7 @@ class TwitterStream
 					# Remove search term if no users are subbed to it
 					@search_topics.delete(search_term) if users.empty? && search_term != "all_tweets"
 				end
-				# restart_stream
+				restart_stream
 				"\n\nRemoved user #{user_token}"
 			end
 
