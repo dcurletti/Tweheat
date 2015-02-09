@@ -44827,3 +44827,9 @@ Completed 200 OK in 437ms (Views: 436.8ms | ActiveRecord: 0.0ms)
 Started GET "/tweets/stream" for ::1 at 2015-02-09 13:14:16 -0800
 Processing by TweetsController#stream as text/event-stream
 Completed 200 OK in 44788ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 13:37:49 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 881ms (Views: 866.0ms | ActiveRecord: 0.0ms)
