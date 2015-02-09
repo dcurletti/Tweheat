@@ -5,7 +5,7 @@
 [heroku]: http://tweheat.herokuapp.com
 
 ## Critical Alerts
-Nada.
+Currently only one connection can be established with the tweets.  Page loads fine other than that.
 
 ## General Info
 Look at TODO.md in root for micro updates.
@@ -15,10 +15,6 @@ Current routes:
 * "/"
   * Twitter Map
   * Status: Currently mapping all geolocated tweets
-* "/tweets/"
-  * Shows JSON view of currently trending Twitter topics in the US
-* "/tweets/stream"
-  *  Websocket view of what is being sent to the client
 
 ## Minimum Viable Product
 Realtime twitter heat map that supports multiple concurrent searches. Users can:
