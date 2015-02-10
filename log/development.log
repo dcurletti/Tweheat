@@ -45754,3 +45754,15 @@ Started GET "/" for ::1 at 2015-02-09 19:10:34 -0800
 Processing by TweetsController#index as HTML
   Rendered tweets/index.html.erb within layouts/application (0.9ms)
 Completed 200 OK in 467ms (Views: 454.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 20:26:18 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 511ms (Views: 497.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 20:32:44 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 589ms (Views: 573.0ms | ActiveRecord: 0.0ms)

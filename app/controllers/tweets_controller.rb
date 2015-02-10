@@ -17,14 +17,16 @@ class TweetsController < ApplicationController
 		@redis_sub = RedisStream.new_redis_client
 
 		puts "\n\nConnecting user #{token} to twitter stream..."
-
+		counter = 0
 		channel = token
 		# Subscribing to user's stream by session token
 		@redis_sub.subscribe([ token ]) do |on|
 			on.message do |channel, msg|
 				data = JSON.parse(msg)
 
-				puts data
+				print "*" if counter % 50 == 0
+				counter += 1
+
 				if data['event'] == "layer"
 					message = handle_new_layer(data)
 				else

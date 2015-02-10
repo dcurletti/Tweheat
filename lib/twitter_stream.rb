@@ -31,7 +31,7 @@ class TwitterStream
 					# TEMP: improve the coordinates filter
 					if tw_obj.is_a? Twitter::Tweet and ( tw_obj.to_h[:coordinates] != nil or tw_obj.to_h[:place] )
 
-						print "..." if counter % 50 == 0
+						print "." if counter % 50 == 0
 						counter += 1
 		
 						tweet = TwitterPackage::Tweet.new(tw_obj, "All Tweets").to_hash
