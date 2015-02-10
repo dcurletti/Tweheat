@@ -1,4 +1,4 @@
-class ChatController < WebsocketRails::BaseController
+class SocketsController < WebsocketRails::BaseController
 
 	def incoming_message
 		p "\n\nuser connected"
