@@ -50,15 +50,22 @@ Added Profile and Config file
 - [X] Implement front end control for different tweet layers
 - [X] Create different layers based on searches
 - [X] Create a method that removes session token from Twitter Streamer on user logout
-- [ ] Clear empty Search term sets on new_search
+- [X] Clear empty Search term sets on new_search
 
 ## Day 7-
+- [X] Subview destroy (should remove listeners as well)
+- [X] Opacity Button
+- [X] Destroy view and events button
+- [X] Form validation
+
+
+
+## Day 8- 
 - [ ] Check if heroku works with just regular pushing of "all topics"
 - [ ] Try putting back features
-- [ ] Quickly try Redis
-- [ ] Switch to database
-
-- [ ] Subview destroy (should remove listeners as well)
+- [ ] Form validation if user already has created that layer
+- [ ] Popup button for all tweets on form if no layers are left
+- [ ] 
 
 ## Future features
 - [ ] Make an animation when searching for current location

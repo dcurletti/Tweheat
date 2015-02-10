@@ -37,8 +37,9 @@ class TwitterStream
 						tweet = TwitterPackage::Tweet.new(tw_obj, "All Tweets").to_hash
 
 						@search_topics["all_tweets"].each do |user_token|
-							RedisStream.publish_to_user_stream("tweet", tweet, user_token)
+							RedisStream.publish_to_user_stream("tweet", tweet, "all_tweets")
 						end
+
 
 						# RedisStream.publish_to_user_stream("tweet", tweet, "abc")
 

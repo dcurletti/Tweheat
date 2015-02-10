@@ -12,7 +12,7 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 		this.currentColors = [];
 
 		// Create subviews based on user searches
-		this.addLayerListener();
+		// this.addLayerListener();
 
 		this.currentLayerIndex = 1;
 		
@@ -142,8 +142,11 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 
 		var dispatcher = new WebSocketRails('localhost:3000/websocket');
 
-		debugger
 		dispatcher.trigger('new_message', task);
+
+		dispatcher.bind('all_tweets', function (data) {
+			debugger;
+		})
 	}
 
 })

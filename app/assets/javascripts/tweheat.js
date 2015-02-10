@@ -10,7 +10,7 @@ window.Tweheat = {
 		this.mapView = new Tweheat.Views.MapShow();
 
 		//Top level access so that all layered subviews can access the stream
-		this.twitterStream = new EventSource("/tweets/stream");
+		// this.twitterStream = new EventSource("/tweets/stream");
 
 		this.router = new Tweheat.Routers.Router({
 			rootEl: "#main"
