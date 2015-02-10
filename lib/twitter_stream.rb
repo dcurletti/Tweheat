@@ -38,6 +38,7 @@ class TwitterStream
 
 						@search_topics["all_tweets"].each do |user_token|
 							RedisStream.publish_tweet( "All Tweets", user_token, tweet )
+							puts user_token
 						end
 
 						search_topics.each do |search_term|			
@@ -100,6 +101,7 @@ class TwitterStream
 
 			def handle_new_user(user_token)
 				@search_topics["all_tweets"] << user_token
+				# restart_stream
 			end
 
 			def handle_new_search(msg)

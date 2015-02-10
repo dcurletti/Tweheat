@@ -23,7 +23,7 @@ class SocketsController < WebsocketRails::BaseController
 					print "*" if counter % 50 == 0
 					counter += 1
 					
-					send_message search_term, msg
+					broadcast_message search_term, msg
 				end
 			# end
 		end
@@ -35,7 +35,7 @@ class SocketsController < WebsocketRails::BaseController
 		puts "\n\nClient has disconnected\n\n"
 	ensure
 		puts "\n\nClosing stream, Redis Sub and removing #{token}\n\n"
-		# @redis_sub.quit
+		@redis_sub.quit
 		# RedisStream.publish_remove_user(token)
 
 
