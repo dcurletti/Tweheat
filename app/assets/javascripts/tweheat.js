@@ -19,6 +19,7 @@ window.Tweheat = {
 		{
 		  // Web Socket is connected, send data using send()
 		  ws.send("Message to send");
+		  console.log("opened connection")
 		  // alert("Message is sent...");
 		};
 		ws.onmessage = function (evt) 
