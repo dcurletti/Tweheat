@@ -40,14 +40,14 @@ class TwitterStream
 							RedisStream.publish_tweet( "All Tweets", user_token, tweet )
 						end
 
-						search_topics.each do |search_term|			
-							if tw_obj.full_text.downcase.match(search_term)
-								tweet[:search_term] = search_term
-								@search_topics[search_term].each do |user_token|
-									RedisStream.publish_tweet( search_term, user_token, tweet )
-								end									
-							end
-						end
+						# search_topics.each do |search_term|			
+						# 	if tw_obj.full_text.downcase.match(search_term)
+						# 		tweet[:search_term] = search_term
+						# 		@search_topics[search_term].each do |user_token|
+						# 			RedisStream.publish_tweet( search_term, user_token, tweet )
+						# 		end									
+						# 	end
+						# end
 					end
 				end
 			end
