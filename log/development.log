@@ -44833,3 +44833,480 @@ Started GET "/" for ::1 at 2015-02-09 13:37:49 -0800
 Processing by TweetsController#index as HTML
   Rendered tweets/index.html.erb within layouts/application (1.2ms)
 Completed 200 OK in 881ms (Views: 866.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 14:48:00 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 847ms (Views: 833.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/search?search_term=testing" for ::1 at 2015-02-09 14:51:52 -0800
+Processing by TweetsController#search as JSON
+  Parameters: {"search_term"=>"testing"}
+Completed 200 OK in 164ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 14:51:54 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 927ms (Views: 926.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 14:51:57 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/" for ::1 at 2015-02-09 14:55:26 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 865ms (Views: 849.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 14:55:29 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/tweets/search?search_term=testing" for ::1 at 2015-02-09 14:55:56 -0800
+Processing by TweetsController#search as JSON
+  Parameters: {"search_term"=>"testing"}
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+Completed 200 OK in 26340ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 15:17:25 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 809ms (Views: 788.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 15:17:27 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/" for ::1 at 2015-02-09 15:17:52 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 580ms (Views: 579.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 15:17:53 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 422ms (Views: 420.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 15:17:57 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/" for ::1 at 2015-02-09 15:19:47 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 110220ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 784ms (Views: 782.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 15:19:48 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 491ms (Views: 490.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 15:19:48 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 466ms (Views: 465.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 15:19:52 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/" for ::1 at 2015-02-09 15:20:18 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 25468ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 584ms (Views: 583.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 15:20:18 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 468ms (Views: 467.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 15:20:21 -0800
+Processing by TweetsController#stream as text/event-stream
+Completed 200 OK in 148245ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 15:22:52 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 856ms (Views: 854.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 15:22:55 -0800
+Processing by TweetsController#stream as text/event-stream
+Completed   in 421585ms
+
+
+Started GET "/" for ::1 at 2015-02-09 15:30:18 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 928ms (Views: 894.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 15:30:22 -0800
+Processing by TweetsController#stream as text/event-stream
+Completed 200 OK in 109183ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 15:32:13 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 571ms (Views: 570.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 15:32:15 -0800
+Processing by TweetsController#stream as text/event-stream
+Completed 200 OK in 67542ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 15:33:24 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 1616ms (Views: 1615.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 15:33:30 -0800
+Processing by TweetsController#stream as text/event-stream
+Completed 200 OK in 175527ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 15:45:06 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 665ms (Views: 663.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 15:45:09 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/" for ::1 at 2015-02-09 15:45:52 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 43788ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 658ms (Views: 656.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 15:45:53 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 423ms (Views: 422.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 15:45:54 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 539ms (Views: 538.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 15:45:57 -0800
+Processing by TweetsController#stream as text/event-stream
+Completed 200 OK in 530798ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 15:54:50 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 1149ms (Views: 1147.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 15:54:53 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/" for ::1 at 2015-02-09 15:55:11 -0800
+Processing by TweetsController#index as HTML
+Completed 200 OK in 17554ms (ActiveRecord: 0.0ms)
+  Rendered tweets/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 637ms (Views: 635.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 15:55:12 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 415ms (Views: 414.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 15:55:15 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/tweets/search?search_term=hello" for ::1 at 2015-02-09 15:58:30 -0800
+Processing by TweetsController#search as JSON
+  Parameters: {"search_term"=>"hello"}
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/search?search_term=hi" for ::1 at 2015-02-09 15:58:30 -0800
+Processing by TweetsController#search as JSON
+  Parameters: {"search_term"=>"hi"}
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/search?search_term=hiasdf" for ::1 at 2015-02-09 15:58:30 -0800
+Completed 200 OK in 195735ms (ActiveRecord: 0.0ms)
+Processing by TweetsController#search as JSON
+  Parameters: {"search_term"=>"hiasdf"}
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/search?search_term=helo+" for ::1 at 2015-02-09 15:58:31 -0800
+Processing by TweetsController#search as JSON
+  Parameters: {"search_term"=>"helo "}
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 16:06:02 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 725ms (Views: 713.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 16:11:02 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/" for ::1 at 2015-02-09 16:11:04 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 757ms (Views: 755.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 16:15:58 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/" for ::1 at 2015-02-09 16:16:11 -0800
+Processing by TweetsController#index as HTML
+Completed 200 OK in 12494ms (ActiveRecord: 0.0ms)
+  Rendered tweets/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 1467ms (Views: 1466.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 16:16:16 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 421ms (Views: 420.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 16:16:18 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/tweets/search?search_term=testing+" for ::1 at 2015-02-09 16:18:37 -0800
+Processing by TweetsController#search as JSON
+  Parameters: {"search_term"=>"testing "}
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/search?search_term=testing+" for ::1 at 2015-02-09 16:18:37 -0800
+Processing by TweetsController#search as JSON
+  Parameters: {"search_term"=>"testing "}
+Completed 200 OK in 139208ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/search?search_term=testing+" for ::1 at 2015-02-09 16:18:37 -0800
+Processing by TweetsController#search as JSON
+  Parameters: {"search_term"=>"testing "}
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/search?search_term=testing+" for ::1 at 2015-02-09 16:18:37 -0800
+Processing by TweetsController#search as JSON
+  Parameters: {"search_term"=>"testing "}
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 16:18:52 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 631ms (Views: 629.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 16:18:55 -0800
+Processing by TweetsController#stream as text/event-stream
+Completed 200 OK in 40515ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 16:19:35 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 611ms (Views: 610.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 16:19:38 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/" for ::1 at 2015-02-09 16:20:08 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 30060ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 625ms (Views: 623.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 16:20:09 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 1394ms (Views: 1393.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 16:20:14 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/" for ::1 at 2015-02-09 16:22:08 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 114143ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 496ms (Views: 495.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 16:22:10 -0800
+Processing by TweetsController#stream as text/event-stream
+Completed 200 OK in 74573ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 16:24:28 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 1106ms (Views: 1105.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 16:24:31 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/" for ::1 at 2015-02-09 16:25:53 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 658ms (Views: 656.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 16:25:54 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 419ms (Views: 418.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 16:25:56 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/tweets/search?search_term=siblig" for ::1 at 2015-02-09 16:28:06 -0800
+Processing by TweetsController#search as JSON
+  Parameters: {"search_term"=>"siblig"}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 16:28:06 -0800
+Processing by TweetsController#index as HTML
+Completed 200 OK in 129122ms (ActiveRecord: 0.0ms)
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 589ms (Views: 587.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 16:28:08 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/tweets/search?search_term=test" for ::1 at 2015-02-09 16:28:34 -0800
+Completed 200 OK in 25926ms (ActiveRecord: 0.0ms)
+Processing by TweetsController#search as JSON
+  Parameters: {"search_term"=>"test"}
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 16:28:34 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 634ms (Views: 633.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 16:28:37 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/tweets/search?search_term=test" for ::1 at 2015-02-09 16:28:56 -0800
+Processing by TweetsController#search as JSON
+  Parameters: {"search_term"=>"test"}
+Completed 200 OK in 22ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+Completed 200 OK in 19216ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 16:32:17 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 885ms (Views: 883.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 16:32:19 -0800
+Processing by TweetsController#stream as text/event-stream
+Completed 500 Internal Server Error in 276545ms
+
+
+Started GET "/" for ::1 at 2015-02-09 16:37:18 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 885ms (Views: 871.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 16:37:21 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/" for ::1 at 2015-02-09 16:45:00 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 459761ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 1758ms (Views: 1757.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 16:45:02 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 626ms (Views: 624.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 16:45:03 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 426ms (Views: 425.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 16:45:05 -0800
+Processing by TweetsController#stream as text/event-stream
+
+
+Started GET "/" for ::1 at 2015-02-09 16:46:05 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 60313ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 2359ms (Views: 2357.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-09 16:46:08 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 539ms (Views: 535.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/stream" for ::1 at 2015-02-09 16:46:10 -0800
+Processing by TweetsController#stream as text/event-stream
+Completed   in 218872ms

@@ -46,22 +46,47 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 	search: function (event) {
 		event.preventDefault();
 		var searchBar = $('#search-item');
-		var searchTerm = searchBar.val();
-		var data = { search_term: searchTerm };
-		var that = this;
+		var searchBarValue = searchBar.val();
+		var siblings = searchBar.siblings();
 
-		console.log("Attempting submit..")
-
-		$.ajax({
-			url: '/tweets/search',
-			dataType: "json",
-			data: data,
-			method: "GET",
-			success: function () {
-				searchBar.val('');
-				console.log("Successfully sent");
+		if (!this.validateSearchTerm(searchBarValue)) {
+			searchBar.parent().addClass("error");
+			searchBar.addClass("error");
+			if ( siblings.length === 0 ) { 
+				searchBar.after("<small class='error'>Only one word at a keyword at a time!</small>") 
 			}
-		});
+		} else {
+			searchBar.parent().removeClass("error");
+			searchBar.removeClass("error");
+			searchBar.nextAll().remove();
+
+			var data = { search_term: searchBarValue };
+			var that = this;
+
+			console.log("Attempting submit..")
+
+			$.ajax({
+				url: '/tweets/search',
+				dataType: "json",
+				data: data,
+				method: "GET",
+				success: function () {
+					searchBar.val('');
+					console.log("Successfully sent");
+				}
+			});
+		}
+
+	},
+
+	validateSearchTerm: function (input) {
+		var searchTerm = $.trim(input);
+
+		if (/\s/.test(searchTerm)) {
+			return false
+		} else {
+			return true
+		}
 	}, 
 
 	addLayer: function (search_term, zIndex) {
