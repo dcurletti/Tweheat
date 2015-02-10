@@ -2,7 +2,7 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 	className: 'search-show',
 
 	events: {
-		'submit form': 'search',
+		'submit form': 'test',
 		'click .destroy': 'destroySubview'
 	},
 
@@ -140,13 +140,12 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 		  completed: false
 		}
 
-		var dispatcher = new WebSocketRails('localhost:3000/websocket');
+		Tweheat.dispatcher.trigger('client_connected', task);
 
-		dispatcher.trigger('new_message', task);
+	}, 
 
-		dispatcher.bind('all_tweets', function (data) {
-			debugger;
-		})
+	test: function (event) {
+		Tweheat.dispatcher.trigger('')
 	}
 
 })

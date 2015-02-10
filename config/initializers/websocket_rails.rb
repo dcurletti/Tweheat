@@ -22,12 +22,11 @@ WebsocketRails.setup do |config|
   # * Requires Redis.
   config.synchronize = true
 
-  #config.broadcast_subscriber_events = true
+  config.redis_options = { :url => URI.parse(ENV["REDISTOGO_URL"]) }
 
-  # Uncomment and edit to point to a different redis instance.
-  # Will not be used unless standalone or synchronization mode
-  # is enabled.
-  # config.redis_options = {:host => 'localhost', :port => '6379'}
+  ## might need this: :driver => :hiredis
+
+  #config.broadcast_subscriber_events = true
 
   # By default, all subscribers in to a channel will be removed
   # when that channel is made private. If you don't wish active

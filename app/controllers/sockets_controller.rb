@@ -1,11 +1,11 @@
 class ChatController < WebsocketRails::BaseController
 
-	def user_connected
+	def incoming_message
 		p "\n\nuser connected"
 		# send_message :user_info, {:user => current_user.screen_name}
 	end
 
-	def incoming_message
+	def user_connected
 		puts "\n\nwhat????"
 		@redis_sub = RedisStream.new_redis_client
 
@@ -13,7 +13,7 @@ class ChatController < WebsocketRails::BaseController
 		counter = 0
 		channel = token
 		# Subscribing to user's stream by session token
-		@thread = Thread.new do
+		# @thread = Thread.new do
 			@redis_sub.subscribe([ "all_tweets" ]) do |on|
 				on.message do |channel, msg|
 					data = JSON.parse(msg)
@@ -30,10 +30,10 @@ class ChatController < WebsocketRails::BaseController
 					# puts message unless data['data']['search_term'] == "All Tweets"
 					
 					broadcast_message :all_tweets, message
-					puts message
 				end
-			end
+			# end
 		end
+
 
 	rescue IOError
 		"\n\nIOError in controller"
@@ -48,8 +48,12 @@ class ChatController < WebsocketRails::BaseController
 		# broadcast_message :new_message, {:user => current_user.screen_name, :text => message[:text]}
 	end
 
-	def user_disconnected
+	def client_disconnected
+		# debugger
 		p "\n\nuser disconnected"
+		@redis_sub.quit
+		connection.disconnect!
+		# @thread.kill
 	end
 
 	private

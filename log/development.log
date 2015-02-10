@@ -46217,3 +46217,278 @@ Started GET "/" for ::1 at 2015-02-10 09:04:01 -0800
 Processing by TweetsController#index as HTML
   Rendered tweets/index.html.erb within layouts/application (0.9ms)
 Completed 200 OK in 891ms (Views: 878.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 09:09:02 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 660ms (Views: 645.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 09:09:47 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 632ms (Views: 618.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 09:11:40 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 670ms (Views: 656.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 09:12:14 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 617ms (Views: 604.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 09:13:58 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 811ms (Views: 799.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 09:19:05 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 669ms (Views: 656.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 09:29:05 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 709ms (Views: 692.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 09:30:50 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 764ms (Views: 748.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 09:31:36 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 635ms (Views: 621.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 09:48:52 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 969ms (Views: 955.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 09:49:53 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 607ms (Views: 591.5ms | ActiveRecord: 0.0ms)
+
+RuntimeError - eventmachine not initialized: evma_install_oneshot_timer:
+  eventmachine (1.0.6) lib/eventmachine.rb:323:in `add_timer'
+  eventmachine (1.0.6) lib/em/timers.rb:50:in `schedule'
+  eventmachine (1.0.6) lib/em/timers.rb:37:in `initialize'
+  websocket-rails (0.7.0) lib/websocket_rails/connection_adapters.rb:167:in `start_ping_timer'
+  websocket-rails (0.7.0) lib/websocket_rails/connection_adapters.rb:46:in `initialize'
+  websocket-rails (0.7.0) lib/websocket_rails/connection_adapters/web_socket.rb:10:in `initialize'
+  websocket-rails (0.7.0) lib/websocket_rails/connection_adapters.rb:14:in `establish_connection'
+  websocket-rails (0.7.0) lib/websocket_rails/connection_manager.rb:78:in `open_connection'
+  websocket-rails (0.7.0) lib/websocket_rails/connection_manager.rb:55:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/mapper.rb:51:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/rack/agent_hooks.rb:30:in `traced_call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:55:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/rack/browser_monitoring.rb:23:in `traced_call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:55:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.0) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.0) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.0) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+
+Started GET "/" for ::1 at 2015-02-10 09:53:18 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 657ms (Views: 643.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 10:00:31 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 641ms (Views: 628.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 10:01:57 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 663ms (Views: 649.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 10:13:26 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 737ms (Views: 723.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 10:14:36 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 731ms (Views: 716.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 10:23:21 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 691ms (Views: 679.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 10:23:42 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 663ms (Views: 650.6ms | ActiveRecord: 0.0ms)
+
+RuntimeError - can't add a new key into hash during iteration:
+  websocket-rails (0.7.0) lib/websocket_rails/connection_manager.rb:83:in `open_connection'
+  websocket-rails (0.7.0) lib/websocket_rails/connection_manager.rb:55:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/mapper.rb:51:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/rack/agent_hooks.rb:30:in `traced_call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:55:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/rack/browser_monitoring.rb:23:in `traced_call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:55:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  newrelic_rpm (3.9.9.275) lib/new_relic/agent/instrumentation/middleware_tracing.rb:57:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.0) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.0) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.0) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.0) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
