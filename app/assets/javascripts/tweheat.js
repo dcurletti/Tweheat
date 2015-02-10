@@ -13,7 +13,6 @@ window.Tweheat = {
 		// this.twitterStream = new EventSource("/tweets/stream");
 		var url = "wss://" + window.location.host + '/websocket';
 
-		debugger;
 		// this.dispatcher = new WebSocketRails( url );
 		var ws = new WebSocket( url );
 		ws.onopen = function()
