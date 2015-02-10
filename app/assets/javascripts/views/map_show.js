@@ -29,6 +29,8 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 			zoomControl: false
 		}).setView(startingPosition, startingZoom);
 
+
+
 		// Various Base Layer options
 		var baseLayers = {
 			DarkTheme: L.mapbox.tileLayer('dcurletti.knl7n7kb'),
@@ -45,6 +47,7 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 		L.control.locate({
 			position: 'bottomleft'
 		}).addTo(this._map);		
+
 
 		//TEMP: refactor in method
 	  // this.heat = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 14 } ).addTo(this._map);

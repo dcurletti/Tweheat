@@ -9,21 +9,22 @@ class TweetsController < ApplicationController
 	def index
 		# Gives connected user a session token for redis pub/sub
 		# puts "WELCOME #{token}"
+		check_in
 	end
 
 	def stream
-		check_in
 		response.headers['Content-Type'] = 'text/event-stream'
 		@redis_sub = RedisStream.new_redis_client
 
 		puts "\n\nConnecting user #{token} to twitter stream..."
 
-		channel = "all_tweets"
+		channel = token
 		# Subscribing to user's stream by session token
-		@redis_sub.subscribe([ channel ]) do |on|
+		@redis_sub.subscribe([ token ]) do |on|
 			on.message do |channel, msg|
 				data = JSON.parse(msg)
 
+				puts data
 				if data['event'] == "layer"
 					message = handle_new_layer(data)
 				else
@@ -43,7 +44,7 @@ class TweetsController < ApplicationController
 	ensure
 		puts "\n\nClosing stream, Redis Sub and removing #{token}\n\n"
 		@redis_sub.quit
-		RedisStream.publish_remove_user(token)
+		# RedisStream.publish_remove_user(token)
 		response.stream.close
 	end
 

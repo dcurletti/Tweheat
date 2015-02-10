@@ -36,11 +36,11 @@ class TwitterStream
 		
 						tweet = TwitterPackage::Tweet.new(tw_obj, "All Tweets").to_hash
 
-						# @search_topics["all_tweets"].each do |user_token|
-						# 	RedisStream.publish_to_user_stream("tweet", tweet, user_token)
-						# end
+						@search_topics["all_tweets"].each do |user_token|
+							RedisStream.publish_to_user_stream("tweet", tweet, user_token)
+						end
 
-						RedisStream.publish_to_user_stream("tweet", tweet, "abc")
+						# RedisStream.publish_to_user_stream("tweet", tweet, "abc")
 
 
 						# search_topics.each do |search_term|			
@@ -76,10 +76,10 @@ class TwitterStream
 					on.message do |channel, msg|
 
 						case channel
-						# when "new_user"
-						# 	handle_new_user(msg) 
-						when "new_search"
-							handle_new_search(msg)  
+						when "new_user"
+							handle_new_user(msg) 
+						# when "new_search"
+						# 	handle_new_search(msg)  
 						# when "remove_user"
 						# 	handle_remove_user(msg)
 						# when "remove_search"

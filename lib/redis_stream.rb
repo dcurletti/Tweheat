@@ -27,12 +27,8 @@ module RedisStream
       event: event,
       data: data
     })
-    # @redis.publish( user_token, json_data )
-    @redis.publish( "all_tweets", json_data )
-  end
-
-  def method_name
-    
+    @redis.publish( user_token, json_data )
+    # @redis.publish( "all_tweets", json_data )
   end
 
   def self.publish_remove_user(user_token)  

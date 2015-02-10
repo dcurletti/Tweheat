@@ -93,12 +93,24 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 		// TEMP: exclude colors that are already in play
 		var color = this.randomColor();
 
+		// Tweheat.mapView._map.on("layeradd", function (event) {
+		// 	debugger
+		// })
+
 		var subView = new Tweheat.Views.LayerCard({
 			layerName: search_term, 
 			zIndex: zIndex,
 			color: color
 		});
+		
+		// subView.heatLayer.on("load", function(event) {
+		// 	console.log("Shocked this worked")
+		// })
+
+
 		this.addSubview("#layers", subView);
+
+
 		$("#layers").append(subView.render().$el)
 	}, 
 
