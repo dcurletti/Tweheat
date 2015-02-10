@@ -11,8 +11,9 @@ window.Tweheat = {
 
 		//Top level access so that all layered subviews can access the stream
 		// this.twitterStream = new EventSource("/tweets/stream");
-		var url = window.location.host + '/websocket';
+		var url = "wss://" + window.location.host + '/websocket';
 		this.dispatcher = new WebSocketRails( url );
+		debugger
 		//TEMP: 
 		console.log( "Establishing websocket connection on: " + url )
 
