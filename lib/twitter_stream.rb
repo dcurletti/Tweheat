@@ -38,7 +38,6 @@ class TwitterStream
 
 						@search_topics["all_tweets"].each do |user_token|
 							RedisStream.publish_tweet( "All Tweets", user_token, tweet )
-							puts user_token
 						end
 
 						search_topics.each do |search_term|			
