@@ -62,10 +62,11 @@ Added Profile and Config file
 
 ## Day 8- 
 - [ ] Check if heroku works with just regular pushing of "all topics"
+- [ ] Figure out how to kill the thread
 - [ ] Try putting back features
 - [ ] Form validation if user already has created that layer
 - [ ] Popup button for all tweets on form if no layers are left
-- [ ] 
+- [ ] Fix routes
 
 ## Future features
 - [ ] Make an animation when searching for current location

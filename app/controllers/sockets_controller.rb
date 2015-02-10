@@ -21,16 +21,16 @@ class ChatController < WebsocketRails::BaseController
 					print "*" if counter % 50 == 0
 					counter += 1
 
-					# if data['event'] == "layer"
-					# 	message = handle_new_layer(data)
-					# else
-					# 	message = handle_tweet(data)
-					# end
+					if data['event'] == "layer"
+						message = handle_new_layer(data)
+					else
+						message = handle_tweet(data)
+					end
 					
 					# puts message unless data['data']['search_term'] == "All Tweets"
-					# broadcast_message :all_tweets, message
-
-					debugger
+					
+					broadcast_message :all_tweets, message
+					puts message
 				end
 			end
 		end
@@ -51,5 +51,22 @@ class ChatController < WebsocketRails::BaseController
 	def user_disconnected
 		p "\n\nuser disconnected"
 	end
+
+	private
+
+		def handle_tweet msg
+			event = msg['data']['search_term']
+			data = JSON.dump(msg['data'])
+			compile_SSE(event, data)
+		end
+
+		def handle_new_layer msg
+			compile_SSE("layer", JSON.dump(msg["data"]))
+		end
+
+		def compile_SSE event, data
+			[ "event: #{event}", "data: #{data}" ].join("\n") + "\n\n"
+		end
+
 
 end
