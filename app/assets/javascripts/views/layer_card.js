@@ -27,9 +27,9 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 
 		// this.toggleSSEListener();
 
-		// Tweheat.dispatcher.bind('all_tweets', function (data) {
-		// 	this.updateCounter();
-		// }.bind(this))
+		Tweheat.dispatcher.bind('all_tweets', function (data) {
+			this.updateCounter();
+		}.bind(this))
 	},
 
 	addHeatLayer: function (color, zIndex) {

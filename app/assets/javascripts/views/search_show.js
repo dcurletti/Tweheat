@@ -16,7 +16,7 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 
 		this.currentLayerIndex = 1;
 		
-		// this.websocket();
+		this.websocket();
 	},
 
 	render: function () {
@@ -134,15 +134,15 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 
 	},
 
-	// websocket: function () {
-	// 	var task = {
-	// 	  name: 'Start taking advantage of WebSockets',
-	// 	  completed: false
-	// 	}
+	websocket: function () {
+		var task = {
+		  name: 'Start taking advantage of WebSockets',
+		  completed: false
+		}
 
-	// 	Tweheat.dispatcher.trigger('client_connected', task);
+		Tweheat.dispatcher.trigger('client_connected', task);
 
-	// }, 
+	}, 
 
 	// test: function (event) {
 	// 	Tweheat.dispatcher.trigger('')
