@@ -24,7 +24,7 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 		this.$el.append(renContent);
 		
 		// Create the initial All Tweets layer
-		this.addLayer("all_tweets", 1)
+		this.addLayer("All Tweets", 1)
 
 		return this;
 	},

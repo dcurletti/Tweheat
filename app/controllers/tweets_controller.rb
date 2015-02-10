@@ -75,20 +75,4 @@ class TweetsController < ApplicationController
 		render json: places.to_h
 	end
 
-	private
-
-		def handle_tweet msg
-			event = msg['data']['search_term']
-			data = JSON.dump(msg['data'])
-			compile_SSE(event, data)
-		end
-
-		def handle_new_layer msg
-			compile_SSE("layer", JSON.dump(msg["data"]))
-		end
-
-		def compile_SSE event, data
-			[ "event: #{event}", "data: #{data}" ].join("\n") + "\n\n"
-		end
-
 end

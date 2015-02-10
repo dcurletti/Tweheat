@@ -37,21 +37,17 @@ class TwitterStream
 						tweet = TwitterPackage::Tweet.new(tw_obj, "All Tweets").to_hash
 
 						@search_topics["all_tweets"].each do |user_token|
-							RedisStream.publish_to_user_stream("tweet", tweet, "all_tweets")
+							RedisStream.publish_tweet( "All Tweets", user_token, tweet )
 						end
 
-
-						# RedisStream.publish_to_user_stream("tweet", tweet, "abc")
-
-
-						# search_topics.each do |search_term|			
-						# 	if tw_obj.full_text.downcase.match(search_term)
-						# 		tweet[:search_term] = search_term
-						# 		@search_topics[search_term].each do |user_token|
-						# 			RedisStream.publish_to_user_stream("tweet", tweet, user_token)
-						# 		end									
-						# 	end
-						# end
+						search_topics.each do |search_term|			
+							if tw_obj.full_text.downcase.match(search_term)
+								tweet[:search_term] = search_term
+								@search_topics[search_term].each do |user_token|
+									RedisStream.publish_tweet( search_term, user_token, tweet )
+								end									
+							end
+						end
 					end
 				end
 			end
@@ -114,10 +110,8 @@ class TwitterStream
 				}
 				user_token = msg["user_token"]
 				
-				# RedisStream.publish_to_user_stream("layer", data, user_token)
-
+				@search_topics[search_term] << user_token
 				# restart_stream 
-				# @search_topics[search_term] << user_token
 				# delete_empty_searches
 			end
 

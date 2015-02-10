@@ -21,10 +21,10 @@ module RedisStream
     @redis.publish( "new_search", data )
   end
 
-  def self.publish_to_user_stream(event, data, user_token)
+  def self.publish_tweet( search_term, user_token, data )
     # params = JSON.dump(data)
     json_data = JSON.dump({
-      event: event,
+      search_term: search_term,
       data: data
     })
     @redis.publish( user_token, json_data )

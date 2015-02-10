@@ -18,21 +18,12 @@ class SocketsController < WebsocketRails::BaseController
 				on.message do |channel, msg|
 
 					data = JSON.parse(msg)
-					event = data['event']
+					search_term = data['search_term']
 
 					print "*" if counter % 50 == 0
 					counter += 1
-
-					debugger if event == "layer"
-
-					# if data['event'] == "layer"
-					# 	message = handle_new_layer(data)
-					# else
-					# 	message = handle_tweet(data)
-					# end
-					# puts message unless data['data']['search_term'] == "All Tweets"
 					
-					send_message event, msg
+					send_message search_term, msg
 				end
 			# end
 		end

@@ -61,9 +61,9 @@ Added Profile and Config file
 
 
 ## Day 8- 
+- [ ] User shouldn't be allowed to send a black request
 - [ ] Check if heroku works with just regular pushing of "all topics"
 - [ ] Figure out how to kill the thread
-- [ ] Try putting back features
 - [ ] Form validation if user already has created that layer
 - [ ] Popup button for all tweets on form if no layers are left
 - [ ] Fix routes
