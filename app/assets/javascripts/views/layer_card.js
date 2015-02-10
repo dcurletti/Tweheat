@@ -25,9 +25,9 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 
 		this.tweetEventVar = this.tweetEvent.bind(this);
 
-		// this.toggleSSEListener();
+		this.toggleSSEListener();
 
-		Tweheat.dispatcher.bind('all_tweets', this.tweetEventVar);
+		// var all_tweets_channel = Tweheat.dispatcher.subscribe("all_tweets");
 
 	},
 
@@ -38,11 +38,11 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	toggleSSEListener: function (event) {
 		if (this.paused) {
 			console.log("Restarting stream...")
-			Tweheat.twitterStream.addEventListener(this.layerName, this.tweetEventVar, false);
+			Tweheat.dispatcher.bind(this.layerName, this.tweetEventVar);
 			this.paused = false;
 		} else {
-			console.log("Pausing #{this.layerName} stream...")
-			Tweheat.twitterStream.removeEventListener(this.layerName, this.tweetEventVar, false);
+			console.log("Pausing " + this.layerName + " stream...")
+			Tweheat.dispatcher.bind('all_tweets', this.tweetEventVar);
 			this.paused = true;
 		}
 	},

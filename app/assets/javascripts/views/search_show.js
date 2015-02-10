@@ -2,7 +2,7 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 	className: 'search-show',
 
 	events: {
-		'submit form': 'test',
+		'submit form': 'search',
 		'click .destroy': 'destroySubview'
 	},
 
@@ -15,8 +15,6 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 		// this.addLayerListener();
 
 		this.currentLayerIndex = 1;
-		
-		this.websocket();
 	},
 
 	render: function () {
@@ -26,7 +24,7 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 		this.$el.append(renContent);
 		
 		// Create the initial All Tweets layer
-		this.addLayer("All Tweets", 1)
+		this.addLayer("all_tweets", 1)
 
 		return this;
 	},
@@ -35,14 +33,13 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 		this.$('#map').html(Tweheat.mapView.$el)
 	},
 
-	addLayerListener: function () {
-		Tweheat.twitterStream.addEventListener('layer', function (event) {
-			var data = $.parseJSON(event.data)
+	// addLayerListener: function () {
+	// 	Tweheat.dispatcher.bind('layer', function (event) {
+	// 		var data = $.parseJSON(event).data;
+	// 		this.addLayer(data.search_term, 1)
 
-			this.addLayer(data.search_term, 1)
-
-		}.bind(this))
-	},
+	// 	}.bind(this))
+	// },
 
 	search: function (event) {
 		event.preventDefault();
@@ -74,6 +71,7 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 				success: function () {
 					searchBar.val('');
 					console.log("Successfully sent");
+					that.addLayer(searchBarValue, 1)
 				}
 			});
 		}
@@ -134,11 +132,10 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 
 	},
 
-	websocket: function () {
+
 
 		// Tweheat.dispatcher.trigger('client_connected', task);
 
-	}, 
 
 	// test: function (event) {
 	// 	Tweheat.dispatcher.trigger('')

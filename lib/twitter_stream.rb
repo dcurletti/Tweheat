@@ -79,8 +79,8 @@ class TwitterStream
 						case channel
 						when "new_user"
 							handle_new_user(msg) 
-						# when "new_search"
-						# 	handle_new_search(msg)  
+						when "new_search"
+							handle_new_search(msg)  
 						# when "remove_user"
 						# 	handle_remove_user(msg)
 						# when "remove_search"
@@ -114,11 +114,11 @@ class TwitterStream
 				}
 				user_token = msg["user_token"]
 				
-				RedisStream.publish_to_user_stream("layer", data, user_token)
+				# RedisStream.publish_to_user_stream("layer", data, user_token)
 
-				restart_stream 
-				@search_topics[search_term] << user_token
-				delete_empty_searches
+				# restart_stream 
+				# @search_topics[search_term] << user_token
+				# delete_empty_searches
 			end
 
 			def handle_remove_user(user_token)

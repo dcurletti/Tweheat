@@ -14,12 +14,16 @@ class SocketsController < WebsocketRails::BaseController
 		channel = token
 		# Subscribing to user's stream by session token
 		# @thread = Thread.new do
-			@redis_sub.subscribe([ "all_tweets" ]) do |on|
+			@redis_sub.subscribe([ channel ]) do |on|
 				on.message do |channel, msg|
+
 					data = JSON.parse(msg)
+					event = data['event']
 
 					print "*" if counter % 50 == 0
 					counter += 1
+
+					debugger if event == "layer"
 
 					# if data['event'] == "layer"
 					# 	message = handle_new_layer(data)
@@ -28,7 +32,7 @@ class SocketsController < WebsocketRails::BaseController
 					# end
 					# puts message unless data['data']['search_term'] == "All Tweets"
 					
-					broadcast_message :all_tweets, msg
+					send_message event, msg
 				end
 			# end
 		end
@@ -57,19 +61,19 @@ class SocketsController < WebsocketRails::BaseController
 
 	private
 
-		def handle_tweet msg
-			event = msg['data']['search_term']
-			data = JSON.dump(msg['data'])
-			compile_SSE(event, data)
-		end
+		# def handle_tweet msg
+		# 	event = msg['data']['search_term']
+		# 	data = JSON.dump(msg['data'])
+		# 	compile_SSE(event, data)
+		# end
 
-		def handle_new_layer msg
-			compile_SSE("layer", JSON.dump(msg["data"]))
-		end
+		# def handle_new_layer msg
+		# 	compile_SSE("layer", JSON.dump(msg["data"]))
+		# end
 
-		def compile_SSE event, data
-			[ "event: #{event}", "data: #{data}" ].join("\n") + "\n\n"
-		end
+		# def compile_SSE event, data
+		# 	[ "event: #{event}", "data: #{data}" ].join("\n") + "\n\n"
+		# end
 
 
 end
