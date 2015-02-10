@@ -15,7 +15,8 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 		this.addLayerListener();
 
 		this.currentLayerIndex = 1;
-
+		
+		this.websocket();
 	},
 
 	render: function () {
@@ -131,6 +132,18 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 
 		this.removeSubview('ul.feeds', subView);
 
+	},
+
+	websocket: function () {
+		var task = {
+		  name: 'Start taking advantage of WebSockets',
+		  completed: false
+		}
+
+		var dispatcher = new WebSocketRails('localhost:3000/websocket');
+
+		debugger
+		dispatcher.trigger('new_message', task);
 	}
 
 })

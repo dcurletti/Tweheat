@@ -2,11 +2,11 @@ module RedisStream
 
   def self.configure(uri)
   	@uri = uri
-  	@redis = Redis.new(:url => @uri)
+  	@redis = Redis.new(:url => @uri, :driver => :hiredis)
   end
 
   def self.new_redis_client
-  	Redis.new(:url => @uri)
+  	Redis.new(:url => @uri, :driver => :hiredis)
   end
 
   def self.publish_new_user(user_token)

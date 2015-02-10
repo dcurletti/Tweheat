@@ -44,6 +44,8 @@ gem 'redis'
 # Fonts
 gem 'font-awesome-rails'
 
+gem 'websocket-rails'
+
 
 
 # Use Capistrano for deployment

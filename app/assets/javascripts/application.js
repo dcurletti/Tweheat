@@ -18,6 +18,7 @@
 //= require L.Control.Locate.min
 //= require underscore
 //= require backbone
+//= require websocket_rails/main
 //= require tweheat
 //= require_tree ./util
 //= require_tree ../templates
