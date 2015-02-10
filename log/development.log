@@ -46492,3 +46492,15 @@ RuntimeError - can't add a new key into hash during iteration:
   puma (2.11.0) lib/puma/server.rb:262:in `block in run'
   puma (2.11.0) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
 
+
+
+Started GET "/" for ::1 at 2015-02-10 10:38:39 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 841ms (Views: 822.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 10:39:57 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 800ms (Views: 785.0ms | ActiveRecord: 0.0ms)
