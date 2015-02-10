@@ -27,9 +27,8 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 
 		// this.toggleSSEListener();
 
-		Tweheat.dispatcher.bind('all_tweets', function (data) {
-			this.updateCounter();
-		}.bind(this))
+		Tweheat.dispatcher.bind('all_tweets', this.tweetEventVar);
+
 	},
 
 	addHeatLayer: function (color, zIndex) {
@@ -48,9 +47,9 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 		}
 	},
 
-	tweetEvent: function (event) {
+	tweetEvent: function (data) {
   	this.counter += 1;
-    var tweet = $.parseJSON(event.data);
+    var tweet = $.parseJSON(data).data;
 
     // TEMP: Abstract this into a new function
     if (Tweheat.mapView.panning) {

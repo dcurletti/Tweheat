@@ -135,12 +135,8 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 	},
 
 	websocket: function () {
-		var task = {
-		  name: 'Start taking advantage of WebSockets',
-		  completed: false
-		}
 
-		Tweheat.dispatcher.trigger('client_connected', task);
+		// Tweheat.dispatcher.trigger('client_connected', task);
 
 	}, 
 

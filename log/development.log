@@ -46576,3 +46576,27 @@ Started GET "/" for ::1 at 2015-02-10 12:03:02 -0800
 Processing by TweetsController#index as HTML
   Rendered tweets/index.html.erb within layouts/application (0.9ms)
 Completed 200 OK in 591ms (Views: 580.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 12:08:29 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 1019ms (Views: 1003.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 12:11:02 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 906ms (Views: 888.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 12:12:22 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 773ms (Views: 757.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-10 13:01:23 -0800
+Processing by TweetsController#index as HTML
+  Rendered tweets/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 953ms (Views: 937.1ms | ActiveRecord: 0.0ms)

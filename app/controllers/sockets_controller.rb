@@ -21,15 +21,14 @@ class SocketsController < WebsocketRails::BaseController
 					print "*" if counter % 50 == 0
 					counter += 1
 
-					if data['event'] == "layer"
-						message = handle_new_layer(data)
-					else
-						message = handle_tweet(data)
-					end
-					
+					# if data['event'] == "layer"
+					# 	message = handle_new_layer(data)
+					# else
+					# 	message = handle_tweet(data)
+					# end
 					# puts message unless data['data']['search_term'] == "All Tweets"
 					
-					broadcast_message :all_tweets, message
+					broadcast_message :all_tweets, msg
 				end
 			# end
 		end
