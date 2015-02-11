@@ -44,7 +44,7 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 			this.paused = false;
 		} else {
 			console.log("Pausing " + this.layerName + " stream...")
-			Tweheat.dispatcher.bind('all_tweets', this.tweetEventVar);
+			Tweheat.dispatcher.unbind(this.layerName);
 			this.paused = true;
 		}
 	},
@@ -114,7 +114,9 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 
 	toggleLayerSize: function (event) {
 		console.log("hovered")
-		this.heatLayer.setOptions({ radius: 50 })
+		var radiusSize = 35;
+		if (this.heatLayer.options.radius > 20) { radiusSize = 20 };
+		this.heatLayer.setOptions({ radius: radiusSize })
 	}
 
 })

@@ -61,6 +61,7 @@ Added Profile and Config file
 
 
 ## Day 8- 
+- [ ] Figure out event machine problem
 - [ ] User shouldn't be allowed to send a blank request
 - [ ] Change the form button to be something else
 - [ ] Check if heroku works with just regular pushing of "all topics"
