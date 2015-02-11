@@ -15,7 +15,7 @@
 }
 
 .layer {
-	background-color: white;
+	background-color: #4078C2;
 	height: 50px; 
 	padding-right: 15px;
 	width: 465px; 
@@ -24,7 +24,8 @@
 }
 
 .layer:hover {
-	background-color: blue;
+	background-color: white;
+	transition: background-color .25s;
 }
 
 

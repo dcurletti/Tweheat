@@ -34,7 +34,9 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	},
 
 	addHeatLayer: function (color, zIndex) {
-		this.heatLayer = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 20 } ).addTo(Tweheat.mapView._map);
+		this.heatLayer = L.heatLayer([], { 
+			maxZoom: 9, radius: 15, blur: 20, minOpacity: .2 } )
+			.addTo(Tweheat.mapView._map);
 	},
 
 	toggleSSEListener: function (event) {
@@ -44,6 +46,7 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 			this.paused = false;
 		} else {
 			console.log("Pausing " + this.layerName + " stream...")
+			debugger
 			Tweheat.dispatcher.unbind(this.layerName);
 			this.paused = true;
 		}
@@ -113,10 +116,29 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	}, 
 
 	toggleLayerSize: function (event) {
-		console.log("hovered")
-		var radiusSize = 35;
-		if (this.heatLayer.options.radius > 20) { radiusSize = 20 };
-		this.heatLayer.setOptions({ radius: radiusSize })
+		var radius = 8;
+		var blur = 10;
+		var gradient = { 0: "red", 1: "red" };
+		var minOpacity = .5;
+		var maxZoom = 7;
+
+		if (this.heatLayer.options.radius != 15) { 
+			radius = 15;
+			blur = 20;
+			gradient = {
+        0.4: 'blue',
+        0.6: 'cyan',
+        0.7: 'lime',
+        0.8: 'yellow',
+        1.0: 'red'
+	    };
+			minOpacity = .05;
+		  maxZoom = 9;
+		 };
+
+		this.heatLayer.setOptions({ 
+			radius: radius, blur: blur, maxZoom: maxZoom, gradient: gradient,
+			minOpacity: minOpacity })
 	}
 
 })
