@@ -1,13 +1,30 @@
 #search-bar {
 	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
 	top: 40px;
 	left: 20px;
 	z-index: 314159;
 	width: 500px;
+	left: -80%;
+}
+
+#submit-search, #search-item {
+	margin-bottom: 5px;
+}
+
+.layer {
+	background-color: white;
+	height: 50px; 
+	padding-right: 15px;
+	width: 465px; 
+	float: left;
+
 }
 
 
-// Use foundation column size to change size of the button
-#search-button {
-	// width: 30px;
+
+p, .layer-item {
+	display: inline-block;
 }

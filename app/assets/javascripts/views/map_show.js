@@ -39,8 +39,13 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 		};
 
 		// Adding Base Layers and control widget to the map
-		baseLayers.DarkTheme.addTo(this._map);
-		L.control.layers(baseLayers).addTo(this._map)
+		baseLayers.DarkTheme.addTo(this._map).on('load', function(){
+			console.log("loaded");
+			//TEMP: Probably shouldn't be here...
+			$('#search-bar').velocity({ left: "0%" }, { duration: 500 });
+
+		});
+		L.control.layers(baseLayers).addTo(this._map);
 
 		// Add locate me button 
 		new L.Control.Zoom({ position: 'bottomleft' }).addTo(this._map);

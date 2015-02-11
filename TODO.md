@@ -61,7 +61,8 @@ Added Profile and Config file
 
 
 ## Day 8- 
-- [ ] User shouldn't be allowed to send a black request
+- [ ] User shouldn't be allowed to send a blank request
+- [ ] Change the form button to be something else
 - [ ] Check if heroku works with just regular pushing of "all topics"
 - [ ] Figure out how to kill the thread
 - [ ] Form validation if user already has created that layer

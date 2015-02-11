@@ -1,14 +1,15 @@
-<div style='background-color:white'>
-	<p>
-		<%= layerName %>
-	</p>
+<div class="row layer">
+	
+	<p><%= layerName %></p>
 
-	<div class="row counter" style="background-color: white; height:30px; width:50px; float:left">
+	<div class="counter layer-item">
   </div>
-
-  <button class="pause button tiny">Pause Stream</button>	
-  <button class="opacity button tiny">Opacity</button>	
-  <button class="destroy button tiny" data-id="<%= layerName %>">Remove</button>	
+	
+	<div class="layer-item">
+	  <button class="pause button tiny">Pause Stream</button>	
+	  <button class="opacity button tiny">Opacity</button>	
+	  <button class="destroy button tiny" data-id="<%= layerName %>">Remove</button>	
+  </div>
 </div>
 
 
