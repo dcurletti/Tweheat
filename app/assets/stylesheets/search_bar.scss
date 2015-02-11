@@ -1,3 +1,10 @@
+$layerHeight: 50px;
+$controlBar: 150px;
+$layerHoverColor: white;
+$layerButtonHoverColor: red;
+
+
+
 #search-bar {
 	position: absolute;
 	margin: 0px;
@@ -16,23 +23,50 @@
 
 .layer {
 	background-color: #4078C2;
-	height: 50px; 
+	height: $layerHeight; 
 	padding-right: 15px;
+	margin-bottom: 5px;
 	width: 465px; 
 	float: left;
 	display: none;
+
 }
 
 .layer:hover {
-	background-color: white;
+	background-color: $layerHoverColor;
 	transition: background-color .25s;
 }
 
 
-p, .layer-item {
+p, .control-bar, .layer-item, .control-button {
 	display: inline-block;
+}
+
+p {
+	float:left;
+	padding-top: 12px;
+	padding-left: 20px;
+}
+
+.control-bar {
+	float: right;
+	height: $layerHeight;
+	width: $controlBar;
+}
+
+.control-button {
+	float: right;
+	padding-top: 12px;
+	padding-left: 15px;
+	height: $layerHeight;
+	width: 33%;
+}
+
+.control-button:hover {
+	background-color: $layerButtonHoverColor;
 }
 
 .error {
 	z-index: -1;
 }
+
