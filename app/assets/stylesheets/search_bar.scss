@@ -2,7 +2,7 @@
 	position: absolute;
 	margin: 0px;
 	padding: 0px;
-	overflow: hidden;
+	// overflow: hidden;
 	top: 40px;
 	left: 20px;
 	z-index: 314159;
@@ -20,7 +20,7 @@
 	padding-right: 15px;
 	width: 465px; 
 	float: left;
-
+	display: none;
 }
 
 .layer:hover {
@@ -31,4 +31,8 @@
 
 p, .layer-item {
 	display: inline-block;
+}
+
+.error {
+	z-index: -1;
 }
