@@ -17,10 +17,11 @@ module TwitterPackage
 		def initialize(tw_obj, search_term)
 			tw_hash = tw_obj.to_h
 			coordinates = Tweet.handle_coordinates(tw_hash)
-
+			
 			@tweet = {
 				search_term: search_term, 
 				coordinates: coordinates
+				# content: tw_hash[:text]
 			}
 
 			@tweet.each do |name, value|

@@ -14,7 +14,7 @@ class SocketsController < WebsocketRails::BaseController
 		channel = token
 		# Subscribing to user's stream by session token
 		# @thread = Thread.new do
-			@redis_sub.subscribe([ channel ]) do |on|
+			@redis_sub.subscribe([ "All Tweets" ]) do |on|
 				on.message do |channel, msg|
 
 					data = JSON.parse(msg)

@@ -3,7 +3,9 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 
 	events: {
 		'submit form': 'search',
-		'click .destroy': 'destroySubview'
+		'click .destroy': 'destroySubview',
+		'focusin input': 'toggleBlurMap',
+		'focusout input': 'toggleBlurMap'
 	},
 
 	template: JST['index'],
@@ -132,7 +134,10 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 
 	},
 
-
+	toggleBlurMap: function (event) {
+		$('.leaflet-overlay-pane').toggleClass("blur");
+		$('.leaflet-layer').toggleClass("blur");
+	}
 
 		// Tweheat.dispatcher.trigger('client_connected', task);
 

@@ -33,7 +33,7 @@
     transition-delay:         $delay;
 }
 
-$blur: 10px;
+$blur: 5px;
 
 @mixin blur-filter($radius) {
   -webkit-filter: blur($radius);
@@ -50,14 +50,17 @@ body { margin:0; padding:0; }
 	top:0; 
 	bottom:0; 
 	width:100%;
-	// @include blur-filter($blur);
-	// @include transition(-webkit-filter .5s .5s, webkit-filter 0s)
+}
+.leaflet-layer, .leaflet-overlay-pane {
+  @include blur-filter(0px);
+	@include transition(-webkit-filter .15s .15s, webkit-filter 0s)
 }
 
-// TEMP: Change this to On click of search bar
-#map:hover {
-	// @include blur-filter(0px)
+.blur {
+  @include blur-filter($blur);
+  @include transition(-webkit-filter .5s .5s, webkit-filter 0s)
 }
+
 
 .leaflet-control-locate {
   border:1px solid rgba(0,0,0,0.4);

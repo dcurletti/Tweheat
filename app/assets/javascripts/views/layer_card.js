@@ -6,7 +6,9 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 
 	events: {
 		'click .pause': 'toggleSSEListener',
-		'click .opacity': 'toggleOpacity'
+		'click .opacity': 'toggleOpacity',
+		'mouseenter': 'toggleLayerSize',
+		'mouseleave': 'toggleLayerSize'
 	},
 
 	initialize: function  (options) {
@@ -108,6 +110,11 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 
 	removeLayer: function () {
 		Tweheat.mapView._map.removeLayer(this.heatLayer)
+	}, 
+
+	toggleLayerSize: function (event) {
+		console.log("hovered")
+		this.heatLayer.setOptions({ radius: 50 })
 	}
 
 })
