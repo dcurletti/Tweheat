@@ -75,8 +75,8 @@ Added Profile and Config file
 
 - [ ] Have search button be an icon
 - [ ] Make an animation when searching for current location
-- [ ] Look into heroku scheduler
 - [ ] Look into changing the default controls
+- [ ] Look into heroku scheduler
 
 ## Would Be Nice
 - [ ] Figure out how to run a rake process for API Trends call
