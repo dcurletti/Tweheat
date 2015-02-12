@@ -61,6 +61,7 @@ Added Profile and Config file
 
 
 ## Day 8- 
+- [ ] Problem when hovering over counter
 - [ ] Figure out event machine problem
 - [ ] User shouldn't be allowed to send a blank request
 - [X] Change the form button to be something else

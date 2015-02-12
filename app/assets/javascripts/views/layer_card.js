@@ -82,7 +82,8 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 
 	//TEMP:
 	updateCounter: function () {
-		this.$(".counter").html("<p>" + this.counter + "</p>")
+		debugger
+		this.$(".counter p").val( this.counter )
 		this.counter += 1
 	},
  

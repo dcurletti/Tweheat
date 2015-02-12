@@ -32,7 +32,7 @@ $layerButtonHoverColor: red;
 
 }
 
-.layer:hover {
+.row.layer:hover {
 	background-color: $layerHoverColor;
 	transition: background-color .25s;
 }
@@ -70,7 +70,7 @@ p {
 }
 
 .row.layer {
-	box-shadow: 0px 1px rgba( 0, 0, 0, 0.1 );
+	box-shadow: 2.5px 2.5px 8px rgba( 1, 2, 0, .2);
 	color: #444;
 	font-size: 14px;
   border: 1px solid rgba( 0, 0, 0, 0.2 );
