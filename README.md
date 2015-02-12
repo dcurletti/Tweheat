@@ -5,7 +5,7 @@
 [heroku]: http://tweheat.herokuapp.com
 
 ## Critical Alerts
-Currently only one connection can be established with the tweets.  Page loads fine other than that.
+If it doesn't load immediately, refresh.
 
 ## General Info
 Look at TODO.md in root for micro updates.
@@ -26,8 +26,8 @@ Realtime twitter heat map that supports multiple concurrent searches. Users can:
 - [X] Heatmap visualization of all tweets
 - [X] Toggle previous search layers on and off
 - [X] Combine multiple searches and overlay them
-- [ ] Search for tweets based on user input
-- [ ] Search for specific topics/keywords
+- [ ] Search for tweets based on user input (working locally)
+- [ ] Search for specific topics/keywords (working locally)
 - [ ] Allow for a "replay mode", aka allowing a user to quickly replay the tweet mapping 
 			at 10x speed
 

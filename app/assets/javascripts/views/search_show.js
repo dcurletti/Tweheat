@@ -1,4 +1,4 @@
-Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
+	Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 	className: 'search-show',
 
 	events: {
