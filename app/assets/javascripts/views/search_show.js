@@ -14,7 +14,7 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 		
 		this.currentColors = [];
 
-		this.currentLayerIndex = 1;
+		this.zIndex = 1;
 
 		this.animHack = false;
 	},
@@ -50,6 +50,9 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 
 	search: function (event) {
 		event.preventDefault();
+		var button = $('#submit-search');
+		button.empty();
+		button.html("<i class='fa fa-cog fa-spin'></i>")
 		var searchBar = $('#search-item');
 		var searchBarValue = searchBar.val();
 		var siblings = searchBar.siblings();
@@ -64,6 +67,7 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 					searchBar.after($error)
 					$error.velocity("transition.slideDownIn", 100);
 					$(".row.layer").velocity( "callout.pulse", { stagger: 50 } )		
+					button.html("Search");
 				})
 			}
 		} else {
@@ -89,7 +93,8 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 				success: function () {
 					searchBar.val('');
 					console.log("Successfully sent");
-					that.addLayer(searchBarValue, 1)
+					that.addLayer(searchBarValue, that.zIndex);
+					button.html("Search");
 				}
 			});
 		}
@@ -100,7 +105,7 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 		var searchTerm = $.trim(input);
 		if (/All Tweets/.test(searchTerm)) { return true };
 
-		if (/\s/.test(searchTerm)) {
+		if ( /\s/.test(searchTerm) || searchTerm === "" ) {
 			return false
 		} else {
 			return true
@@ -127,6 +132,7 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 			$layerEl.find(".layer").show().velocity("transition.slideDownIn", 200);
 		};
 
+		this.zIndex++
 	}, 
 
 	randomColor: function () {
@@ -148,12 +154,17 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 
 		this.removeSubview('#layers', subView);
 
+		if ( $('#layers').children().length < 1 ) {
+			this.addLayer("All Tweets", 1)
+		};
 	},
 
 	toggleBlurMap: function (event) {
 		$('.leaflet-overlay-pane').toggleClass("blur");
 		$('.leaflet-layer').toggleClass("blur");
-	}
+	},
+
+
 
 		// Tweheat.dispatcher.trigger('client_connected', task);
 

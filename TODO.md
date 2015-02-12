@@ -61,28 +61,26 @@ Added Profile and Config file
 
 
 ## Day 8- 
-- [ ] Problem when hovering over counter
+- [X] Problem when hovering over counter
 - [ ] Figure out event machine problem
-- [ ] User shouldn't be allowed to send a blank request
 - [X] Change the form button to be something else
-- [ ] Check if heroku works with just regular pushing of "all topics"
 - [ ] Figure out how to kill the thread
 - [ ] Form validation if user already has created that layer
-- [ ] Popup button for all tweets on form if no layers are left
-- [ ] Fix routes
+- [X] Fix routes
 
-## Future features
+## Day 9-
+- [X] User shouldn't be allowed to send a blank request
+- [X] Popup button for all tweets on form if no layers are left
+- [ ] Have button animate until ajax response is back- Could still use some work
+
+- [ ] Have search button be an icon
 - [ ] Make an animation when searching for current location
 - [ ] Look into heroku scheduler
-- [ ] Have search button be an icon
 - [ ] Look into changing the default controls
-- [ ] Ask for sites that show how to create jquery animations
-- [ ] Refactor Twitter Streamer
 
 ## Would Be Nice
 - [ ] Figure out how to run a rake process for API Trends call
 - [ ] Set MaxView on map
-- [ ] Save sessions for half an hour
 
 ###Issues-
 - [ ] Look into removing TMP folder in gitIgnore

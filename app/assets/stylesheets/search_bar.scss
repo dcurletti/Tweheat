@@ -26,10 +26,23 @@ $layerButtonHoverColor: red;
 	height: $layerHeight; 
 	padding-right: 15px;
 	margin-bottom: 5px;
-	width: 465px; 
+	width: 470px; 
 	float: left;
 	display: none;
+  box-shadow: 2.5px 2.5px 8px rgba( 1, 2, 0, .2);
+  color: #444;
+  font-size: 14px;
+  border: 1px solid rgba( 0, 0, 0, 0.2 );
+  padding: 1px;
+  // -moz-border-radius: 3px 3px 0px 0px;
+  // -webkit-border-radius: 3px 3px 0px 0px;
+  // border-radius: 3px 3px 0px 0px;
 
+}
+
+ul.layers {
+  margin-left: 15px !important;
+  margin-right: 15px !important;
 }
 
 .row.layer:hover {
@@ -43,7 +56,7 @@ p, .control-bar, .layer-item, .control-button {
 
 p {
 	float:left;
-	padding-top: 12px;
+	padding-top: 11px;
 	padding-left: 20px;
 }
 
@@ -53,6 +66,13 @@ p {
 	width: $controlBar;
 }
 
+.control-button {
+  float: right;
+  padding-top: 12px;
+  padding-left: 15px;
+  height: $layerHeight;
+  width: 33%;
+}
 
 .control-button:hover {
 	background-color: $layerButtonHoverColor;
@@ -62,15 +82,11 @@ p {
 	z-index: -1;
 }
 
-.row.layer {
-	box-shadow: 2.5px 2.5px 8px rgba( 1, 2, 0, .2);
-	color: #444;
-	font-size: 14px;
-  border: 1px solid rgba( 0, 0, 0, 0.2 );
-	// -moz-border-radius: 3px 3px 0px 0px;
-	// -webkit-border-radius: 3px 3px 0px 0px;
-	// border-radius: 3px 3px 0px 0px;
+small.error {
+  margin-top: -5 !important;
+  margin-bottom: 5px !important;
 }
+
 
 
 // Odometer
@@ -92,6 +108,7 @@ body {
   border-radius: 4px;
   width: 200px;
   float:right;
+  margin-top: 6px;
   ul.digits {
     list-style: none;
     padding: 0px;
@@ -127,6 +144,7 @@ body {
             min-width: 2em;
             min-height: 2em;
             line-height: 2em;
+            text-align: center;
           }
         }
       }
@@ -163,14 +181,6 @@ body {
 }
 .goto-9 {
   transform:translateY(-20em) !important;
-}
-
-.control-button {
-	float: right;
-	padding-top: 12px;
-	padding-left: 15px;
-	height: $layerHeight;
-	width: 33%;
 }
 
 

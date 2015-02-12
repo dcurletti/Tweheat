@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
 
-  resource :tweets do
-  end
+  resource :tweets, only: [:index]
   
   get 'tweets', to: 'tweets#show'
   get 'tweets/search', to: 'tweets#search'

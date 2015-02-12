@@ -82,6 +82,7 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	updateCounter: function () {
 		this.counter += 1;
 		var that = this;
+		var $digits = $("[data-id='" + this.zIndex +"']").find('ul');
 		
 		var pad = function (n, width, z) {
 		  z = z || '0';
@@ -90,7 +91,7 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 		};
 
 		var something = function() {
-		  $('.cou-item').find('ul').each(function(i, el){
+		  $digits.each(function(i, el){
 		    var val = pad(that.counter, 5, 0).split("");
 		    var $el = $(this);
 		    $el.removeClass();
@@ -100,9 +101,8 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 
 		something();
 
-		console.log(that.counter)
 		var counter = function () {
-	    $('.cou-item').find('ul').each(function(i, el){
+	    $digits.each(function(i, el){
 	      var val = pad(that.counter, 5, 0).split("");
 	      var $el = $(this);
 	      $el.removeClass();
@@ -115,15 +115,18 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	},
  
 	render: function(){
-		var renContent = this.template({ layerName: this.layerName });
+		var renContent = this.template({ 
+			layerName: this.layerName,
+			zIndex: this.zIndex
+		});
 		this.$el.html(renContent);
 		return this;
 	},
 
 	toggleOpacity: function (event) {
-		// TEMP: Need to figure out how to make it opaque
-		if (this.showingLayer) {
-			this.removeLayer();
+		// TEMP: Need to figure out how to make it opaque. update: maybe not.
+		if ( this.showingLayer ) {
+			Tweheat.mapView._map.removeLayer(this.heatLayer);
 			this.showingLayer = false;
 		} else {
 			this.heatLayer.addTo(Tweheat.mapView._map)
