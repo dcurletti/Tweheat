@@ -1,7 +1,8 @@
 $layerHeight: 50px;
 $controlBar: 150px;
-$layerHoverColor: white;
+$layerHoverColor: #55ACEE;
 $layerButtonHoverColor: red;
+$layerStaticColor: #008CBA;
 
 
 
@@ -22,7 +23,7 @@ $layerButtonHoverColor: red;
 }
 
 .layer {
-	background-color: #4078C2;
+	background-color: $layerStaticColor;
 	height: $layerHeight; 
 	padding-right: 15px;
 	margin-bottom: 5px;
@@ -40,7 +41,7 @@ $layerButtonHoverColor: red;
 
 }
 
-ul.layers {
+ul#layers {
   margin-left: 15px !important;
   margin-right: 15px !important;
 }
@@ -54,11 +55,6 @@ p, .control-bar, .layer-item, .control-button {
 	display: inline-block;
 }
 
-p {
-	float:left;
-	padding-top: 11px;
-	padding-left: 20px;
-}
 
 .control-bar {
 	float: right;
@@ -104,9 +100,9 @@ body {
   color: #fff;
   display: inline-block;
   vertical-align: middle;
-  border: 1px solid #fff;
+  // border: 1px solid #fff;
   border-radius: 4px;
-  width: 200px;
+  width: 130px;
   float:right;
   margin-top: 6px;
   ul.digits {
@@ -119,7 +115,7 @@ body {
       float: left;
       background-color: transparent;
       font-size: 2em;
-      min-width: 1em;
+      min-width: .65em;
       min-height: 1em;
       line-height: 1em;
       .cou-item {

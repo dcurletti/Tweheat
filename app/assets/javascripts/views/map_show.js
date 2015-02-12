@@ -8,10 +8,10 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 		// Used to prevent redraw errors
 		this.panning = false;
 
+		// Load the map
 		this.installMap();
+		this.addUIElements();
 		this.addListeners();
-		//TEMP: Eventually add ListenTo events that call handleTweet
-		// this.addLayer("all_tweets")
 	},
 
 	installMap: function () {
@@ -25,12 +25,10 @@ Tweheat.Views.MapShow = Backbone.View.extend({
   
   	// Creates the actual Mapbox map object
 		this._map = L.mapbox.map('map', null, {
-			maxZoom: 12,
 			zoomControl: false
 		}).setView(startingPosition, startingZoom);
 
-
-
+		//TEMP: refactor into base layer fun
 		// Various Base Layer options
 		var baseLayers = {
 			DarkTheme: L.mapbox.tileLayer('dcurletti.knl7n7kb'),
@@ -38,29 +36,36 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 			Satellite: L.mapbox.tileLayer('dcurletti.l56dl8ml')
 		};
 
-		// Adding Base Layers and control widget to the map
-		baseLayers.DarkTheme.addTo(this._map).on('load', function(){
-			
-		}.bind(this));
+		// Adding Base Layers to map, UI layers button
+		baseLayers.DarkTheme.addTo(this._map)
 		L.control.layers(baseLayers).addTo(this._map);
+	},
 
+	addUIElements: function () {
+		// Add Zoom UI controls
+		new L.Control.Zoom({ position: 'topright' }).addTo(this._map);
+		
 		// Add locate me button 
-		new L.Control.Zoom({ position: 'bottomleft' }).addTo(this._map);
 		L.control.locate({
-			position: 'bottomleft'
+			position: 'topright'
 		}).addTo(this._map);		
-
-
-		//TEMP: refactor in method
-	  // this.heat = L.heatLayer([], { maxZoom: 9, radius: 15, blur: 14 } ).addTo(this._map);
 	},
 
 	addListeners: function ()	 {
+		// User moving the map
 		this._map.on('movestart', function(event) {
 			this.panning = true;
 		}.bind(this));
 		this._map.on('moveend', function(event) {
 			this.panning = false;
+		}.bind(this));
+		// User resizing the window
+		this._map.on('resize', function(event) {
+			if (this.panning) {
+				this.panning = false;
+			} else {
+				this.panning = true;
+			}
 		}.bind(this));
 	},
 

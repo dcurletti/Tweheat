@@ -15,7 +15,6 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 		this.currentColors = [];
 
 		this.zIndex = 1;
-
 	},
 
 	render: function () {
@@ -31,7 +30,10 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 	addLoadAnimations: function () {
 		var that = this;
 		var searchBar = $("#search-bar");
-		$('body').on('bodyLoaded', function(){ 
+
+		// Waits for the preloader anim to be finished
+		$('body').on('bodyLoaded', function(){
+			// Animate search bar in 
 			searchBar.velocity({ left: "0%" }, { duration: 500 , delay: 750, 
 				complete: function () {
 					// Create the initial All Tweets layer
@@ -55,6 +57,7 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 		var siblings = searchBar.siblings();
 		var $error = $("<small class='error'>Only one word keyword at a time!</small>") ;
 
+		
 
 		if (!this.validateSearchTerm(searchBarValue)) {
 			searchBar.parent().addClass("error");
@@ -98,6 +101,10 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 		}
 
 	},
+
+	handleInvalidSearch: function (argument) {
+
+	}
 
 	validateSearchTerm: function (input) {
 		var searchTerm = $.trim(input);
@@ -158,7 +165,7 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 	toggleBlurMap: function (event) {
 		$('.leaflet-overlay-pane').toggleClass("blur");
 		$('.leaflet-layer').toggleClass("blur");
-	},
+	}
 
 
 

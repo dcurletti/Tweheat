@@ -51,6 +51,7 @@ body { margin:0; padding:0; }
 	bottom:0; 
 	width:100%;
 }
+
 .leaflet-layer, .leaflet-overlay-pane {
   @include blur-filter(0px);
 	@include transition(-webkit-filter .15s .15s, webkit-filter 0s)
@@ -60,7 +61,6 @@ body { margin:0; padding:0; }
   @include blur-filter($blur);
   @include transition(-webkit-filter .5s .5s, webkit-filter 0s)
 }
-
 
 .leaflet-control-locate {
   border:1px solid rgba(0,0,0,0.4);

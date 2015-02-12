@@ -170,3 +170,18 @@ $mediumDuration: 0.3s;
 .control-button {
 	@include underline-reveal;
 }
+
+
+
+p {
+	float:left;
+	padding-top: 5px;
+	padding-left: 20px;
+}
+
+.layer p {
+	font-size: 1.5em;
+	max-width: 150px;
+	text-overflow: ellipsis;	
+	overflow: hidden;
+}
