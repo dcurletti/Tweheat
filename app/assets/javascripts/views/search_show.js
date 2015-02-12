@@ -139,7 +139,9 @@
 
 		$("#layers").append($layerEl)
 
-		$layerEl.find(".layer").show().velocity("transition.slideDownIn", 200);
+		$layerEl.find(".layer").show()
+
+		// .velocity("transition.slideDownIn", 200);
 
 		this.zIndex++
 	}, 

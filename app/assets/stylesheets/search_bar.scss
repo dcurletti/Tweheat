@@ -1,6 +1,5 @@
 $layerHeight: 50px;
 $controlBar: 150px;
-$layerHoverColor: #55ACEE;
 $layerButtonHoverColor: red;
 $layerStaticColor: #008CBA;
 
@@ -35,20 +34,11 @@ $layerStaticColor: #008CBA;
   font-size: 14px;
   border: 1px solid rgba( 0, 0, 0, 0.2 );
   padding: 1px;
-  // -moz-border-radius: 3px 3px 0px 0px;
-  // -webkit-border-radius: 3px 3px 0px 0px;
-  // border-radius: 3px 3px 0px 0px;
-
 }
 
 ul#layers {
   margin-left: 15px !important;
   margin-right: 15px !important;
-}
-
-.row.layer:hover {
-	background-color: $layerHoverColor;
-	transition: background-color .25s;
 }
 
 p, .control-bar, .layer-item, .control-button {

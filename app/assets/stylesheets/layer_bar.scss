@@ -1,3 +1,25 @@
+$layerHoverColor: #55ACEE;
+
+
+p {
+	float:left;
+	padding-top: 5px;
+	padding-left: 20px;
+}
+
+.layer p {
+	font-size: 1.5em;
+	max-width: 150px;
+	text-overflow: ellipsis;	
+	overflow: hidden;
+}
+
+
+
+
+
+
+
 // DEFAULT OPTIONS
 
 // Prefix for Hover class names
@@ -133,55 +155,40 @@ $includeClasses: true !default;
 $mediumDuration: 0.3s;
 
 
-
-/* Underline Reveal */
-@mixin underline-reveal {
-	$duration: $mediumDuration;
-
+/* Sweep To Bottom */
+@mixin sweep-to-bottom {
 	@include hacks();
 	position: relative;
-	overflow: hidden;
+	@include prefixed(transition-property, color);
+	@include prefixed(transition-duration, $mediumDuration);
 
 	&:before {
 		content: "";
 		position: absolute;
 		z-index: -1;
+		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
 		background: $activeColor;
-		height: 4px;
-		@include prefixed(transform, translateY(4px));
+		@include prefixed(transform, scaleY(0));
+		@include prefixed(transform-origin, 50% 0);
 		@include prefixed(transition-property, transform);
-		@include prefixed(transition-duration, $duration);
+		@include prefixed(transition-duration, $mediumDuration);
 		@include prefixed(transition-timing-function, ease-out);
 	}
 
 	&:hover,
 	&:focus,
 	&:active {
+		color: white;
 
 		&:before {
-			@include prefixed(transform, translateY(0));
+			@include prefixed(transform, scaleY(1));
 		}
 	}
 }
 
-.control-button {
-	@include underline-reveal;
-}
-
-
-
-p {
-	float:left;
-	padding-top: 5px;
-	padding-left: 20px;
-}
-
-.layer p {
-	font-size: 1.5em;
-	max-width: 150px;
-	text-overflow: ellipsis;	
-	overflow: hidden;
+.layer {
+	@include sweep-to-bottom;
 }
