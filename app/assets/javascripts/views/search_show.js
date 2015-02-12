@@ -16,7 +16,6 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 
 		this.zIndex = 1;
 
-		this.animHack = false;
 	},
 
 	render: function () {
@@ -25,23 +24,21 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 		var renContent = this.template({});
 		this.$el.append(renContent);
 		
-		this.addAnimations();
-
-		// Create the initial All Tweets layer
-		this.addLayer("All Tweets", 1)
-
+		this.addLoadAnimations();
 		return this;
 	},
 
-	addAnimations: function () {
+	addLoadAnimations: function () {
 		var that = this;
 		var searchBar = $("#search-bar");
-		searchBar.velocity({ left: "0%" }, { duration: 500 , delay: 500, 
-			complete: function () {
-				$('.layer').show().velocity("transition.slideDownIn", 200);
-				that.animHack = true;
-			}}
-		)
+		$('body').on('bodyLoaded', function(){ 
+			searchBar.velocity({ left: "0%" }, { duration: 500 , delay: 750, 
+				complete: function () {
+					// Create the initial All Tweets layer
+					that.addLayer("All Tweets", 1)
+				}}
+			)
+		 })
 	},
 
 	attachMap: function () {
@@ -67,9 +64,10 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 					searchBar.after($error)
 					$error.velocity("transition.slideDownIn", 100);
 					$(".row.layer").velocity( "callout.pulse", { stagger: 50 } )		
-					button.html("Search");
 				})
 			}
+			button.html("Search");
+
 		} else {
 			searchBar.parent().removeClass("error");
 			searchBar.removeClass("error");
@@ -128,9 +126,7 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 
 		$("#layers").append($layerEl)
 
-		if (this.animHack) {
-			$layerEl.find(".layer").show().velocity("transition.slideDownIn", 200);
-		};
+		$layerEl.find(".layer").show().velocity("transition.slideDownIn", 200);
 
 		this.zIndex++
 	}, 

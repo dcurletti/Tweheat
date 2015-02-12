@@ -39,7 +39,7 @@ $(document).ready(function(){
 
 	setTimeout( function () {
 
-		$('body').addClass('loaded');
+		$('body').addClass('loaded').trigger("bodyLoaded");
 		$('h1').css('color', '#222222')
 		
 	}, 1000)
