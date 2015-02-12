@@ -53,7 +53,6 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	},
 
 	tweetEvent: function (data) {
-  	this.counter += 1;
     var tweet = $.parseJSON(data).data;
 
     // TEMP: Abstract this into a new function
@@ -80,11 +79,39 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
     this.heatLayer.addLatLng(latlng);
 	},
 
-	//TEMP:
 	updateCounter: function () {
-		debugger
-		this.$(".counter p").val( this.counter )
-		this.counter += 1
+		this.counter += 1;
+		var that = this;
+		
+		var pad = function (n, width, z) {
+		  z = z || '0';
+		  n = n + '';
+		  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+		};
+
+		var something = function() {
+		  $('.cou-item').find('ul').each(function(i, el){
+		    var val = pad(that.counter, 5, 0).split("");
+		    var $el = $(this);
+		    $el.removeClass();
+		    $el.addClass('goto-' + val[i]);
+		  })
+		};
+
+		something();
+
+		console.log(that.counter)
+		var counter = function () {
+	    $('.cou-item').find('ul').each(function(i, el){
+	      var val = pad(that.counter, 5, 0).split("");
+	      var $el = $(this);
+	      $el.removeClass();
+	      $el.addClass('goto-' + val[i]);
+	    })
+		};
+
+		counter();
+		
 	},
  
 	render: function(){
