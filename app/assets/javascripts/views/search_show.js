@@ -48,25 +48,19 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 		this.$('#map').html(Tweheat.mapView.$el)
 	},
 
-	errorSequence: function (error) {
-		var sequence = [
-				{ e: $("#form"), p: { "callout.bounce": 200 }, o: { duration: 300 } },
-				{ e: error, p: { "transition.slideDownBigIn": 200 }, o: { duration: 300 } }
-		]
-		return sequence;
-	},
-
 	search: function (event) {
 		event.preventDefault();
 		var searchBar = $('#search-item');
 		var searchBarValue = searchBar.val();
 		var siblings = searchBar.siblings();
-		var $error = $("<small class='error'>Only one word at a keyword at a time!</small>") ;
+		var $error = $("<small class='error'>Only one word keyword at a time!</small>") ;
+
+
 		if (!this.validateSearchTerm(searchBarValue)) {
 			searchBar.parent().addClass("error");
 			searchBar.addClass("error");
 			if ( siblings.length === 0 ) { 
-				$('form').velocity("callout.bounce", 250, function() {
+				$('.row.collapse').velocity("callout.bounce", 250, function() {
 					searchBar.after($error)
 					$error.velocity("transition.slideDownIn", 100);
 					$(".row.layer").velocity( "callout.pulse", { stagger: 50 } )		
@@ -75,7 +69,12 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 		} else {
 			searchBar.parent().removeClass("error");
 			searchBar.removeClass("error");
-			searchBar.nextAll().remove();
+			var errors = searchBar.nextAll();
+			errors.velocity("transition.slideUpOut", 200, { 
+				complete: function(){
+					errors.remove();
+				}
+			});
 
 			var data = { search_term: searchBarValue };
 			var that = this;
@@ -99,6 +98,7 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 
 	validateSearchTerm: function (input) {
 		var searchTerm = $.trim(input);
+		if (/All Tweets/.test(searchTerm)) { return true };
 
 		if (/\s/.test(searchTerm)) {
 			return false
@@ -134,7 +134,7 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 	}, 
 
 	destroySubview: function (event) {
-		var layerName = $(event.target).attr("data-id");
+		var layerName = $(event.currentTarget).attr("data-id");
 
 		var subView = _.find(
 			this.subviews('#layers'),
@@ -142,9 +142,11 @@ Tweheat.Views.SearchShow = Backbone.CompositeView.extend({
 				return subView.layerName === layerName;
 		});
 
+		subView.$el.find(".layer").velocity("transition.slideUpOut", 200)
+
 		subView.destroyView();
 
-		this.removeSubview('ul.feeds', subView);
+		this.removeSubview('#layers', subView);
 
 	},
 

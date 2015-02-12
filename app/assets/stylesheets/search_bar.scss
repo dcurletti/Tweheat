@@ -37,7 +37,6 @@ $layerButtonHoverColor: red;
 	transition: background-color .25s;
 }
 
-
 p, .control-bar, .layer-item, .control-button {
 	display: inline-block;
 }
@@ -68,5 +67,15 @@ p {
 
 .error {
 	z-index: -1;
+}
+
+.row.layer {
+	box-shadow: 0px 1px rgba( 0, 0, 0, 0.1 );
+	color: #444;
+	font-size: 14px;
+  border: 1px solid rgba( 0, 0, 0, 0.2 );
+	// -moz-border-radius: 3px 3px 0px 0px;
+	// -webkit-border-radius: 3px 3px 0px 0px;
+	// border-radius: 3px 3px 0px 0px;
 }
 
