@@ -89,7 +89,7 @@
 		$('.row.collapse').velocity("callout.bounce", 250, function() {
 			searchBar.after( $error )
 			$error.velocity( "transition.slideDownIn", 100 );
-			$(".row.layer").velocity( "callout.pulse", { stagger: 50 } )		
+			$(".layer").velocity( "callout.pulse", { stagger: 50 } )		
 		})
 	},
 
@@ -139,9 +139,7 @@
 
 		$("#layers").append($layerEl)
 
-		$layerEl.find(".layer").show()
-
-		// .velocity("transition.slideDownIn", 200);
+		$layerEl.find(".layer").show().velocity("transition.slideDownIn", 200);
 
 		this.zIndex++
 	}, 

@@ -1,5 +1,21 @@
-$layerHoverColor: #55ACEE;
+$layerHoverColor: #02516b;
+$layerStaticColor: #008CBA;
+$layerHeight: 50px;
 
+.layer {
+	background-color: $layerStaticColor;
+	height: $layerHeight; 
+	padding-right: 15px;
+	margin-bottom: 5px;
+	width: 470px; 
+	float: left;
+	display: none;
+  box-shadow: 2.5px 2.5px 8px rgba( 1, 2, 0, .2);
+  color: #444;
+  font-size: 14px;
+  // border: 1px solid rgba( 0, 0, 0, 0.2 );
+  padding: 1px;
+}
 
 p {
 	float:left;
@@ -13,11 +29,6 @@ p {
 	text-overflow: ellipsis;	
 	overflow: hidden;
 }
-
-
-
-
-
 
 
 // DEFAULT OPTIONS
@@ -170,7 +181,7 @@ $mediumDuration: 0.3s;
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: $activeColor;
+		background: $layerHoverColor;
 		@include prefixed(transform, scaleY(0));
 		@include prefixed(transform-origin, 50% 0);
 		@include prefixed(transition-property, transform);
