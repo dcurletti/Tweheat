@@ -1,0 +1,69 @@
+$layerStaticColor: #008CBA;
+
+/* Compatible with Leaflet 0.7 */
+.leaflet-touch {
+	.leaflet-bar-part-single {
+		// -webkit-border-radius: 7px 7px 7px 7px;
+		//         border-radius: 7px 7px 7px 7px;
+		// border-bottom: none;
+		border-radius: 0px;
+	}
+
+	.leaflet-control-locate {
+		box-shadow: none;
+		// border: 2px solid rgba(0,0,0,0.2);
+		background-clip: padding-box;
+	}
+}
+
+.leaflet-control {
+	background-color: #fff !important;	
+	border: none !important;
+	border-radius: 0px !important;
+}
+
+.leaflet-control-locate {
+	border: none;
+	span {
+		margin-left: 7px;
+		margin-top: 5px;
+	}
+	a {
+		border: none;
+		font-size: 1.4em;
+    color: #444;
+	}
+	&.active {
+	 	a {
+			color: $layerStaticColor;
+		}
+		&.following a {
+			color: $layerStaticColor;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+// .leaflet-control-locate a {
+//   background-position:-3px, -2px;
+//   }
+// .leaflet-control-locate.active a {
+//   background-position:-33px -2px;
+//   }
+
+
+// .leaflet-layer, .leaflet-overlay-pane {
+//   @include blur-filter(0px);
+// 	@include transition(-webkit-filter .15s .15s, webkit-filter 0s)
+// }
+
+// .blur {
+//   @include blur-filter($blur);
+//   @include transition(-webkit-filter .5s .5s, webkit-filter 0s)
+// }

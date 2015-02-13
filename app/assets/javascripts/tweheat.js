@@ -37,13 +37,13 @@ $(document).ready(function(){
 	Tweheat.initialize();
 
 	
-	var $body = $('body');
-	$body.one("mapLoaded", function (event) {
-		setTimeout( function () {
-			$body.addClass('loaded').trigger("bodyLoaded");
-	}, 1000)
-	})	
+	// var $body = $('body');
+	// $body.one("mapLoaded", function (event) {
+	// 	setTimeout( function () {
+	// 		$body.addClass('loaded').trigger("bodyLoaded");
+	// }, 1000)
+	// })	
 
-	// $('body').addClass('loaded').trigger("bodyLoaded");
+	$('body').addClass('loaded').trigger("bodyLoaded");
 
 })
