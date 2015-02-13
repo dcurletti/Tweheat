@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
 
 	before_filter :require_session_token!
 	# Websocket connection with client
-	include ActionController::Live
+	# include ActionController::Live
 
 	def index
 		# Gives connected user a session token for redis pub/sub

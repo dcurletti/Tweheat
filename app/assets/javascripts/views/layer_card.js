@@ -174,8 +174,16 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
         1.0: 'red'
 	    }
 		} else {
-			var hexColor = randomColor({ 
-				luminosity: 'bright'
+
+			var randomHue = function getRandomArbitrary(min, max) {
+ 			  return Math.floor( Math.random() * (max - min) + min );
+			}
+
+			var hexColor = Please.make_color({ 
+				hue: randomHue( 17, 320 ),
+				saturation: 1, 
+				value: 1,
+				golden: false
 			})
 	  	// var hexColor = "#" + Math.floor(Math.random()*16777215).toString(16);
 	  	return { 1: hexColor };

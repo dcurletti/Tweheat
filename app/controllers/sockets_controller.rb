@@ -36,7 +36,7 @@ class SocketsController < WebsocketRails::BaseController
 	ensure
 		puts "\n\nClosing stream, Redis Sub and removing #{token}\n\n"
 		@redis_sub.quit
-		# RedisStream.publish_remove_user(token)
+		RedisStream.publish_remove_user(token)
 
 
 		# broadcast_message :new_message, {:user => current_user.screen_name, :text => message[:text]}

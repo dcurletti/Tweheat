@@ -20,6 +20,7 @@
 //= require backbone
 //= require websocket_rails/main
 //= require tweheat
+//= require Please.min
 //= require_tree ./util
 //= require_tree ../templates
 // require_tree ./models
