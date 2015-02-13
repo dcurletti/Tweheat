@@ -15,7 +15,7 @@
 //= require foundation
 // require mapbox
 // require leaflet-heat
-//= require L.Control.Locate.min
+//= require L.Control.Locate
 //= require underscore
 //= require backbone
 //= require websocket_rails/main

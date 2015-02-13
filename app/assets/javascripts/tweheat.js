@@ -35,7 +35,6 @@ window.Tweheat = {
 
 $(document).ready(function(){
 	Tweheat.initialize();
-
 	
 	var $body = $('body');
 	$body.one("mapLoaded", function (event) {

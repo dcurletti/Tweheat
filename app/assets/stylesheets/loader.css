@@ -161,6 +161,22 @@ h1 {
     transition: all 0.3s ease-out;
 }
 
+.loading #loader {
+	opacity: 1;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+
+}
+
+.loading #loader-wrapper {
+	          -webkit-transform: translateY(-5%);
+            -ms-transform: translateY(-5%);
+                transform: translateY(-5%);
+ 
+        -webkit-transition: opacity 0.3s 1s ease-in; 
+                transition: opacity 0.3s 1s ease-in;
+}
+
 .loaded #loader-wrapper .loader-section.section-right,
 .loaded #loader-wrapper .loader-section.section-left {
  
