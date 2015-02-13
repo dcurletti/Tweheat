@@ -11,10 +11,8 @@
 	template: JST['index'],
 
 	initialize: function () {
-		
-		this.currentColors = [];
-
-		this.zIndex = 1;
+		this.zIndex = 0;
+		this.heatLayers = []
 	},
 
 	render: function () {
@@ -37,7 +35,7 @@
 			searchBar.velocity({ left: "0%" }, { duration: 500 , delay: 750, 
 				complete: function () {
 					// Create the initial All Tweets layer
-					that.addLayer("All Tweets", 1)
+					that.addLayer( "All Tweets" )
 				}}
 			)
 		 })
@@ -117,20 +115,23 @@
 			success: function () {
 				searchBar.val('');
 				console.log("Successfully sent");
-				that.addLayer(searchTerm, that.zIndex);
+				that.addLayer(searchTerm);
 				button.html("Search");
 			}
 		});		
 	},
 
-	addLayer: function (search_term, zIndex) {
+	addLayer: function (search_term) {
 		// TEMP: exclude colors that are already in play
-		var color = this.randomColor();
+		this.zIndex++;
+
+		_.each( this.subviews('#layers'), function (view) {
+			view.removeHeat();
+		})
 
 		var subView = new Tweheat.Views.LayerCard({
 			layerName: search_term, 
-			zIndex: zIndex,
-			color: color
+			zIndex: this.zIndex,
 		});
 
 		this.addSubview("#layers", subView);
@@ -141,11 +142,8 @@
 
 		$layerEl.find(".layer").show().velocity("transition.slideDownIn", 200);
 
-		this.zIndex++
-	}, 
+		this.heatLayers.push(subView.heatLayer._leaflet_id)
 
-	randomColor: function () {
-  	return Math.floor(Math.random()*16777215).toString(16);
 	}, 
 
 	destroySubview: function (event) {
@@ -165,24 +163,21 @@
 
 			// Add an All Tweets layer if no layers remain
 			if ( $('#layers').children().length < 1 ) {
-				that.addLayer("All Tweets", 1)
+				that.addLayer( "All Tweets" )
 			};
 		})
 
+		var index = this.heatLayers.indexOf(subView.heatLayer._leaflet_id)
+		if (index > -1) {
+  		this.heatLayers.splice(index, 1);
+		}					
+
+		this.zIndex--
 	},
 
 	toggleBlurMap: function (event) {
 		$('.leaflet-overlay-pane').toggleClass("blur");
 		$('.leaflet-layer').toggleClass("blur");
 	}
-
-
-
-		// Tweheat.dispatcher.trigger('client_connected', task);
-
-
-	// test: function (event) {
-	// 	Tweheat.dispatcher.trigger('')
-	// }
 
 })

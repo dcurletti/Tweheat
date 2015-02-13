@@ -7,8 +7,8 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	events: {
 		'click .pause': 'toggleSSEListener',
 		'click .opacity': 'toggleOpacity',
-		'mouseenter': 'toggleLayerSize',
-		'mouseleave': 'toggleLayerSize'
+		'mouseenter': 'toggleLayerView',
+		'mouseleave': 'toggleLayerView'
 	},
 
 	initialize: function  (options) {
@@ -17,8 +17,11 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 		this.counter = 0;
 		this.paused = true;
 		this.showingLayer = true;
-				
-		this.addHeatLayer(this.layerName, this.zIndex);
+		this.heatMode = this.zIndex === 1 ? true : false
+		this.gradient = this.chooseGradient();
+		this.isolated = false;
+						
+		this.addHeatLayer(this.gradient, this.zIndex);
 		// Used to contain tweets when the map is being dragged
 		this.tweetQueue = [];
 
@@ -30,13 +33,25 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 		this.toggleSSEListener();
 
 		// var all_tweets_channel = Tweheat.dispatcher.subscribe("all_tweets");
-
 	},
 
-	addHeatLayer: function (color, zIndex) {
+	addHeatLayer: function (gradient, zIndex) {
+		var settings = null;
+		if ( zIndex === 1 ) {
+			settings = this.standardHeatSettings();
+		} else {
+			settings = this.circleSettings();
+		}
+
 		this.heatLayer = L.heatLayer([], { 
-			maxZoom: 9, radius: 15, blur: 20, minOpacity: .2 } )
-			.addTo(Tweheat.mapView._map);
+			maxZoom: settings.maxZoom, 
+			radius: settings.radius,
+			blur: settings.blur,
+			minOpacity: settings.minOpacity,
+			gradient: gradient 
+		})
+
+		this.heatLayer.addTo(Tweheat.mapView._map);
 	},
 
 	toggleSSEListener: function (event) {
@@ -124,6 +139,7 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 
 	toggleOpacity: function (event) {
 		// TEMP: Need to figure out how to make it opaque. update: maybe not.
+		event.stopPropagation();
 		if ( this.showingLayer ) {
 			Tweheat.mapView._map.removeLayer(this.heatLayer);
 			this.showingLayer = false;
@@ -135,35 +151,96 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	}, 
 
 	destroyView: function (event) {
-		// this.toggleSSEListener();
+		if ( !this.paused ) {
+			Tweheat.dispatcher.unbind(this.layerName);
+		};
 		Tweheat.mapView._map.removeLayer(this.heatLayer)
 		this.remove();
 	},  
 
-	toggleLayerSize: function (event) {
-		var radius = 8;
-		var blur = 10;
-		var gradient = { 0: "red", 1: "red" };
-		var minOpacity = .5;
-		var maxZoom = 7;
-
-		if (this.heatLayer.options.radius != 15) { 
-			radius = 15;
-			blur = 20;
-			gradient = {
+	chooseGradient: function () {
+		if ( this.zIndex === 1 && this.heatMode ) {
+			return {
         0.4: 'blue',
         0.6: 'cyan',
         0.7: 'lime',
         0.8: 'yellow',
         1.0: 'red'
-	    };
-			minOpacity = .05;
-		  maxZoom = 9;
+	    }
+		} else {
+	  	var hexColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+	  	return { 1: hexColor };
+		}
+	}, 
+
+	buildLayerProperties: function (gradient) {
+	},
+
+	toggleLayerView: function (event, gradient) {
+		event = typeof event !== 'undefined' ? event : event.type;
+
+		var circle = this.circleSettings();
+		var radius = circle.radius;
+		if (event.type === "mouseenter" ) {
+			gradient = { 1: "red" };
+			var radius = circle.radius + 3;
+		} else if ( event.type === "mouseleave" ) {
+			gradient = this.gradient;
+		}
+
+		var blur = circle.blur;
+		var minOpacity = circle.minOpacity;
+		var maxZoom = circle.maxZoom;
+
+		if ( this.isolated || (this.heatMode && event.type === "mouseleave" )) { 
+			var std = this.standardHeatSettings();
+			radius = std.radius;
+			blur = std.blur;
+			gradient = std.gradient;
+			minOpacity = std.minOpacity;
+		  maxZoom = std.maxZoom;
 		 };
 
 		this.heatLayer.setOptions({ 
 			radius: radius, blur: blur, maxZoom: maxZoom, gradient: gradient,
 			minOpacity: minOpacity })
+	},
+
+	removeHeat: function () {
+		if ( this.heatMode && !this.isolated ) {
+			this.heatMode = false;
+			this.gradient = this.chooseGradient();
+			this.toggleLayerView( "undefined", this.gradient );
+		}
+	},
+
+	standardHeatColors: function () {
+		return {
+      0.4: 'blue',
+      0.6: 'cyan',
+      0.7: 'lime',
+      0.8: 'yellow',
+      1.0: 'red'
+    };
+	},
+
+	standardHeatSettings: function () {
+		return { 
+			radius: 15,
+			blur: 20,
+			gradient: this.standardHeatColors(),
+			minOpacity: .05,
+		  maxZoom: 9
+		 }
+	},
+
+	circleSettings: function () {
+		return {
+			radius: 5,
+			blur: 2,
+			minOpacity: .5,
+			maxZoom: 7
+		}
 	}
 
 })

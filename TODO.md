@@ -79,6 +79,10 @@ Added Profile and Config file
 - [ ] Look into changing the default controls
 - [ ] Look into heroku scheduler
 
+## Day 10- 
+- [ ] Update the way the toggleColor happens
+- [ ] Fix the counter with animated numbers- Doesn't do cool animation
+
 ## Would Be Nice
 - [ ] Figure out how to run a rake process for API Trends call
 - [ ] Set MaxView on map
@@ -87,12 +91,11 @@ Added Profile and Config file
 - [ ] Look into removing TMP folder in gitIgnore
 - [ ] Look into the continous Socket requests from the client when the server goes down
 - [ ] Look into growing size of repo
-- [ ] Removed redis ping, might be a problem in the long run
-- [ ] Look into pinching and zooming animations on mobile devices for refresh
 - [ ] Make sure to close the Twitter Stream when noone is connected to the website- This might not actually be an issue
 - [ ] Look into client data count when connected to site
 
 ###Fixed-
+- [X] Look into pinching and zooming animations on mobile devices for refresh
 - [X] Getting heroku to allow websockets
 - [X] Checking Twitter geo_enabled and coordinates coorelation
 - [X] Still being asked for SSH keys in terminal

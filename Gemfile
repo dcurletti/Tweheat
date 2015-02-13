@@ -41,9 +41,9 @@ gem 'backbone-on-rails'
 gem 'foundation-rails'
 # Using Redis to pub/sub specific tweets
 gem 'redis'
-# Fonts
+# Fonts/icons
 gem 'font-awesome-rails'
-
+# Websocket attempt 
 gem 'websocket-rails', :git => 'https://github.com/websocket-rails/websocket-rails'
 
 
