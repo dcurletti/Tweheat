@@ -1,5 +1,11 @@
 $layerStaticColor: #008CBA;
 
+// Hide for pre-loader
+.leaflet-right {
+	display: none;
+	right: -300px !important;
+}
+
 /* Compatible with Leaflet 0.7 */
 .leaflet-touch {
 	.leaflet-bar-part-single {
@@ -23,6 +29,7 @@ $layerStaticColor: #008CBA;
 }
 
 .leaflet-control-locate {
+	z-index: -1;
 	border: none;
 	span {
 		margin-left: 7px;

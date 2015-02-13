@@ -30,6 +30,7 @@
 	addLoadAnimations: function () {
 		var that = this;
 		var searchBar = $("#search-bar");
+		var controlBar = $('.leaflet-right');
 
 		// Waits for the preloader anim to be finished
 		$('body').one('bodyLoaded', function(){
@@ -40,6 +41,7 @@
 					that.addLayer( "All Tweets" )
 				}}
 			)
+			controlBar.velocity({ translateX: "-300px"}, { duration: 200, delay: 1150 }).show()
 		 })
 	},
 
