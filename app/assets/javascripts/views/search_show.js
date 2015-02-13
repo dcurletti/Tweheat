@@ -149,6 +149,7 @@
 	}, 
 
 	destroySubview: function (event) {
+		var that = this;
 		var layerName = $(event.currentTarget).attr("data-id");
 
 		var subView = _.find(
@@ -157,15 +158,17 @@
 				return subView.layerName === layerName;
 		});
 
-		subView.$el.find(".layer").velocity("transition.slideUpOut", 200)
+		subView.$el.find(".layer").velocity("transition.slideUpOut", 200, function () {
+			// Destroy view once the animation is over
+			subView.destroyView();
+			that.removeSubview('#layers', subView);
 
-		subView.destroyView();
+			// Add an All Tweets layer if no layers remain
+			if ( $('#layers').children().length < 1 ) {
+				that.addLayer("All Tweets", 1)
+			};
+		})
 
-		this.removeSubview('#layers', subView);
-
-		if ( $('#layers').children().length < 1 ) {
-			this.addLayer("All Tweets", 1)
-		};
 	},
 
 	toggleBlurMap: function (event) {

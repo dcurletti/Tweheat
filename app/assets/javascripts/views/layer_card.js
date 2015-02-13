@@ -139,7 +139,6 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 		// this.toggleSSEListener();
 		Tweheat.mapView._map.removeLayer(this.heatLayer)
 		this.remove();
-
 	},  
 
 	toggleLayerSize: function (event) {
