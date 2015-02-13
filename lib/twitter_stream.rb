@@ -27,7 +27,7 @@ class TwitterStream
 				search_topics = @search_topics.except("all_tweets").keys
 				search_topic_list = search_topics.join(", ")
 
-				@tw_stream_client.filter( locations: "-180,-90,180,90" ) do |tw_obj|
+				@tw_stream_client.filter( locations: filter_bounds ) do |tw_obj|
 					# TEMP: improve the coordinates filter
 					if tw_obj.is_a? Twitter::Tweet and ( tw_obj.to_h[:coordinates] != nil or tw_obj.to_h[:place] )
 
