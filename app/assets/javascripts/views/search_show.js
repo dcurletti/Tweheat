@@ -32,7 +32,7 @@
 		var searchBar = $("#search-bar");
 
 		// Waits for the preloader anim to be finished
-		$('body').on('bodyLoaded', function(){
+		$('body').one('bodyLoaded', function(){
 			// Animate search bar in 
 			searchBar.velocity({ left: "0%" }, { duration: 500 , delay: 750, 
 				complete: function () {
