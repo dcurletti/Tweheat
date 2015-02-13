@@ -73,6 +73,7 @@ Added Profile and Config file
 - [X] Popup button for all tweets on form if no layers are left
 - [ ] Have button animate until ajax response is back- Could still use some work
 
+- [ ] Input listener to update form
 - [ ] Have search button be an icon
 - [ ] Make an animation when searching for current location
 - [ ] Look into changing the default controls

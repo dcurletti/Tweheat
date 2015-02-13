@@ -257,8 +257,10 @@ $mediumDuration: 0.3s;
           backface-visibility: hidden;
           transform-origin: 50% 50%;
           transform: translate(0, 0em);
-          transition: all 1s cubic-bezier(0, 1.2, 1, 1.2);
-          transition: color 0s;
+          transition: color 0ms, all 1s cubic-bezier(0, 1.2, 1, 1.2);
+					-webkit-transition: color 0s;
+					-moz-transition: color 0s;
+					-o-transition: color 0s;
           &.goto-5 {
             animation: bounce 0.8s ease-out 1;
             transform:translateY(-10em);

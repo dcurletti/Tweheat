@@ -46,7 +46,6 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 			this.paused = false;
 		} else {
 			console.log("Pausing " + this.layerName + " stream...")
-			debugger
 			Tweheat.dispatcher.unbind(this.layerName);
 			this.paused = true;
 		}

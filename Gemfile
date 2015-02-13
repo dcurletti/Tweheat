@@ -44,7 +44,7 @@ gem 'redis'
 # Fonts
 gem 'font-awesome-rails'
 
-gem 'websocket-rails'
+gem 'websocket-rails', :git => 'https://github.com/websocket-rails/websocket-rails'
 
 
 
