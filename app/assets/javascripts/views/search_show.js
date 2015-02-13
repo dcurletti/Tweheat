@@ -3,16 +3,18 @@
 
 	events: {
 		'submit form': 'search',
-		'click .destroy': 'destroySubview'
+		'click .destroy': 'destroySubview',
 		// 'focusin input': 'toggleBlurMap',
 		// 'focusout input': 'toggleBlurMap'
+		// 'test .layer': 'toggleIsolate'
 	},
 
 	template: JST['index'],
 
 	initialize: function () {
 		this.zIndex = 0;
-		this.heatLayers = []
+		this.heatLayers = [];
+		this.isolatedLayer = false;
 	},
 
 	render: function () {
@@ -139,16 +141,19 @@
 		var $layerEl = subView.render().$el;
 
 		$("#layers").append($layerEl)
-
-		$layerEl.find(".layer").show().velocity("transition.slideDownIn", 200);
+		$layer = $layerEl.find(".layer");
+		$layer.show().velocity("transition.slideDownIn", 200);
 
 		this.heatLayers.push(subView.heatLayer._leaflet_id)
+
+		$layer.on( "layerIsolate", this.toggleIsolate.bind(this) )
+		$layer.on( "destroyLayer", this.destroySubview.bind(this) )
 
 	}, 
 
 	destroySubview: function (event) {
 		event.stopPropagation();
-		
+
 		var that = this;
 		var layerName = $(event.currentTarget).attr("data-id");
 
@@ -180,6 +185,29 @@
 	toggleBlurMap: function (event) {
 		$('.leaflet-overlay-pane').toggleClass("blur");
 		$('.leaflet-layer').toggleClass("blur");
+	},
+
+	toggleIsolate: function (event) {
+		var that = this;
+		var curLayerID = parseInt($(event.currentTarget).attr("data-id"));
+
+		_.each( that.subviews('#layers'), function (subView) {
+				if ( subView.layerID !== curLayerID ) {
+					if ( subView.isolated ) {
+						subView.toggleIsolate();
+					}
+					if ( subView.showingLayer ) {
+						subView.toggleOpacity("undefined");
+					}
+					subView.$el.find('div.opacity').off( "click", "**" );
+
+				} else {
+					console.log("should be toggling")
+					subView.toggleIsolate();
+				}
+		});
+	
 	}
+
 
 })

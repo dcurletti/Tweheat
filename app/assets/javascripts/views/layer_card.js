@@ -5,9 +5,10 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	template: JST['layer_card'],
 
 	events: {
-		'click .layer': 'toggleIsolate',
+		'click .layer': 'isolateTrigger',
 		'click .pause': 'toggleSSEListener',
 		'click .opacity': 'toggleOpacity',
+		'click .destroy': 'destroyTrigger',
 		'mouseenter': 'toggleLayerView',
 		'mouseleave': 'toggleLayerView'
 	},
@@ -53,6 +54,7 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 		})
 
 		this.heatLayer.addTo(Tweheat.mapView._map);
+		this.layerID = this.heatLayer._leaflet_id;
 	},
 
 	toggleSSEListener: function (event) {
@@ -133,7 +135,8 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	render: function(){
 		var renContent = this.template({ 
 			layerName: this.layerName,
-			zIndex: this.zIndex
+			zIndex: this.zIndex,
+			layerID: this.layerID
 		});
 		this.$el.html(renContent);
 		return this;
@@ -141,7 +144,7 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 
 	toggleOpacity: function (event) {
 		// TEMP: Need to figure out how to make it opaque. update: maybe not.
-		event.stopPropagation();
+		if (event !== "undefined") { event.stopPropagation() };
 		if ( this.showingLayer ) {
 			Tweheat.mapView._map.removeLayer(this.heatLayer);
 			this.showingLayer = false;
@@ -174,9 +177,6 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	  	return { 1: hexColor };
 		}
 	}, 
-
-	buildLayerProperties: function (gradient) {
-	},
 
 	toggleLayerView: function (event, gradient) {
 		if (event !== "undefined") { event.stopPropagation() };
@@ -246,20 +246,33 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 			minOpacity: .5,
 			maxZoom: 7
 		}
+	}, 
+
+	destroyTrigger: function (event) {
+		this.$el.find(".layer").trigger("destroyLayer")
 	},
 
-	toggleIsolate: function (event) {
+	isolateTrigger: function (event) {
 		event.stopPropagation();
+
+		if (!this.isolated) {
+			this.$el.find(".layer").trigger("layerIsolate")
+		} else {
+			this.toggleIsolate();
+		}
+	}, 
+
+	toggleIsolate: function () {
 		if (this.isolated) {
 			this.isolated = false;
-			this.$el.find(".layer").velocity({ translateX: "0px" }, 150 )
+			this.$el.find('.layer').velocity({ translateX: "0px" }, 150 )
 					.removeClass("isolated");
 		} else {
 			this.isolated = true;
-			this.$el.find(".layer").velocity({ translateX: "50px" }, 150 )
+			if (!this.showingLayer) { this.toggleOpacity("undefined") };
+			this.$el.find('.layer').velocity({ translateX: "50px" }, 150 )
 					.addClass("isolated");
 		}
 		this.toggleLayerView("undefined");
 	}
-
 })
