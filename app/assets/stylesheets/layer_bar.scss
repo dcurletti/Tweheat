@@ -228,6 +228,25 @@ $mediumDuration: 0.3s;
 	@include fade;
 }
 
+/* Fade */
+@mixin fade {
+  @include hacks();
+  overflow: hidden;
+  @include prefixed(transition-duration, $slowDuration);
+  @include prefixed(transition-property, "background-color");
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $layerHoverColor;
+  }
+}
+
+#submit-search {
+  color: #444;
+  font-family: 'Jura', sans-serif;
+  @include fade;
+}
 
 
 .odometer {
