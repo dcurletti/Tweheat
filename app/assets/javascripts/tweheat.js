@@ -36,12 +36,15 @@ window.Tweheat = {
 $(document).ready(function(){
 	Tweheat.initialize();
 
-	// setTimeout( function () {
-
-	// 	$('body').addClass('loaded').trigger("bodyLoaded");
-	// 	$('h1').css('color', '#222222')
-		
+	
+	// var $body = $('body');
+	// $body.one("mapLoaded", function (event) {
+	// 	setTimeout( function () {
+	// 		$body.addClass('loaded').trigger("bodyLoaded");
+	// 		// $('h1').css('color', '#222222')
 	// }, 1000)
+	// })	
+>>>>>>> Buttons
 
 	$('body').addClass('loaded').trigger("bodyLoaded");
 	$('h1').css('color', '#222222');

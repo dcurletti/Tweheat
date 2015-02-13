@@ -37,7 +37,11 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 		};
 
 		// Adding Base Layers to map, UI layers button
-		baseLayers.DarkTheme.addTo(this._map)
+		baseLayers.DarkTheme.addTo(this._map).once('load', function (event) {
+			console.log("Map Loaded");
+			$('body').trigger("mapLoaded")
+		});
+
 		L.control.layers(baseLayers).addTo(this._map);
 	},
 
