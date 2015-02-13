@@ -126,9 +126,10 @@
 	addLayer: function (search_term) {
 		// TEMP: exclude colors that are already in play
 		this.zIndex++;
+		var that = this;
 
 		_.each( this.subviews('#layers'), function (view) {
-			view.removeHeat();
+			view.removeHeat( that.chooseGradient() );
 		})
 
 		var subView = new Tweheat.Views.LayerCard({
@@ -207,7 +208,34 @@
 				}
 		});
 	
-	}
+	},
+
+	chooseGradient: function () {
+		var randomHue = function getRandomArbitrary(min, max) {
+		  return Math.floor( Math.random() * (max - min) + min );
+		}
+
+		var hexColor = Please.make_color({ 
+			hue: randomHue( 17, 320 ),
+			saturation: 1, 
+			value: 1,
+			golden: false,
+			format: 'hsv'
+		})
+
+		if ( this.lastColor ) {
+			if ( Math.abs( this.lastColor - hexColor[0].h ) < 30) {
+				this.chooseGradient();
+			};
+		};
+
+  	// var hexColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+		this.lastColor = hexColor[0].h; 
+
+		var hslColor = "hsl(" + this.lastColor + ", 100%, 100%)"
+
+  	return { 1: hslColor };
+	}, 
 
 
 })

@@ -20,6 +20,7 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 		this.paused = true;
 		this.showingLayer = true;
 		this.heatMode = this.zIndex === 1 ? true : false
+		// this.gradient = options.gradient;
 		this.gradient = this.chooseGradient();
 		this.isolated = false;
 						
@@ -183,9 +184,12 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 				hue: randomHue( 17, 320 ),
 				saturation: 1, 
 				value: 1,
-				golden: false
+				golden: false,
+				format: 'rgb-string'
 			})
-	  	// var hexColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+
+			lastColor = hexColor;
+
 	  	return { 1: hexColor };
 		}
 	}, 
@@ -223,10 +227,10 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 			minOpacity: minOpacity })
 	},
 
-	removeHeat: function () {
+	removeHeat: function (gradient) {
 		if ( this.heatMode && !this.isolated ) {
 			this.heatMode = false;
-			this.gradient = this.chooseGradient();
+			this.gradient = gradient
 			this.toggleLayerView( "undefined", this.gradient );
 		}
 	},
