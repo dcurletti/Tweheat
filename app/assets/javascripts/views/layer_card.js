@@ -5,6 +5,7 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	template: JST['layer_card'],
 
 	events: {
+		'click .layer': 'toggleIsolate',
 		'click .pause': 'toggleSSEListener',
 		'click .opacity': 'toggleOpacity',
 		'mouseenter': 'toggleLayerView',
@@ -55,6 +56,7 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	},
 
 	toggleSSEListener: function (event) {
+		if (event) {event.stopPropagation()};
 		if (this.paused) {
 			console.log("Restarting stream...")
 			Tweheat.dispatcher.bind(this.layerName, this.tweetEventVar);
@@ -177,10 +179,13 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	},
 
 	toggleLayerView: function (event, gradient) {
+		if (event !== "undefined") { event.stopPropagation() };
+		
 		event = typeof event !== 'undefined' ? event : event.type;
-
+		
 		var circle = this.circleSettings();
 		var radius = circle.radius;
+
 		if (event.type === "mouseenter" ) {
 			gradient = { 1: "red" };
 			var radius = circle.radius + 3;
@@ -192,7 +197,7 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 		var minOpacity = circle.minOpacity;
 		var maxZoom = circle.maxZoom;
 
-		if ( this.isolated || (this.heatMode && event.type === "mouseleave" )) { 
+		if ( event.type === "mouseleave" && ( this.isolated || this.heatMode )) { 
 			var std = this.standardHeatSettings();
 			radius = std.radius;
 			blur = std.blur;
@@ -241,6 +246,20 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 			minOpacity: .5,
 			maxZoom: 7
 		}
+	},
+
+	toggleIsolate: function (event) {
+		event.stopPropagation();
+		if (this.isolated) {
+			this.isolated = false;
+			this.$el.find(".layer").velocity({ translateX: "0px" }, 150 )
+					.removeClass("isolated");
+		} else {
+			this.isolated = true;
+			this.$el.find(".layer").velocity({ translateX: "50px" }, 150 )
+					.addClass("isolated");
+		}
+		this.toggleLayerView("undefined");
 	}
 
 })

@@ -147,6 +147,8 @@
 	}, 
 
 	destroySubview: function (event) {
+		event.stopPropagation();
+		
 		var that = this;
 		var layerName = $(event.currentTarget).attr("data-id");
 
