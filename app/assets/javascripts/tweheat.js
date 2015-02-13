@@ -37,16 +37,15 @@ $(document).ready(function(){
 	Tweheat.initialize();
 
 	
-	// var $body = $('body');
-	// $body.one("mapLoaded", function (event) {
-	// 	setTimeout( function () {
-	// 		$body.addClass('loaded').trigger("bodyLoaded");
-	// 		// $('h1').css('color', '#222222')
-	// }, 1000)
-	// })	
->>>>>>> Buttons
+	var $body = $('body');
+	$body.one("mapLoaded", function (event) {
+		setTimeout( function () {
+			$body.addClass('loaded').trigger("bodyLoaded");
+			// $('h1').css('color', '#222222')
+	}, 1000)
+	})	
 
-	$('body').addClass('loaded').trigger("bodyLoaded");
-	$('h1').css('color', '#222222');
+	// $('body').addClass('loaded').trigger("bodyLoaded");
+	// $('h1').css('color', '#222222');
 
 })
