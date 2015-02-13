@@ -36,14 +36,14 @@ window.Tweheat = {
 $(document).ready(function(){
 	Tweheat.initialize();
 
-	// setTimeout( function () {
+	setTimeout( function () {
 
-	// 	$('body').addClass('loaded').trigger("bodyLoaded");
-	// 	$('h1').css('color', '#222222')
+		$('body').addClass('loaded').trigger("bodyLoaded");
+		$('h1').css('color', '#222222')
 		
-	// }, 1000)
+	}, 1000)
 
-	$('body').addClass('loaded').trigger("bodyLoaded");
-	$('h1').css('color', '#222222');
+	// $('body').addClass('loaded').trigger("bodyLoaded");
+	// $('h1').css('color', '#222222');
 
 })
