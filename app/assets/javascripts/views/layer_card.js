@@ -157,7 +157,8 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 
 	destroyView: function (event) {
 		if ( !this.paused ) {
-			Tweheat.dispatcher.unbind(this.layerName);
+			// TEMP: Should be reinstated after demo
+			// Tweheat.dispatcher.unbind(this.layerName);
 		};
 		Tweheat.mapView._map.removeLayer(this.heatLayer)
 		this.remove();
@@ -173,7 +174,10 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
         1.0: 'red'
 	    }
 		} else {
-	  	var hexColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+			var hexColor = randomColor({ 
+				luminosity: 'bright'
+			})
+	  	// var hexColor = "#" + Math.floor(Math.random()*16777215).toString(16);
 	  	return { 1: hexColor };
 		}
 	}, 
