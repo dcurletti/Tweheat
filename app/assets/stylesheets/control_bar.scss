@@ -1,0 +1,31 @@
+$layerHeight: 50px;
+$controlBar: 150px;
+$controlButtonHoverColor: #012b39;
+
+p, .control-bar, .layer-item, .control-button {
+  display: inline-block;
+}
+
+.control-bar {
+  float: right;
+  height: $layerHeight;
+  width: $controlBar;
+  margin-top: -1px;
+}
+
+.control-button {
+  float: right;
+  padding-top: 14px;
+  padding-left: 17px;
+  padding-right: 1px;
+  height: $layerHeight;
+  width: 50px;
+  margin-bottom: 2px;
+  margin-right: -1px;
+  transition: background-color 10s;
+}
+
+// .control-button:hover {
+//   background-color: $controlButtonHoverColor;
+// }
+

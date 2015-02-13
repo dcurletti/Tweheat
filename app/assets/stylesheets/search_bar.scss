@@ -1,7 +1,3 @@
-$layerHeight: 50px;
-$controlBar: 150px;
-$controlButtonHoverColor: red;
-
 #search-bar {
 	position: absolute;
 	margin: 0px;
@@ -23,30 +19,6 @@ ul#layers {
   margin-right: 15px !important;
 }
 
-p, .control-bar, .layer-item, .control-button {
-	display: inline-block;
-}
-
-.control-bar {
-	float: right;
-	height: $layerHeight;
-	width: $controlBar;
-  margin-top: -1px;
-}
-
-.control-button {
-  float: right;
-  padding-top: 14px;
-  padding-left: 15px;
-  height: $layerHeight;
-  width: 33%;
-  margin-bottom: 2px;
-}
-
-.control-button:hover {
-	background-color: $controlButtonHoverColor;
-}
-
 .error {
 	z-index: -1;
 }
@@ -55,8 +27,6 @@ small.error {
   margin-top: -5 !important;
   margin-bottom: 5px !important;
 }
-
-
 
 // Odometer
 @import url('//fonts.googleapis.com/css?family=Jura:400,500&subset=latin,latin-ext');
