@@ -83,6 +83,15 @@ Added Profile and Config file
 - [ ] Update the way the toggleColor happens
 - [ ] Fix the counter with animated numbers- Doesn't do cool animation
 
+## Before presentations
+- [ ] Change the color of icons when clicked
+
+
+## Finished post-presentation
+- [X] Remove the spinning marker after the location has been found
+
+
+
 ## Would Be Nice
 - [ ] Figure out how to run a rake process for API Trends call
 - [ ] Set MaxView on map

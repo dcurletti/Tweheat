@@ -114,6 +114,7 @@ $(function(){
             });
         },
 
+
         /**
          * This method launches the location engine.
          * It is called before the marker is updated,
@@ -130,7 +131,6 @@ $(function(){
 
             if(!this._active) {
                 this._map.locate(this.options.locateOptions);
-                $('body').addClass('loading');
             }
             this._active = true;
 
@@ -145,6 +145,7 @@ $(function(){
          * Override it to shutdown any functionalities you added on start.
          */
         _deactivate: function() {
+            // TEMP: Davide addition
             $('body').removeClass('loading');
             this._map.stopLocate();
 
@@ -439,22 +440,27 @@ $(function(){
         /**
          * Sets the CSS classes for the state.
          */
+         // Edited to add remove spinners
         _setClasses: function(state) {
+            var $body = $('body');
             if (state == 'requesting') {
                 L.DomUtil.removeClasses(this._container, "active following");
                 L.DomUtil.addClasses(this._container, "requesting");
+                $body.addClass('loading');        
 
                 L.DomUtil.removeClasses(this._icon, this.options.icon);
                 L.DomUtil.addClasses(this._icon, this.options.iconLoading);
             } else if (state == 'active') {
                 L.DomUtil.removeClasses(this._container, "requesting following");
                 L.DomUtil.addClasses(this._container, "active");
+                $body.removeClass('loading');
 
                 L.DomUtil.removeClasses(this._icon, this.options.iconLoading);
                 L.DomUtil.addClasses(this._icon, this.options.icon);
             } else if (state == 'following') {
                 L.DomUtil.removeClasses(this._container, "requesting");
                 L.DomUtil.addClasses(this._container, "active following");
+                $body.removeClass('loading');                
 
                 L.DomUtil.removeClasses(this._icon, this.options.iconLoading);
                 L.DomUtil.addClasses(this._icon, this.options.icon);

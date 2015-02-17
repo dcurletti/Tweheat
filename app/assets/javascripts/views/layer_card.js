@@ -144,12 +144,16 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	},
 
 	toggleOpacity: function (event) {
+		$button = $(event.target);
 		// TEMP: Need to figure out how to make it opaque. update: maybe not.
 		if (event !== "undefined") { event.stopPropagation() };
 		if ( this.showingLayer ) {
+			$button.css('color', 'red');
 			Tweheat.mapView._map.removeLayer(this.heatLayer);
 			this.showingLayer = false;
+
 		} else {
+			$button.css('color', '');
 			this.heatLayer.addTo(Tweheat.mapView._map)
 			this.showingLayer = true;
 		}		
