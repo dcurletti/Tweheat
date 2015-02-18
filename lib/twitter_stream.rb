@@ -17,39 +17,41 @@ class TwitterStream
 			counter = 0
 			# Open new stream
 			@stream_thread = Thread.new do
-				begin
-					@tw_stream_client = TwitterPackage.new_streaming_client
-				rescue
-					raise "\n\nUnable to connect to Twitter::Streaming::Client"
-				end
-				world_bounds = "-180,-90,180,90"
-				filter_bounds = "-125.7042450905,24.5322774415,-66.62109375,49.5537255135"
-				search_topics = @search_topics.except("all_tweets").keys
-				search_topic_list = search_topics.join(", ")
-
-				@tw_stream_client.filter( locations: world_bounds ) do |tw_obj|
-					# TEMP: improve the coordinates filter
-					if tw_obj.is_a? Twitter::Tweet and ( tw_obj.to_h[:coordinates] != nil or tw_obj.to_h[:place] )
-
-						print "." if counter % 50 == 0
-						counter += 1
-		
-						tweet = TwitterPackage::Tweet.new(tw_obj, "All Tweets").to_hash
-
-						# @search_topics["all_tweets"].each do |user_token|
-						RedisStream.publish_tweet( "All Tweets", tweet )
-						# end
-
-						# search_topics.each do |search_term|			
-						# 	if tw_obj.full_text.downcase.match(search_term)
-						# 		tweet[:search_term] = search_term
-						# 		@search_topics[search_term].each do |user_token|
-						# 			RedisStream.publish_tweet( search_term, tweet )
-						# 		end									
-						# 	end
-						# end
+				# EventMachine.run do
+					begin
+						@tw_stream_client = TwitterPackage.new_streaming_client
+					rescue
+						raise "\n\nUnable to connect to Twitter::Streaming::Client"
 					end
-				end
+					world_bounds = "-180,-90,180,90"
+					filter_bounds = "-125.7042450905,24.5322774415,-66.62109375,49.5537255135"
+					search_topics = @search_topics.except("all_tweets").keys
+					search_topic_list = search_topics.join(", ")
+
+					@tw_stream_client.filter( locations: world_bounds ) do |tw_obj|
+						# TEMP: improve the coordinates filter
+						if tw_obj.is_a? Twitter::Tweet and ( tw_obj.to_h[:coordinates] != nil or tw_obj.to_h[:place] )
+
+							print "." if counter % 50 == 0
+							counter += 1
+			
+							tweet = TwitterPackage::Tweet.new(tw_obj, "All Tweets").to_hash
+
+							# @search_topics["all_tweets"].each do |user_token|
+							RedisStream.publish_tweet( "All Tweets", tweet )
+							# end
+
+							# search_topics.each do |search_term|			
+							# 	if tw_obj.full_text.downcase.match(search_term)
+							# 		tweet[:search_term] = search_term
+							# 		@search_topics[search_term].each do |user_token|
+							# 			RedisStream.publish_tweet( search_term, tweet )
+							# 		end									
+							# 	end
+							# end
+						end
+					end
+				# end
 			end
 		end
 
@@ -71,20 +73,21 @@ class TwitterStream
 
 				@redis_sub.subscribe( subs ) do |on|
 					on.message do |channel, msg|
-
-						# case channel
+						# @stream_thread.kill
+						case channel
 						# when "new_user"
 						# 	handle_new_user(msg) 
-						# when "new_search"
-						# 	handle_new_search(msg)  
+						when "new_search"
+							handle_new_search(msg)  
 						# # when "remove_user"
 						# # 	handle_remove_user(msg)
 						# # when "remove_search"
 						# # 	# handle_remove_search
-						# end
+						end
 
-						# puts "\n\nTwitter worked received: message:: #{msg} from channel:: #{channel}"
-						# puts "\n\nCurrently tracking: #{@search_topics}"
+						puts "\n\nTwitter worked received: message:: #{msg} from channel:: #{channel}"
+						puts "\n\nCurrently tracking: #{@search_topics}"
+						# restart_stream
 					end
 				end
 			end	
@@ -99,7 +102,7 @@ class TwitterStream
 		private
 
 			def handle_new_user(user_token)
-				@search_topics["all_tweets"] << user_token
+				# @search_topics["all_tweets"] << user_token
 				# restart_stream
 			end
 

@@ -62,11 +62,11 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 		if (event) {event.stopPropagation()};
 		if (this.paused) {
 			console.log("Restarting stream...")
-			Tweheat.dispatcher.bind(this.layerName, this.tweetEventVar);
+			Tweheat.dispatcher.bind("All Tweets", this.tweetEventVar);
 			this.paused = false;
 		} else {
 			console.log("Pausing " + this.layerName + " stream...")
-			Tweheat.dispatcher.unbind(this.layerName);
+			Tweheat.dispatcher.unbind("All Tweets");
 			this.paused = true;
 		}
 	},
@@ -91,6 +91,15 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	},
 
 	handleTweet: function (tweet) {
+		var patt = new RegExp(this.layerName)
+
+		if (this.layerName !== "All Tweets") {
+			debugger
+			if (!patt.test(tweet.search_term)) {
+				return false
+			}
+		} 
+
 		//TEMP: factor into handle tweet
     var coordinates = tweet.coordinates;
     var latlng = L.latLng(coordinates[1], coordinates[0])

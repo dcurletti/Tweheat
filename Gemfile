@@ -45,7 +45,7 @@ gem 'redis'
 gem 'font-awesome-rails'
 # Websocket attempt 
 gem 'websocket-rails', :git => 'https://github.com/websocket-rails/websocket-rails'
-
+ruby '2.1.2'
 
 
 # Use Capistrano for deployment
