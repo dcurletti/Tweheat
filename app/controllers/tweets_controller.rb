@@ -17,13 +17,12 @@ class TweetsController < ApplicationController
 	def stream
 		hijack do |tubesock|
 			@redis_thread = Thread.new do 
-				# response.headers['Content-Type'] = 'text/event-stream'
 				@redis_sub = RedisStream.new_redis_client
 
 				puts "\n\nConnecting user #{token} to twitter stream..."
 				counter = 0
 				channel = "All Tweets"
-				# Subscribing to user's stream by session token
+				
 				@redis_sub.subscribe([ channel ]) do |on|
 					on.message do |channel, msg|
 						data = JSON.parse(msg)
@@ -45,15 +44,25 @@ class TweetsController < ApplicationController
 					end
 				end
 			end
+
+			tubesock.onmessage do |msg|
+				puts "Received a message"
+			end
+
+			tubesock.onclose do |msg|
+				puts "\n\nClosing stream, Redis Sub and removing #{token}\n\n"
+				@redis_thread.kill
+				RedisStream.publish_remove_user(token)
+			end
 			
 		end
 
-	rescue IOError
-		"\n\nIOError in controller"
-	rescue ClientDisconnected
-		puts "\n\nClient has disconnected\n\n"
-	ensure
-		puts "\n\nClosing stream, Redis Sub and removing #{token}\n\n"
+	# rescue IOError
+	# 	"\n\nIOError in controller"
+	# rescue ClientDisconnected
+	# 	puts "\n\nClient has disconnected\n\n"
+	# ensure
+	# 	puts "\n\nClosing stream, Redis Sub and removing #{token}\n\n"
 		# @redis_sub.quit
 		# @redis_thread.exit
 		# RedisStream.publish_remove_user(token)

@@ -26,7 +26,6 @@
 		
 		this.addLoadAnimations();
 
-
 		return this;
 	},
 
@@ -50,6 +49,7 @@
 
 		this.Socket.onclose = function () {
 			console.log("socket closed")
+
 		}
 	},
 
@@ -57,7 +57,7 @@
 		var subView = _.find(
 			this.subviews('#layers'),
 			function (subView) {
-				return subView.layerName === data.search_term;
+				return subView.layerName === data.data.search_term;
 		});
 
 		subView.collection.add(data);

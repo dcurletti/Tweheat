@@ -91,8 +91,12 @@ Added Profile and Config file
 - [X] Remove the spinning marker after the location has been found
 - [X] Socket goes in search show layer
 - [X] Iterate through the current views, and add it to each view's collection if appropriate
-- [ ] Create an array of search term collections
+- [X] Backend has to kill threads
+- [X] Enable backend to allow for searching
 - [ ] Don't allow for multiple search terms
+- [ ] Perfect the isolate animation
+- [ ] Need to add color coordination between layers and dots
+- [ ] Start counter at 0 rather than 99999
 
 ## Would Be Nice
 - [ ] Figure out how to run a rake process for API Trends call
