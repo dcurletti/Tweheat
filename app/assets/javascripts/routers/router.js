@@ -13,6 +13,8 @@ Tweheat.Routers.Router = Backbone.Router.extend({
 		
 		// this.$rootEl.append(mainView.render().$el)
 		this._swapView(mainView)
+
+		
 	},
 
 	_swapView: function (view) {

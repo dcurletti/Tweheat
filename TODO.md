@@ -89,8 +89,10 @@ Added Profile and Config file
 
 ## Finished post-presentation
 - [X] Remove the spinning marker after the location has been found
-
-
+- [X] Socket goes in search show layer
+- [X] Iterate through the current views, and add it to each view's collection if appropriate
+- [ ] Create an array of search term collections
+- [ ] Don't allow for multiple search terms
 
 ## Would Be Nice
 - [ ] Figure out how to run a rake process for API Trends call

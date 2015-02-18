@@ -29,13 +29,13 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 		this.tweetQueue = [];
 
 		// TEMP: Could be used for playback
-		this.tweets = [];
-
 		this.tweetEventVar = this.tweetEvent.bind(this);
 
 		this.toggleSSEListener();
+	},
 
-		// var all_tweets_channel = Tweheat.dispatcher.subscribe("all_tweets");
+	testing: function (event) {
+		console.log(event)
 	},
 
 	addHeatLayer: function (gradient, zIndex) {
@@ -62,17 +62,17 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 		if (event) {event.stopPropagation()};
 		if (this.paused) {
 			console.log("Restarting stream...")
-			Tweheat.dispatcher.bind(this.layerName, this.tweetEventVar);
+			this.listenTo(this.collection, "add", this.tweetEventVar)
 			this.paused = false;
 		} else {
 			console.log("Pausing " + this.layerName + " stream...")
-			Tweheat.dispatcher.unbind(this.layerName);
+			this.stopListening();
 			this.paused = true;
 		}
 	},
 
 	tweetEvent: function (data) {
-    var tweet = $.parseJSON(data).data;
+    var tweet = data.attributes.data;
 
     // TEMP: Abstract this into a new function
     if (Tweheat.mapView.panning) {

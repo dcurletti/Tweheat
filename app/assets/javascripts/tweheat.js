@@ -12,13 +12,8 @@ window.Tweheat = {
 		//Top level access so that all layered subviews can access the stream
 		// this.twitterStream = new EventSource("/tweets/stream");
 		
-		var deliveryMethod = "ws://"
-		if (!window.location.host === "localhost:3000") {
-			deliveryMethod = "wss://"
-		};
 
-		var url = deliveryMethod + window.location.host + '/tweets/stream';
-		this.dispatcher = new WebSocketRails( url );
+		// this.dispatcher = new WebSocketRails( url );
 		// debugger
 
 		// this.dispatcher.on_open = function(data) {
@@ -26,18 +21,6 @@ window.Tweheat = {
 		// }
 
 
-		var Socket = new WebSocket( url );
-		Socket.onopen = function () {
-			console.log("Websocket is connected")
-		}
-
-		Socket.onmessage = function (event) {
-			console.log(event)
-		}
-
-		Socket.onclose = function () {
-			console.log("socket closed")
-		}
 
 
 		this.router = new Tweheat.Routers.Router({

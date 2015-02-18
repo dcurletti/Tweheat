@@ -14,6 +14,7 @@
 	initialize: function () {
 		this.zIndex = 0;
 		this.heatLayers = [];
+		this.searchCollections = [];
 		this.isolatedLayer = false;
 	},
 
@@ -24,7 +25,42 @@
 		this.$el.append(renContent);
 		
 		this.addLoadAnimations();
+
+
 		return this;
+	},
+
+	createSocket: function () {
+		var deliveryMethod = "ws://"
+		if (!window.location.host === "localhost:3000") {
+			deliveryMethod = "wss://"
+		};
+		var url = deliveryMethod + window.location.host + '/tweets/stream';
+
+		this.Socket = new WebSocket( url );
+
+		this.Socket.onopen = function () {
+			console.log("Websocket is connected")
+		}
+
+		this.Socket.onmessage = function (msg) {
+			var data = $.parseJSON(msg.data);
+			this.handleSocketMessage(data)
+		}.bind(this);
+
+		this.Socket.onclose = function () {
+			console.log("socket closed")
+		}
+	},
+
+	handleSocketMessage: function (data) {
+		var subView = _.find(
+			this.subviews('#layers'),
+			function (subView) {
+				return subView.layerName === data.search_term;
+		});
+
+		subView.collection.add(data);
 	},
 
 	addLoadAnimations: function () {
@@ -39,6 +75,7 @@
 				complete: function () {
 					// Create the initial All Tweets layer
 					that.addLayer( "All Tweets" )
+					that.createSocket();
 				}}
 			)
 			controlBar.velocity({ translateX: "-300px"}, { duration: 200, delay: 1150 }).show()
@@ -134,9 +171,12 @@
 			view.removeHeat( that.chooseGradient() );
 		})
 
+		var collection = new Tweheat.Collections.Tweets();
+
 		var subView = new Tweheat.Views.LayerCard({
 			layerName: search_term, 
 			zIndex: this.zIndex,
+			collection: collection
 		});
 
 		this.addSubview("#layers", subView);
@@ -160,6 +200,7 @@
 		var that = this;
 		var layerName = $(event.currentTarget).attr("data-id");
 
+		// TEMP: Should only be able to create one layer per search term
 		var subView = _.find(
 			this.subviews('#layers'),
 			function (subView) {

@@ -72,7 +72,7 @@ class TwitterStream
 				@redis_sub.subscribe( subs ) do |on|
 					on.message do |channel, msg|
 
-						debugger
+						
 						# case channel
 						# when "new_user"
 						# 	handle_new_user(msg) 
