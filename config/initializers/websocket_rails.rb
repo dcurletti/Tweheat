@@ -22,7 +22,7 @@
 #   # * Requires Redis.
 #   config.synchronize = false
 
-#   config.redis_options = { :url => URI.parse(ENV["REDISTOGO_URL"]) }
+#   config.redis_options = { :url => URI.parse(ENV["REDISCLOUD_URL"]) }
 
 #   ## might need this: :driver => :hiredis
 
