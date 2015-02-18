@@ -50,6 +50,7 @@ gem 'websocket-rails-js', :git => 'https://github.com/websocket-rails/websocket-
 # Tubesock gem
 gem 'tubesock'
 
+ruby "2.1.2"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
