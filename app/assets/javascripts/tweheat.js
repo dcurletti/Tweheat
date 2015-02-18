@@ -17,12 +17,28 @@ window.Tweheat = {
 			deliveryMethod = "wss://"
 		};
 
-		var url = deliveryMethod + window.location.host + '/websocket';
-
+		var url = deliveryMethod + window.location.host + '/tweets/stream';
 		this.dispatcher = new WebSocketRails( url );
+		// debugger
 
-		//TEMP: 
-		console.log( "Lets ride: " + url )
+		// this.dispatcher.on_open = function(data) {
+		// 	console.log( "Lets ride: " + url )
+		// }
+
+
+		var Socket = new WebSocket( url );
+		Socket.onopen = function () {
+			console.log("Websocket is connected")
+		}
+
+		Socket.onmessage = function (event) {
+			console.log(event)
+		}
+
+		Socket.onclose = function () {
+			console.log("socket closed")
+		}
+
 
 		this.router = new Tweheat.Routers.Router({
 			rootEl: "#main"

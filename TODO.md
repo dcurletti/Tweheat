@@ -111,3 +111,12 @@ Added Profile and Config file
 - [X] Rescue ActionController::Live DisconnectedClient error
 - [X] Saving the Mapbox JS files locally is causing icon loading issues (its trying to fetch them from the server, but its doing a local request)
 - [X] Fix map redraw
+
+
+
+turning off websocket-rails
+1. gemfile
+2. comment out events.rb
+3. comment out websocket_rails.rb
+4. comment out eventmachine.rb
+5. comment out socketcontroller

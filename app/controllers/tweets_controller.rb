@@ -1,6 +1,7 @@
 require "twitter_package"
 
 class TweetsController < ApplicationController
+	include Tubesock::Hijack
 
 	before_filter :require_session_token!
 	# Websocket connection with client
@@ -10,45 +11,54 @@ class TweetsController < ApplicationController
 		# Gives connected user a session token for redis pub/sub
 		# puts "WELCOME #{token}"
 		check_in
+
 	end
 
-	# def stream
-	# 	response.headers['Content-Type'] = 'text/event-stream'
-	# 	@redis_sub = RedisStream.new_redis_client
+	def stream
+		hijack do |tubesock|
+			@redis_thread = Thread.new do 
+				# response.headers['Content-Type'] = 'text/event-stream'
+				@redis_sub = RedisStream.new_redis_client
 
-	# 	puts "\n\nConnecting user #{token} to twitter stream..."
-	# 	counter = 0
-	# 	channel = token
-	# 	# Subscribing to user's stream by session token
-	# 	@redis_sub.subscribe([ token ]) do |on|
-	# 		on.message do |channel, msg|
-	# 			data = JSON.parse(msg)
+				puts "\n\nConnecting user #{token} to twitter stream..."
+				counter = 0
+				channel = "All Tweets"
+				# Subscribing to user's stream by session token
+				@redis_sub.subscribe([ channel ]) do |on|
+					on.message do |channel, msg|
+						data = JSON.parse(msg)
 
-	# 			print "*" if counter % 50 == 0
-	# 			counter += 1
+						print "*" if counter % 50 == 0
+						counter += 1
 
-	# 			if data['event'] == "layer"
-	# 				message = handle_new_layer(data)
-	# 			else
-	# 				message = handle_tweet(data)
-	# 			end
-				
-	# 			# puts message unless data['data']['search_term'] == "All Tweets"
+						tubesock.send_data msg
 
-	# 			response.stream.write(message)
-	# 		end
-	# 	end
+						# if data['event'] == "layer"
+						# 	message = handle_new_layer(data)
+						# else
+						# 	message = handle_tweet(data)
+						# end
+						
+						# puts message unless data['data']['search_term'] == "All Tweets"
 
-	# rescue IOError
-	# 	"\n\nIOError in controller"
-	# rescue ClientDisconnected
-	# 	puts "\n\nClient has disconnected\n\n"
-	# ensure
-	# 	puts "\n\nClosing stream, Redis Sub and removing #{token}\n\n"
-	# 	@redis_sub.quit
-	# 	# RedisStream.publish_remove_user(token)
-	# 	response.stream.close
-	# end
+						# response.stream.write(message)
+					end
+				end
+			end
+			
+		end
+
+	rescue IOError
+		"\n\nIOError in controller"
+	rescue ClientDisconnected
+		puts "\n\nClient has disconnected\n\n"
+	ensure
+		puts "\n\nClosing stream, Redis Sub and removing #{token}\n\n"
+		# @redis_sub.quit
+		# @redis_thread.exit
+		# RedisStream.publish_remove_user(token)
+		# response.stream.close
+	end
 
 	def search
 		## How to get the search item

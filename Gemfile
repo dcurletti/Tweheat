@@ -44,8 +44,11 @@ gem 'redis'
 # Fonts/icons
 gem 'font-awesome-rails'
 # Websocket attempt 
-gem 'websocket-rails', :git => 'https://github.com/websocket-rails/websocket-rails'
+# gem 'websocket-rails', :git => 'https://github.com/websocket-rails/websocket-rails'
 
+gem 'websocket-rails-js', :git => 'https://github.com/websocket-rails/websocket-rails-js'
+# Tubesock gem
+gem 'tubesock'
 
 
 # Use Capistrano for deployment
