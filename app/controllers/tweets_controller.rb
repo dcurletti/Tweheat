@@ -55,7 +55,7 @@ class TweetsController < ApplicationController
 				RedisStream.publish_remove_user(token)
 			end
 			
-		end
+		# end
 
 	# rescue IOError
 	# 	"\n\nIOError in controller"
