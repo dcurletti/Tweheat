@@ -36,16 +36,16 @@ class TwitterStream
 		
 						tweet = TwitterPackage::Tweet.new(tw_obj, "All Tweets").to_hash
 
-						@search_topics["all_tweets"].each do |user_token|
-							RedisStream.publish_tweet( "All Tweets", tweet )
-						end
+						RedisStream.publish_tweet( "All Tweets", tweet )
+						# @search_topics["all_tweets"].each do |user_token|
+						# end
 
-						search_topics.each do |search_term|			
-							if tw_obj.full_text.downcase.match(search_term)
-								tweet[:search_term] = search_term
-								RedisStream.publish_tweet( "All Tweets", tweet )
-							end
-						end
+						# search_topics.each do |search_term|			
+						# 	if tw_obj.full_text.downcase.match(search_term)
+						# 		tweet[:search_term] = search_term
+						# 		RedisStream.publish_tweet( "All Tweets", tweet )
+						# 	end
+						# end
 					end
 				end
 			end
@@ -72,14 +72,14 @@ class TwitterStream
 
 						@stream_thread.kill
 
-						case channel
-						when "new_user"
-							handle_new_user(msg) 
-						when "new_search"
-							handle_new_search(msg)  
-						when "remove_user"
-							handle_remove_user(msg)
-						end
+						# case channel
+						# when "new_user"
+						# 	handle_new_user(msg) 
+						# when "new_search"
+						# 	handle_new_search(msg)  
+						# # when "remove_user"
+						# # 	handle_remove_user(msg)
+						# end
 
 						puts "\n\nTwitter worked received: message:: #{msg} from channel:: #{channel}"
 						puts "\n\nCurrently tracking: #{@search_topics}"
@@ -110,7 +110,7 @@ class TwitterStream
 				@search_topics[search_term] << user_token
 				delete_empty_searches
 			end
-
+			
 			def handle_remove_user(user_token)
 				@search_topics.each do |search_term, users|
 					users.delete(user_token)
