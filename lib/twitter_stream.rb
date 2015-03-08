@@ -24,12 +24,11 @@ class TwitterStream
 				end
 
 				world_bounds = "-180,-90,180,90"
-				filter_bounds = "-125.7042450905,24.5322774415,-66.62109375,49.5537255135"
+				usa_bounds = "-125.7042450905,24.5322774415,-66.62109375,49.5537255135"
 				search_topics = @search_topics.except("All Tweets").keys
 				search_topic_list = search_topics.join(", ")
 
 				@tw_stream_client.filter( filter: search_topic_list, locations: world_bounds ) do |tw_obj|
-					# TEMP: improve the coordinates filter
 					if tw_obj.is_a? Twitter::Tweet and ( tw_obj.to_h[:coordinates] != nil or tw_obj.to_h[:place] )
 
 						print "." if counter % 50 == 0
