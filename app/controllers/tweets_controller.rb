@@ -3,8 +3,6 @@ require "twitter_package"
 class TweetsController < ApplicationController
 
 	before_filter :require_session_token!
-	# Websocket connection with client
-	# include ActionController::Live
 
 	def index
 		# Gives connected user a session token for redis pub/sub
@@ -12,46 +10,8 @@ class TweetsController < ApplicationController
 		check_in
 	end
 
-	# def stream
-	# 	response.headers['Content-Type'] = 'text/event-stream'
-	# 	@redis_sub = RedisStream.new_redis_client
-
-	# 	puts "\n\nConnecting user #{token} to twitter stream..."
-	# 	counter = 0
-	# 	channel = token
-	# 	# Subscribing to user's stream by session token
-	# 	@redis_sub.subscribe([ token ]) do |on|
-	# 		on.message do |channel, msg|
-	# 			data = JSON.parse(msg)
-
-	# 			print "*" if counter % 50 == 0
-	# 			counter += 1
-
-	# 			if data['event'] == "layer"
-	# 				message = handle_new_layer(data)
-	# 			else
-	# 				message = handle_tweet(data)
-	# 			end
-				
-	# 			# puts message unless data['data']['search_term'] == "All Tweets"
-
-	# 			response.stream.write(message)
-	# 		end
-	# 	end
-
-	# rescue IOError
-	# 	"\n\nIOError in controller"
-	# rescue ClientDisconnected
-	# 	puts "\n\nClient has disconnected\n\n"
-	# ensure
-	# 	puts "\n\nClosing stream, Redis Sub and removing #{token}\n\n"
-	# 	@redis_sub.quit
-	# 	# RedisStream.publish_remove_user(token)
-	# 	response.stream.close
-	# end
-
 	def search
-		## How to get the search item
+		# How to get the search item
 		# Look up sending the form through jquery
 		search_term = params[:search_term]
 		

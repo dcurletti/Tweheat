@@ -33,6 +33,8 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 
 		this.tweetEventVar = this.tweetEvent.bind(this);
 
+		this.channel = Tweheat.dispatcher.subscribe(this.layerName)
+
 		this.toggleSSEListener();
 
 		// var all_tweets_channel = Tweheat.dispatcher.subscribe("all_tweets");
@@ -61,28 +63,29 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	toggleSSEListener: function (event) {
 		if (event) {event.stopPropagation()};
 		if (this.paused) {
-			console.log("Restarting stream...")
-			Tweheat.dispatcher.bind("All Tweets", this.tweetEventVar);
+			console.log("Opening " + this.layerName + " stream...")
+			this.channel.bind("newTweet", this.tweetEventVar);
 			this.paused = false;
 		} else {
-			console.log("Pausing " + this.layerName + " stream...")
-			Tweheat.dispatcher.unbind("All Tweets");
+			console.log("Closing " + this.layerName + " stream...")
+			this.channel.unbind("newTweet");
 			this.paused = true;
 		}
 	},
 
 	tweetEvent: function (data) {
-    var tweet = $.parseJSON(data).data;
+		// debugger
+    // var tweet = $.parseJSON(data).data;
 
     // TEMP: Abstract this into a new function
     if (Tweheat.mapView.panning) {
-    	this.tweetQueue.push(tweet);
+    	this.tweetQueue.push(data);
     } else {
     	_.each(this.tweetQueue, function(queued_tweet) {
 		 		this.handleTweet(queued_tweet);
     	}.bind(this));
     	
-	 		this.handleTweet(tweet);
+	 		this.handleTweet(data);
 	 		this.tweetQueue = [];
     }
 
@@ -91,16 +94,6 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	},
 
 	handleTweet: function (tweet) {
-		// var patt = new RegExp(this.layerName)
-
-		// if (this.layerName !== "All Tweets") {
-		// 	debugger
-		// 	if (!patt.test(tweet.search_term)) {
-		// 		return false
-		// 	}
-		// } 
-
-		//TEMP: factor into handle tweet
     var coordinates = tweet.coordinates;
     var latlng = L.latLng(coordinates[1], coordinates[0])
     // console.log(latlng);
