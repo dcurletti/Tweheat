@@ -16,8 +16,8 @@ class TwitterStream
 
 			counter = 0
 			# Open new stream
-			@stream_thread = Thread.new do
-				# EventMachine.run do
+			EventMachine.run do
+				@stream_thread = Thread.new do
 					begin
 						@tw_stream_client = TwitterPackage.new_streaming_client
 					rescue
@@ -34,7 +34,9 @@ class TwitterStream
 
 							print "." if counter % 50 == 0
 							counter += 1
-			
+
+							WebsocketRails[:test].trigger 'new', "davide"
+
 							tweet = TwitterPackage::Tweet.new(tw_obj, "All Tweets").to_hash
 
 							# @search_topics["all_tweets"].each do |user_token|
@@ -51,7 +53,7 @@ class TwitterStream
 							# end
 						end
 					end
-				# end
+				end
 			end
 		end
 
@@ -64,33 +66,34 @@ class TwitterStream
 			@search_topics["all_tweets"] = Set.new
 
 			restart_stream
+			# EventMachine.run do 
+				@redis_thread = Thread.new do
+					puts "\n\nOpened a thread inside of new"
 
-			@redis_thread = Thread.new do
-				puts "\n\nOpened a thread inside of new"
+					@redis_sub = RedisStream.new_redis_client
+					subs = ["new_search", "new_user", "remove_search", "remove_user"]
 
-				@redis_sub = RedisStream.new_redis_client
-				subs = ["new_search", "new_user", "remove_search", "remove_user"]
+					@redis_sub.subscribe( subs ) do |on|
+						on.message do |channel, msg|
+							# @stream_thread.kill
+							case channel
+							# when "new_user"
+							# 	handle_new_user(msg) 
+							when "new_search"
+								# handle_new_search(msg)  
+							# # when "remove_user"
+							# # 	handle_remove_user(msg)
+							# # when "remove_search"
+							# # 	# handle_remove_search
+							end
 
-				@redis_sub.subscribe( subs ) do |on|
-					on.message do |channel, msg|
-						# @stream_thread.kill
-						case channel
-						# when "new_user"
-						# 	handle_new_user(msg) 
-						when "new_search"
-							handle_new_search(msg)  
-						# # when "remove_user"
-						# # 	handle_remove_user(msg)
-						# # when "remove_search"
-						# # 	# handle_remove_search
+							puts "\n\nTwitter worked received: message:: #{msg} from channel:: #{channel}"
+							puts "\n\nCurrently tracking: #{@search_topics}"
+							# restart_stream
 						end
-
-						puts "\n\nTwitter worked received: message:: #{msg} from channel:: #{channel}"
-						puts "\n\nCurrently tracking: #{@search_topics}"
-						# restart_stream
 					end
-				end
-			end	
+				# end	
+			end
 		end
 
 		def close

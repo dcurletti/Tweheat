@@ -34,7 +34,7 @@ gem 'figaro'
 # Using Twitter for Streaming API
 gem 'twitter'
 # Using NewRelic for Heroku debugging
-gem 'newrelic_rpm'
+# gem 'newrelic_rpm'
 # Using Backbone + Underscore
 gem 'backbone-on-rails'
 # Using Foundation as responsive front-end framework

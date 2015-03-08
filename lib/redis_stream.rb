@@ -22,13 +22,11 @@ module RedisStream
   end
 
   def self.publish_tweet( search_term, data, user_token=nil )
-    # params = JSON.dump(data)
     json_data = JSON.dump({
       search_term: search_term,
       data: data
     })
     @redis.publish( "All Tweets", json_data )
-    # @redis.publish( "all_tweets", json_data )
   end
 
   def self.publish_remove_user(user_token)  
@@ -38,9 +36,11 @@ module RedisStream
 end
 
 # {
-#   event: "tweet",
+#   search_term: "All Tweets",
 #   data: {
-#     coordinates: []
+#     search_term: search_term,
+#     coordinates: [],
+#     text: "text"
 #   }
 # }
 

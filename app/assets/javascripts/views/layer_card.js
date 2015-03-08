@@ -91,14 +91,14 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	},
 
 	handleTweet: function (tweet) {
-		var patt = new RegExp(this.layerName)
+		// var patt = new RegExp(this.layerName)
 
-		if (this.layerName !== "All Tweets") {
-			debugger
-			if (!patt.test(tweet.search_term)) {
-				return false
-			}
-		} 
+		// if (this.layerName !== "All Tweets") {
+		// 	debugger
+		// 	if (!patt.test(tweet.search_term)) {
+		// 		return false
+		// 	}
+		// } 
 
 		//TEMP: factor into handle tweet
     var coordinates = tweet.coordinates;
