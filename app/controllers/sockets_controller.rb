@@ -10,7 +10,7 @@ class SocketsController < WebsocketRails::BaseController
 
 	def client_disconnected
 		p "Hit the client disconnect"
-		RedisStream.publish_remove_user(token)
+		# RedisStream.publish_remove_user(token)
 		connection.disconnect!
 	end
 

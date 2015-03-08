@@ -16,6 +16,7 @@ class TwitterStream
 
 			counter = 0
 			# Open new stream
+			EM.run do
 			@stream_thread = Thread.new do
 				begin
 					@tw_stream_client = TwitterPackage.new_streaming_client
@@ -47,6 +48,7 @@ class TwitterStream
 					end
 				end
 			end
+		end
 
 		end
 
