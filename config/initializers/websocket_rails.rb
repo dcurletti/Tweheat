@@ -22,7 +22,7 @@ WebsocketRails.setup do |config|
   # * Requires Redis.
   config.synchronize = false
 
-  config.redis_options = { :url => URI.parse(ENV["REDISTOGO_URL"]), :driver => :hiredis }
+  config.redis_options = { :url => URI.parse(ENV["REDISCLOUD_URL"]), :driver => :hiredis }
 
   ## might need this: :driver => :hiredis
 
