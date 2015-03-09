@@ -2,6 +2,7 @@ class SocketsController < WebsocketRails::BaseController
 
 	def user_connected
 		# broadcast_message :new_message, {:user => current_user.screen_name, :text => message[:text]}
+		"client connected"
 	end
 
 	def incoming_message(test)
