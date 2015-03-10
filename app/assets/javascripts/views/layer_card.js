@@ -20,33 +20,29 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 		this.paused = true;
 		this.showingLayer = true;
 		this.heatMode = this.zIndex === 1 ? true : false
-		// this.gradient = options.gradient;
-		this.gradient = this.chooseGradient();
+
+		this.gradient = this.randomGradient();
 		this.isolated = false;
 						
-		this.addHeatLayer(this.gradient, this.zIndex);
+		this.addHeatLayer(this.zIndex);
 		// Used to contain tweets when the map is being dragged
 		this.tweetQueue = [];
-
-		// TEMP: Could be used for playback
-		this.tweets = [];
 
 		this.tweetEventVar = this.tweetEvent.bind(this);
 
 		this.channel = Tweheat.dispatcher.subscribe(this.layerName)
 
 		this.toggleSSEListener();
-
-		// var all_tweets_channel = Tweheat.dispatcher.subscribe("all_tweets");
 	},
 
-	addHeatLayer: function (gradient, zIndex) {
+	addHeatLayer: function (zIndex) {
 		var settings = null;
 		if ( zIndex === 1 ) {
 			settings = this.standardHeatSettings();
 		} else {
 			settings = this.circleSettings();
 		}
+		var gradient = 
 
 		this.heatLayer = L.heatLayer([], { 
 			maxZoom: settings.maxZoom, 
@@ -62,11 +58,15 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 
 	toggleSSEListener: function (event) {
 		if (event) {event.stopPropagation()};
+		var $target = this.$('.control-button.pause');
+
 		if (this.paused) {
+			$target.removeClass('selected-btn');
 			console.log("Opening " + this.layerName + " stream...")
 			this.channel.bind("newTweet", this.tweetEventVar);
 			this.paused = false;
 		} else {
+			$target.addClass('selected-btn');
 			console.log("Closing " + this.layerName + " stream...")
 			this.channel.unbind("newTweet");
 			this.paused = true;
@@ -74,10 +74,6 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	},
 
 	tweetEvent: function (data) {
-		// debugger
-    // var tweet = $.parseJSON(data).data;
-
-    // TEMP: Abstract this into a new function
     if (Tweheat.mapView.panning) {
     	this.tweetQueue.push(data);
     } else {
@@ -96,7 +92,8 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	handleTweet: function (tweet) {
     var coordinates = tweet.coordinates;
     var latlng = L.latLng(coordinates[1], coordinates[0])
-    // console.log(latlng);
+
+    // Actually places the tweet onto the map
     this.heatLayer.addLatLng(latlng);
 	},
 
@@ -146,20 +143,19 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 	},
 
 	toggleOpacity: function (event) {
-		$button = $(event.target);
-		// TEMP: Need to figure out how to make it opaque. update: maybe not.
+		$button = this.$('.control-button.opacity');
+
 		if (event !== "undefined") { event.stopPropagation() };
 		if ( this.showingLayer ) {
-			$button.css('color', 'red');
+			$button.addClass('selected-btn');
 			Tweheat.mapView._map.removeLayer(this.heatLayer);
 			this.showingLayer = false;
 
 		} else {
-			$button.css('color', '');
+			$button.removeClass('selected-btn');
 			this.heatLayer.addTo(Tweheat.mapView._map)
 			this.showingLayer = true;
 		}		
-
 	}, 
 
 	destroyView: function (event) {
@@ -171,34 +167,27 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 		this.remove();
 	},  
 
-	chooseGradient: function () {
-		if ( this.zIndex === 1 && this.heatMode ) {
-			return {
-        0.4: 'blue',
-        0.6: 'cyan',
-        0.7: 'lime',
-        0.8: 'yellow',
-        1.0: 'red'
-	    }
-		} else {
-
-			var randomHue = function getRandomArbitrary(min, max) {
- 			  return Math.floor( Math.random() * (max - min) + min );
-			}
-
-			var hexColor = Please.make_color({ 
-				hue: randomHue( 17, 320 ),
-				saturation: 1, 
-				value: 1,
-				golden: false,
-				format: 'rgb-string'
-			})
-
-			lastColor = hexColor;
-
-	  	return { 1: hexColor };
+	randomGradient: function () {
+		var randomHue = function getRandomArbitrary(min, max) {
+			  return Math.floor( Math.random() * (max - min) + min );
 		}
+
+		var hexColor = Please.make_color({ 
+			hue: randomHue( 17, 320 ),
+			saturation: 1, 
+			value: 1,
+			golden: false,
+			format: 'rgb-string'
+		})
+
+		lastColor = hexColor;
+
+  	return { 1: hexColor };
 	}, 
+
+	chooseGradient: function () {
+		return (this.zIndex === 1 && this.heatMode ? standardHeatColors : this.randomGradient)
+	},
 
 	toggleLayerView: function (event, gradient) {
 		if (event !== "undefined") { event.stopPropagation() };
@@ -233,10 +222,9 @@ Tweheat.Views.LayerCard = Backbone.View.extend({
 			minOpacity: minOpacity })
 	},
 
-	removeHeat: function (gradient) {
+	removeHeat: function () {
 		if ( this.heatMode && !this.isolated ) {
 			this.heatMode = false;
-			this.gradient = gradient
 			this.toggleLayerView( "undefined", this.gradient );
 		}
 	},

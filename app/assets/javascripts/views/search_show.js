@@ -4,9 +4,6 @@
 	events: {
 		'submit form': 'search',
 		'click .destroy': 'destroySubview',
-		// 'focusin input': 'toggleBlurMap',
-		// 'focusout input': 'toggleBlurMap'
-		// 'test .layer': 'toggleIsolate'
 	},
 
 	template: JST['index'],
@@ -131,7 +128,7 @@
 		var that = this;
 
 		_.each( this.subviews('#layers'), function (view) {
-			view.removeHeat( that.chooseGradient() );
+			view.removeHeat();
 		})
 
 		var subView = new Tweheat.Views.LayerCard({
@@ -185,11 +182,6 @@
 		this.zIndex--
 	},
 
-	toggleBlurMap: function (event) {
-		$('.leaflet-overlay-pane').toggleClass("blur");
-		$('.leaflet-layer').toggleClass("blur");
-	},
-
 	toggleIsolate: function (event) {
 		var that = this;
 		var curLayerID = parseInt($(event.currentTarget).attr("data-id"));
@@ -210,34 +202,5 @@
 				}
 		});
 	
-	},
-
-	chooseGradient: function () {
-		var randomHue = function getRandomArbitrary(min, max) {
-		  return Math.floor( Math.random() * (max - min) + min );
-		}
-
-		var hexColor = Please.make_color({ 
-			hue: randomHue( 17, 320 ),
-			saturation: 1, 
-			value: 1,
-			golden: false,
-			format: 'hsv'
-		})
-
-		if ( this.lastColor ) {
-			if ( Math.abs( this.lastColor - hexColor[0].h ) < 30) {
-				this.chooseGradient();
-			};
-		};
-
-  	// var hexColor = "#" + Math.floor(Math.random()*16777215).toString(16);
-		this.lastColor = hexColor[0].h; 
-
-		var hslColor = "hsl(" + this.lastColor + ", 100%, 100%)"
-
-  	return { 1: hslColor };
-	}, 
-
-
+	}
 })
