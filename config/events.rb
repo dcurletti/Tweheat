@@ -16,4 +16,8 @@ WebsocketRails::EventMap.describe do
   subscribe :new_message, :to => SocketsController, :with_method => :incoming_message
   subscribe :set_name, :to => SocketsController, :with_method => :set_name
   subscribe :client_disconnected, :to => SocketsController, :with_method => :client_disconnected
+
+  namespace :test do
+    subscribe :new_message, :to => SocketsController, :with_method => :incoming_message
+  end
 end

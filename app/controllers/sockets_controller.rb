@@ -2,11 +2,12 @@ class SocketsController < WebsocketRails::BaseController
 
 	def user_connected
 		# broadcast_message :new_message, {:user => current_user.screen_name, :text => message[:text]}
-		"client connected"
+		"#{token} connected"
 	end
 
-	def incoming_message(test)
+	def incoming_message
 		p "Received message"
+		p token
 	end
 
 	def client_disconnected

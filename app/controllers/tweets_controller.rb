@@ -5,10 +5,8 @@ class TweetsController < ApplicationController
 	before_filter :require_session_token!
 
 	def index
-		# Gives connected user a session token for redis pub/sub
 		# puts "WELCOME #{token}"
 		check_in
-		RedisStream.sub_to_search_stream( "All Tweets", token )
 	end
 
 	def search

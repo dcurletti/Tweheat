@@ -11,8 +11,6 @@ class ApplicationController < ActionController::Base
 
   def check_in
   	session[:session_token] = SecureRandom.urlsafe_base64(16)
-
-    # RedisStream.publish_new_user( token )
   end
 
   def require_session_token!
