@@ -2,8 +2,7 @@
 	className: 'search-show',
 
 	events: {
-		'submit form': 'search',
-		'click .destroy': 'destroySubview',
+		'submit form': 'search'
 	},
 
 	template: JST['index'],
@@ -148,19 +147,18 @@
 
 		$layer.on( "layerIsolate", this.toggleIsolate.bind(this) )
 		$layer.on( "destroyLayer", this.destroySubview.bind(this) )
-
 	}, 
 
 	destroySubview: function (event) {
 		event.stopPropagation();
 
 		var that = this;
-		var layerName = $(event.currentTarget).attr("data-id");
+		var layerID = parseInt($(event.currentTarget).attr("data-id"));
 
 		var subView = _.find(
 			this.subviews('#layers'),
 			function (subView) {
-				return subView.layerName === layerName;
+				return subView.layerID === layerID;
 		});
 
 		subView.$el.find(".layer").velocity("transition.slideUpOut", 200, function () {
@@ -187,19 +185,19 @@
 		var curLayerID = parseInt($(event.currentTarget).attr("data-id"));
 
 		_.each( that.subviews('#layers'), function (subView) {
-				if ( subView.layerID !== curLayerID ) {
-					if ( subView.isolated ) {
-						subView.toggleIsolate();
-					}
-					if ( subView.showingLayer ) {
-						subView.toggleOpacity("undefined");
-					}
-					subView.$el.find('div.opacity').off( "click", "**" );
-
-				} else {
-					console.log("should be toggling")
+			if ( subView.layerID !== curLayerID ) {
+				if ( subView.isolated ) {
 					subView.toggleIsolate();
 				}
+				if ( subView.showingLayer ) {
+					subView.toggleOpacity("undefined");
+				}
+				subView.$el.find('div.opacity').off( "click", "**" );
+
+			} else {
+				console.log("should be toggling")
+				subView.toggleIsolate();
+			}
 		});
 	
 	}
