@@ -28,12 +28,15 @@
 		var that = this;
 		var searchBar = $("#search-bar");
 		var controlBar = $('.leaflet-right');
+		var joyride = $('#joyride');
 
 		// Waits for the preloader anim to be finished
 		$('body').one('bodyLoaded', function(){
 			// Animate search bar in 
 			searchBar.velocity({ left: "0%" }, { duration: 500 , delay: 750, 
 				complete: function () {
+					joyride.velocity({ left: "50%", bottom: "50%", scale: "200%"}, { duration: 600 })
+						.delay(400).velocity({ left: "15px", bottom: "15px", scale: "100%" }, {duration: 300})
 					// Create the initial All Tweets layer
 					that.addLayer( "All Tweets" )
 				}}

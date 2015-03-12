@@ -21,3 +21,25 @@
 	margin-left: -10px;	
 	margin-top: -20px;
 }
+
+#joyride {
+	position: fixed;
+  bottom: 50%;
+  left: -500px;	
+  width: 26px;
+  height: 26px;
+  background: white;
+	color: #444;
+	&:hover {
+		background: #008CBA;
+		color: white;
+		cursor: pointer;
+
+	}
+}
+
+.fa-question {
+  position: relative;
+  left: 32%;
+  top: 10%;
+}

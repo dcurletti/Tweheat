@@ -1,20 +1,8 @@
 # Tweheat
 
-[Heroku link][heroku]
-
-[heroku]: http://tweheat.herokuapp.com
-
-## Critical Alerts
-If it doesn't load immediately, refresh.
-
-## General Info
-Look at TODO.md in root for micro updates.
-
-Current routes:
-
-* "/"
-  * Twitter Map
-  * Status: Currently mapping all geolocated tweets
+[Live Demo][heroku]
+[heroku]: http://tweheat.com
+Use the tour guide at the bottom left of the demo for more detailed explanation of how to use the app.
 
 ## Minimum Viable Product
 Realtime twitter heat map that supports multiple concurrent searches. Users can:
@@ -22,15 +10,10 @@ Realtime twitter heat map that supports multiple concurrent searches. Users can:
 - [x] Interact with a map (Mapbox API)
 - [x] Find their current location (Leaflet API)
 - [x] Connect to Twitter Streaming API
-- [X] View a "heat map" visualization of tweets based on their search topic
-- [X] Heatmap visualization of all tweets
+- [X] View a heatmap visualization of all tweets
 - [X] Toggle previous search layers on and off
 - [X] Combine multiple searches and overlay them
-- [ ] Search for tweets based on user input (working locally)
-- [ ] Search for specific topics/keywords (working locally)
-- [ ] Allow for a "replay mode", aka allowing a user to quickly replay the tweet mapping 
-			at 10x speed
-
+- [X] Search for tweets based on user input
 
 ## Design Docs
 * [View Wireframes][views]
@@ -98,7 +81,12 @@ Mozilla has a github repo for it, so I might be able to implement that.
 Adding a cool animation when a heat marker is added to the map would be nice,
 and then trying to implement any of the other features from below.
 
+## General Info
+Look at TODO.md in root for micro updates.
+
 ### Bonus Features (TBD)
+- [ ] Allow for a "replay mode", aka allowing a user to quickly replay the tweet mapping 
+			at 10x speed
 - [ ] Make the search bar show realtime results like Twitter
 - [ ] Cool animation on dropping heat marker
 - [ ] Switch from "Heat Map" to "Tweet Markers"- shows detailed view of tweets and 
