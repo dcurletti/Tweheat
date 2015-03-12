@@ -7,17 +7,53 @@
           	<input id="search-item" type="text" placeholder="Search Tweets">
         	</div>
         	<div id="search-button" class="small-3 columns">
-        	<!-- TEMP: Change Search to an icon  -->
           	<button id="submit-search" type="submit" class="button postfix">Search</button>
         	</div>
       	</div>
     	</div>
   	</div>
 	</form>
+  <button id="joyride">Start Joyride</button>
 
-  <!-- <div id="layers-container"> -->
-    <ul id="layers">
-      
-    </ul>
-  <!-- </div> -->
+  <ul id="layers">
+    
+  </ul>
+
+  <ol class="joyride-list" data-joyride>
+    <li data-button="Start">
+      <h4>TweHeat Tour</h4>
+      <p>Welcome to TweHeat, a real-time heatmap of real tweets!  Click start to get the full tour!</p>
+    </li>
+    <li data-id="search-button" data-text="Next" data-options="tip_location: right; prev_button: false; nub_position: top, left; expose_add_class: space-left">
+      <h4>Filter Tweets</h4>
+      <p>This is the search bar, where you can choose any word to filter the tweets by.  The newly created layer will only place
+      tweets that contain your search term.</p>
+    </li>
+    <li data-id="search-bar" data-class="custom so-awesome" data-text="Next" data-prev-text="Prev" data-options="tip_location: bottom">
+      <h4>Tweet Layer</h4>
+      <p>This is the layer representation of your search term.  If there are multiple concurrent layers, the map switches
+      to a "dot view", so you can distinguish the layers apart.</p>
+    </li>
+    <li data-id="layers" data-button="Next" data-prev-text="Prev" data-options="tip_location:right">
+      <h4>Layer Controls</h4>
+      <p>To the right we have the controls for each individual layer- the first pauses the stream, the second toggles the opacity
+       of the layer and the final button removes the layer.</p>
+    </li>
+    <li data-id="search-bar" data-button="Next" data-prev-text="Prev" data-options="tip_location:bottom">
+      <h4>Layer Isolation</h4>
+      <p>At any time you can also hover over any layer and have it switch to a red 'dot view' to give you a more focused view.  If there are multiple layers, you can also click an individual layer and have it switch to the heatview, while turning off the other layers.</p>
+    </li>
+    <li data-id="map-layer-control" data-button="Next" data-prev-text="Prev" data-options="tip_location:left">
+      <h4>Map Type</h4>
+      <p>Hover over the layer icon and you can change the type of map.</p>
+    </li>
+    <li data-id="map-locate-control" data-button="Next" data-prev-text="Prev" data-options="tip_location:left">
+      <h4>Locate Me</h4>
+      <p>By clicking this icon you can locate yourself on the map.  Click it again to disable geolocation.</p>
+    </li>
+    <li data-button="End" data-prev-text="Prev">
+      <h4>That's it!</h4>
+      <p>Thanks for checking out TweHeat, now go search for some tweets!</p>
+    </li>
+  </ol>
 </div>

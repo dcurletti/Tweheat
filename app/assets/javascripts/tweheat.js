@@ -43,16 +43,4 @@ $(document).ready(function(){
 	}, 1000)
 	})	
 
-	// $('body').addClass('loaded').trigger("bodyLoaded");
-
-	// TEMP: Might want to refactor this into the overall game template
-	// window.onbeforeunload = function(){
-	// 	Tweheat.dispatcher.trigger('new_message', { something: "lala"})
-	// }
-
-	// channel = Tweheat.dispatcher.subscribe('test')
-	// channel.bind('newTweet', function(msg) {
-	// 	console.log(msg)
-	// })
-
 })

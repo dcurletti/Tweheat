@@ -2,7 +2,8 @@
 	className: 'search-show',
 
 	events: {
-		'submit form': 'search'
+		'submit form': 'search',
+		'click #joyride': 'joyRide'
 	},
 
 	template: JST['index'],
@@ -43,6 +44,13 @@
 
 	attachMap: function () {
 		this.$('#map').html(Tweheat.mapView.$el)
+	},
+
+	joyRide: function () {
+		$(document).foundation();
+		$(document).foundation('reflow');
+		$(document).foundation('joyride', 'start');
+		$()
 	},
 
 	search: function (event) {

@@ -32,7 +32,7 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 		// Various Base Layer options
 		var baseLayers = {
 			DarkTheme: L.mapbox.tileLayer('dcurletti.knl7n7kb'),
-			Streets: L.mapbox.tileLayer('dcurletti.l56kdbi6'),
+			"<span id='test'>My Layer</span>": L.mapbox.tileLayer('dcurletti.l56kdbi6'),
 			Satellite: L.mapbox.tileLayer('dcurletti.l56dl8ml')
 		};
 
@@ -52,7 +52,11 @@ Tweheat.Views.MapShow = Backbone.View.extend({
 		// Add locate me button 
 		L.control.locate({
 			position: 'topright'
-		}).addTo(this._map);		
+		}).addTo(this._map);
+
+		// Hack for Foundation tour 
+		$('.leaflet-control-layers-toggle').attr('id', 'map-layer-control');
+		$('.leaflet-bar-part.leaflet-bar-part-single').attr('id', 'map-locate-control');
 	},
 
 	addListeners: function ()	 {
